@@ -1,0 +1,963 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tin Whiskers Brewing Company </title>
+
+<!--[if IE 5]>
+<style type="text/css">
+/* place css box model fixes for IE 5* in this conditional comment */
+#sidebar1 { width: 230px; }
+</style>
+<![endif]--><!--[if IE]>
+<style type="text/css">
+/* place css fixes for all versions of IE in this conditional comment */
+#sidebar1 { padding-top: 30px; }
+#mainContent { zoom: 1; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
+</style>
+<![endif]-->
+
+</head>
+
+<body>
+    <div id="container">
+        {{> header}}
+        {{> primary-nav}}
+        {{> main}}
+        {{> footer}}
+    </div>
+</body>
+
+<template name="header">
+    <div id="header">
+        <div id="hwrapper">
+            <div id="tabs">
+                <ul>
+                    <li id="twb-tab" class="active">
+                        <a href="/">
+                            Tin Whiskers Brewing Co.
+                        </a>
+                    </li>
+                    <li id="blw-tab">
+                        <a href="/blw">
+                            Brew Logic Wiki
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="contact">
+                <a href="mailto:robot@tinwhiskersbrewing.com">
+                    Contact Tin Whiskers Brewing Co.
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="primary-nav">
+    <nav id="primary-nav">
+        <ul>
+            <li>
+                <a id="nav-beers" href="/beers">
+                    <span class="big">Beer</span>
+                    <span class="little">Specifications</span>
+                </a>
+            </li><li>
+                <a id="nav-news" href="/news">
+                    <span class="big">News</span>
+                    <span class="little">&amp; Updates</span>
+                </a>
+            </li><li id="logo-cog">
+                <a href="/">
+                    <img src="/assets/logo-cog.png" alt="Tin Whiskers Brewing" />
+                </a>
+            </li><li>
+                <a id="nav-who" href="/who">
+                    <span class="big">Who</span>
+                    <span class="little">Are We?</span>
+                </a>
+            </li><li>
+                <a id="nav-where" href="/where">
+                    <span class="big">Where</span>
+                    <span class="little">To Find Us</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</template>
+
+<template name="banner">
+    <div id="banner" class="{{title}}">
+        <div class="h1">The'Brew's News</div>
+        {{#if pageIs 'home'}}
+            <a href="/beers/short-circuit"><img src="/assets/blank.png" class="banner-link-image"/></a>
+        {{/if}}
+        {{#if pageIs 'general'}}
+        {{/if}}
+        {{#if pageIs 'who'}}
+        {{/if}}
+        {{#if pageIs 'where'}}
+            <a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1151+County+Road+B+West,+Roseville,+MN&aq=0&oq=1151+county+&sll=45.006746,-93.14857&sspn=0.02127,0.045447&vpsrc=6&ie=UTF8&hq=&hnear=1151+County+Road+B+W,+Roseville,+Minnesota+55113&ll=45.005897,-93.152905&spn=0.02127,0.045447&t=m&z=15&iwloc=A"><img src="/assets/blank.png" class="banner-link-image"/></a>
+
+        {{/if}}
+        {{#if pageIs 'beers'}}
+            <ul>
+                <li id="short-circuit"><a class="beer-link" href="/beers/short-circuit">Short Circuit Stout</a></li>
+                <li id="flip-switch"><a class="beer-link" href="/beers/flip-switch">Flip Switch IPA</a></li>
+                <li id="wheatstone"><a class="beer-link" href="/beers/wheatstone">Wheatstone Bridge</a></li>
+                <li id="schottky"><a class="beer-link" href="/beers/schottky">Schottky Pumpkin Ale</a></li>
+                <li id="ampere"><a class="beer-link" href="/beers/ampere">Ampere Biere De Garde</a></li>
+            </ul>
+        {{/if}}
+    </div>
+    <!-- {{banner}} -->
+</template>
+
+<template name="main">
+
+        {{#if pageIs 'home'}}
+            {{> banner}}
+            {{> lower}}
+        {{/if}}
+        {{#if spaceIs 'beers'}}
+            {{> beers}}
+        {{/if}}
+        {{#if pageIs 'general'}}
+        {{/if}}
+        {{#if pageIs 'news'}}
+            {{> news}}
+        {{/if}}
+        {{#if pageIs 'who'}}
+            {{> banner}}
+            {{> who}}
+        {{/if}}
+        {{#if pageIs 'where'}}
+            <!-- {{> banner}} -->
+            {{> where}}
+        {{/if}}   
+<!--     <a class="btn btn-inverse" href="#" value="sidenav_btn" id="sidenav_btn">
+        <span aria-hidden="true" data-icon="&#xe002;"></span> 
+    </a>
+
+    <div id="buttons" >
+        {{loginButtons}}
+    </div> -->
+
+<!--     {{#if modeIs "search"}}
+        {{> search}}
+    {{/if}}
+
+    {{#if modeIs "tag"}}
+        {{> tag}}
+    {{/if}} -->
+
+</template>
+
+<template name ="beers">
+ <div id="content" class="beers">
+    {{#if pageIs 'short-circuit'}}
+        <div id="left" class="short-circuit">
+            <h1>Short Circuit Stout</h1>
+            <p>
+                Short Circuit Stout is a full-bodied and roasty stout with a
+                lingering sweet aftertaste. It uses 5 different malts to create a
+                variety of flavors that change in the course of taking a sip. It
+                falls into the13B Sweet Stout style category as identified by the
+                Beer Judge Certification Program (BJCP).
+            </p>
+
+            <h2>What's With the Name?</h2>
+            <p>
+                By definition, a short circuit is an abnormal connection between
+                two nodes of an electric circuit, often resulting in overheating,
+                fire or even explosion. To the Tin Whiskers crew, this is a great
+                way to describe the crossover of the distinct roasted flavors from
+                the malts and the sweet aftertaste from the unfermentable lactose
+                added during the boil. If you really want to blow your mind, try
+                it served over vanilla ice cream for a beer float!
+            </p>
+
+            <h2>How's it Made?</h2>
+            <p>
+                <a href="/assets/lightbox-short-circuit.jpg" rel="lightbox">
+                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                </a>
+            </p>
+
+            <h2>Trivia</h2>
+            <p>
+                The 1986 comedy science fiction film, Short Circuit, grossed
+                $5,346,808 it's opening weekend, earning a total of $40,697,761 in
+                the US Box Office.
+            </p>
+        </div>
+        <div id="right" class="short-circuit">
+            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+            <div id="bjcp">
+                <span class="ostrich">BJCP:</span>
+                Sweet Stout, Style 13B
+            </div>
+            <div id="recipe">
+                <h2>Short Circuit Stout Recipe</h2>
+                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                <h3>Mash Ingredients</h3>
+                Pale Malt Maris Otter 2row 3srm<br/>
+                Chocolate Malt 350srm<br/>
+                Malted Oats 1srm<br/>
+                Crystal 120 120srm<br/>
+                Flaked Barley 1.7srm<br/>
+                Roasted Barley 300srm<br/>
+                Black Malt 500srm
+
+                <h3>Mash Temp</h3>
+                155&deg;F for 60min
+
+                <h3>Boil Ingredients</h3>
+                60min - Cluster 7%A<br/>
+                30min - Lactose<br/>
+                1min - East Kent Goldings 5%A<br/>
+                <br/>
+                OG 1.066<br/>
+                FG 1.024<br/>
+                Est. 5.3%ABV<br/>
+            </div>
+        </div>
+    {{/if}}
+    {{#if pageIs 'flip-switch'}}
+        <div id="left" class="flip-switch">
+            <h1>Flip Switch IPA</h1>
+            <p>
+                Flip Switch IPA is a hoppy American pale ale with a slight citrus
+                aroma. It features a variety of American hops, with just the right
+                amount of bitterness to match the malty base. It falls into the14B
+                American IPA style category as identified by the Beer Judge
+                Certification Program (BJCP)
+            </p>
+
+            <h2>What's With the Name?</h2>
+            <p>
+                A flip switch is a mechanism actuating the transition between open
+                and closed states of an electrical circuit. Probably the most
+                common example is a light switch. You know that intense bright
+                light you get when you flip on a good old fashioned light bulb?
+                The kind that almost blinds you until your eyes have a second to
+                adjust? Well the bold hop flavor you experience in the first sip
+                of a Flip Switch is kind of like that, without the blindness of
+                course.
+            </p>
+
+            <h2>How's it Made?</h2>
+            <p>
+                <a href="/assets/lightbox-flip-switch.jpg" rel="lightbox">
+                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                </a>
+            </p>
+
+            <h2>Trivia</h2>
+            <p>
+                In countries prone to earthquakes, such as Japan, most light
+                switches are positioned sideways to prevent the switch from
+                inadvertently being turned on or off by falling objects
+            </p>
+        </div>
+
+        <div id="right" class="flip-switch">
+            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+            <div id="bjcp">
+                <span class="ostrich">BJCP:</span>
+                American IPA, Style 14B
+            </div>
+
+            <div id="recipe">
+                <h2>Flip Switch IPA Recipe</h2>
+                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                <h3>Mash Ingredients</h3>
+                Pale Malt 2row 2srm <br/>
+                Caramel/Crystal 20 20srm<br/>
+                Dextrine Malt 2srm<br/>
+
+                <h3>Mash Temp</h3>
+                154&deg;F for 60min
+
+                <h3>Boil Ingredients</h3>
+                60min - Chinook 11.4%A<br/>
+                20min - Warrior 16.8%A<br/>
+                10min - Centennial 10%A<br/>
+                1min - Citra 11%A<br/>
+
+                <h3>Dry Hop</h3>
+                Citra 11%A<br/>
+                Warrior 16.8%A<br/>
+                <br/>
+                OG 1.066<br/>
+                FG 1.020<br/>
+                Est. 6.1%ABV<br/>
+            </div>
+        </div>
+    {{/if}}
+    {{#if pageIs 'wheatstone'}}
+        <div id="left" class="wheatstone">
+            <h1>Wheatstone Bridge</h1>
+            <p>
+                Wheatstone Bridge is a light and refreshing wheat beer with
+                distinct flavors of honey and chamomile tea. Made by adding
+                Minnesota honey to an American malted wheat base, the final step
+                involves steeping chamomile tea. It falls into the 6D American
+                Wheat style category as identified by the Beer Judge Certification
+                Program (BJCP).
+            </p>
+
+            <h2>What's With the Name?</h2>
+            <p>
+                Invented by Samuel Hunter Christie in 1833 and improved and
+                popularized by Sir Charles Wheatstone in 1843, a Wheatstone bridge
+                is an electrical circuit used to measure an unknown electrical
+                resistance by balancing two legs of a bridge circuit, one leg of
+                which includes the unknown component. But don't over think this
+                one, instead picture Sir Charles Wheatstone basking in the sun,
+                drinking a beer and enjoying the fame and popularity that
+                undoubtedly comes with popularizing someone else's invention.
+            </p>
+
+            <h2>How's it Made?</h2>
+            <p>
+                <a href="/assets/lightbox-wheatstone.jpg" rel="lightbox">
+                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                </a>
+            </p>
+
+            <h2>Trivia</h2>
+            <p>
+                While performing experiments in electricity as a teenager,
+                Wheatsone ran short of the money he needed to buy copper-plates
+                for building a battery. While looking at the few copper pennies he
+                had left, a thought occurred, 'We must use the pennies
+                themselves,' he said, and the battery was soon complete.
+            </p>
+        </div>
+
+        <div id="right" class="wheatstone">
+            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+            <div id="bjcp">
+                <span class="ostrich">BJCP:</span>
+                American Style Wheat or Rye, Style 6D
+            </div>
+            <div id="recipe">
+                <h2>Wheatstone Bridge Recipe</h2>
+                <!-- <em>70% Efficiency, 15 gallons</em> -->
+
+                <h3>Mash Ingredients</h3>
+                14.3% Rice Hulls<br/>
+                34.3% Pale Malt 2row 6srm<br/>
+                34.3% Wheat Malt 2srm<br/>
+
+                <h3>Mash Temp</h3>
+                152&deg;F for 60min
+
+                <h3>Boil Ingredients</h3>
+                60min - Vanguard 5.5%A 12.9IBU<br/>
+                0min - 17.1% Honey, 6oz Chamomile<br/>
+
+                <br/>
+                OG 1.054<br/>
+                FG 1.005<br/>
+                Est 6.3%ABV<br/>
+            </div>
+        </div>
+    {{/if}}
+    {{#if pageIs 'schottky'}}
+        <div id="left" class="schottky">
+            <h1>Schottky Pumpkin Ale</h1>
+            <p>
+                Schottky Pumpkin Ale is an amber ale with a sweet pumpkin flavor.
+                Made with actual roasted
+                pumpkin and generous amounts of pumpkin pie spice, it is a great
+                beer to enhance any fall meal. It falls into the 21A Spice, Herb,
+                or Vegetable Beer category as identified by the Beer Judge
+                Certification Program (BJCP).
+            </p>
+
+            <h2>What's With the Name?</h2>
+            <p>
+                This beer is an homage to German physicist Walter H. Schottky
+                (1888-1976) who played a major role in developing the theory of
+                electron and ion emission phenomena. The shape you see carved into
+                the pumpkin on our beer labels is actually the sign for the
+                Schottky diode, which is a semiconductor diode with a low forward
+                voltage drop and a very fast switching action.
+            </p>
+
+            <h2>How's it Made?</h2>
+            <p>
+                <a href="/assets/lightbox-schottky.jpg" rel="lightbox">
+                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                </a>
+            </p>
+
+            <h2>Trivia</h2>
+            <p>
+                Schottky died on March 4, 1976 at the age of 90. His death came
+                just two years after his former employer, Siemens, had begun
+                commercially manufacturing Schottky diodes for microwave use.
+            </p>
+        </div>
+
+        <div id="right" class="schottky">
+            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+            <div id="bjcp">
+                <span class="ostrich">BJCP:</span>
+                Spice, Herb, or Vegetable Beer, Style 21
+            </div>
+            <div id="recipe">
+                <h2>Schottky Pumpkin Recipe</h2>
+                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                <h3>Mash Ingredients</h3>
+                Pale Malt Maris Otther 2row 3srm<br/>
+                Pumpkin, canned, roasted<br/>
+                Victory Malt 25srm<br/>
+                Munich Malt 20srm<br/>
+                Crystal 60 60srm<br/>
+                Crystal 80 80srm<br/>
+
+                <h3>Mash Temp</h3>
+                156&deg;F for 60min
+
+                <h3>Boil Ingredients</h3>
+                60min - Cluster 7aa<br/>
+                0min - Pumpkin pie spices<br/>
+
+                <br/>
+                OG 13.6p<br/>
+                FG 3.5p<br/>
+            </div>
+        </div>
+    {{/if}}
+    {{#if pageIs 'ampere'}}
+        <div id="left" class="ampere">
+            <h1>Ampere Biere</h1>
+            <p>
+                Ampere Biere is a light-bodied Bière de Garde style French ale
+                with just the right amount of malty sweetness. It's a smooth and
+                refreshing beer to drink year round. It falls into the 16D Bière
+                de Garde category as identified by the Beer Judge Certification
+                Program (BJCP).
+            </p>
+
+            <h2>What's With the Name?</h2>
+            <p>
+                An ampere (or amp) is a unit of electric current named after
+                French mathematician and physicist André-Marie Ampère
+                (1775–1836). In addition to being the father of electrodynamics,
+                Ampère was an all around solid guy, described as having "great
+                amiability and childlike simplicity of character." You could use
+                these same exact words to describe our solid, year-round Ampere
+                Biere.
+            </p>
+
+            <h2>How's it Made?</h2>
+            <p>
+                <a href="/assets/lightbox-ampere.jpg" rel="lightbox">
+                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                </a>
+            </p>
+
+            <h2>Trivia</h2>
+            <p>
+                Andre Marie Ampere was dogged by bad luck. His father, for
+                example, was guillotined during the French Revolution and his wife
+                died shortly after their marriage. On his deathbed in 1836, he
+                ordered that an inscription be placed upon his tombstone: Tandem
+                Felix (Happy at Last).
+            </p>
+        </div>
+
+        <div id="right" class="ampere">
+            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+            <div id="bjcp">
+                <span class="ostrich">BJCP:</span>
+                Biere de Garde, Style 16D
+            </div>
+            <div id="recipe">
+                <h2>Ampere Biere Recipe</h2>
+                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                <h3>Mash Ingredients</h3>
+                Pilsner 2row<br/>
+                Vienna Malt 3.5srm<br/>
+                Aromatic Malt 26srm<br/>
+                Honey Malt 25srm<br/>
+
+                <h3>Mash Temp</h3>
+                151&deg;F for 75min
+
+                <h3>Boil Ingredients</h3>
+                60min - Styrian Goldings 5.4aa<br/>
+                <br/>
+                OG 1.069<br/>
+                FG 1.020<br/>
+            </div>
+        </div>
+    {{/if}}
+</div>   
+</template>
+
+<template name ="news">
+<div id="content" class="news">
+    <div id="left" class="news">
+    
+        <h1>Stillwater Brewers Bazaar</h1>
+
+        <h2>May 8th, 2013</h2>
+
+        <p>
+        We are proud to announce our first public appearance 
+        as a brewery as we will be featured at the
+        7th Annual Brewers Bazaar put on by the Stillwater Sunrise Rotary 
+        Club. The event is May 18, 2013 from Noon to 4:00 PM. 
+            
+        Other breweries featured are the event include:<br>
+            
+        <a href="http://www.liftbridgebrewery.com/">Lift Bridge</a>,
+        <a href="http://www.surlybrewing.com/">Surly</a>,
+        <a href="http://www.summitbrewing.com/" >Summit</a>,
+        <a href="http://braubeer.com/">Brau Brothers</a>,
+        <a href="http://flatearthbrewing.com/">Flat Earth</a>,
+        <a href="http://www.schellsbrewery.com/">August Schell</a>,
+        <a href="http://www.bigwoodbrewery.com/">Big Wood Brewery</a>
+        <a href="http://www.lakesuperiorbrewing.com/">Lake Superior Brewing</a>,
+        <a href="http://www.badgerhillbrewing.com/"> Badger Hill</a>,
+        <a href="http://www.leechlakebrewing.com/">Leech Lake Brewing</a>,
+        <a href="http://www.badweatherbrewery.com/">Bad Weather Brewery</a>,
+        <a href="https://www.facebook.com/TailSlapBrewing"> Tail Slap Beer Company</a>,
+        <a href="http://excelsiorbrew.com/">Excelsior Brewing</a>,
+        <a href="http://www.thirdstreetbrewhouse.com/">Third Street Brewhouse</a>,
+        <a href="http://www.americanskybeer.com/">American Sky Beer</a>,
+        <a href="http://www.lucidbrewing.com/">Lucid</a>,
+        <a href="http://fultonbeer.com/">Fulton</a>,
+        <a href="http://finnegans.org/">Finnegans</a>,
+        <a href="http://www.stcroixbeer.com/">St. Croix Brewing</a>,
+        <a href="http://olvalde.com/">Olvalde Farm Brewing</a>,
+        <a href="http://still-h2o.com/">Still-H2O</a>, and the
+        <a href="http://scrvhba.com/" >St. Croix Valley Homebrewers Association</a>
+            <br>
+        For more information check out the events official website. We hope to see you
+        there!
+        <a href="http://www.stillwatersunriserotary.org/page/show/33600-brewers-bazaar">
+        http://www.stillwatersunriserotary.org/page/show/33600-brewers-bazaar</a>
+        </p>
+
+        
+    
+    <h1>And Update From the Brewery</h1>
+
+        <h2>March 4, 2013</h2>
+
+        <p>
+            Although there is nothing we can officially release, the
+            investment process has heated up significantly and we are
+            really excited by the progress Tin Whiskers Brewing has
+            made recently. Stay tuned on our website in the coming
+            weeks as we continue to update our progress and journey as
+            an up and coming brewery in the Twin Cities.
+        </p>
+
+        <p>
+            In the meantime, be sure to keep up on our latest happenings by following us on social media:<br/>
+            Facebook: <a href="http://www.facebook.com/TinWhiskersBrewingCo">http://www.facebook.com/TinWhiskersBrewingCo</a><br/>
+            Follow us on Twitter: <a href="https://twitter.com/tinwhiskersbrew">@tinwhiskersbrew</a><br/>
+            And Instagram: <a href="http://instagram.com/tinwhiskersbrew">Tinwhiskersbrew</a>
+        </p>
+
+
+        <h1>Promotional Video Release</h1>
+
+        <h2>January 19, 2013</h2>
+
+        <p>
+            To coincide with our investment efforts, we are extremely
+            proud to release the Tin Whiskers Brewing Co.’s
+            promotional video. It offers a condensed behind the scenes
+            view of what it takes to brew one of our signature beers,
+            Short Circuit Stout. Big thanks to the fine folks at
+            Mediagraphy for their hard work on the clip. Enjoy!
+        </p>
+
+        <p>
+            <iframe src="http://player.vimeo.com/video/57411621" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </p>
+
+
+        <!--
+        <h1>Happy New Year!</h1>
+
+        <h2>January 3, 2013</h2>
+        <p>
+            2012 was a big year for Tin Whiskers Brewing Company. Between
+            the launching of our website, developing additional online
+            presence using social media outlets, as well as getting the
+            Tin Whiskers brand out into the St. Paul craft beer
+            market. What once started as a hobby boiling over on a gas
+            range has evolved into a set up that brews premium craft beer
+            by the keg.
+        </p>
+        
+        <p>
+            For 2013, the number one focus is getting our product available for
+            the general public to enjoy. We found the best way to do this was to
+            scale back the operation and create a nano-brewery. Through several
+            meet and greets with prospective investors, our goal of making this
+            dream a reality has been getting closer with every keg tapped. We are
+            halfway to reaching our investment funding goal. With your help, we
+            can reach our goal and open up our brewery. If you are interested
+            learning more, please contact us at
+            <a href="mailto:robot@tinwhiskersbrewing.com">robot@tinwhiskersbrewing.com</a>.
+            We look forward to hearing from you.
+        </p>
+
+        <h1>Funding Update</h1>
+
+        <h2>July 25, 2012</h2>
+        We are hard at work having meetings and discussions with
+        various potential investors to close on our capital needs to
+        build our brewery. In a matter of months we have secured 25%
+        of the funds and are seeking to close on the remainder by
+        October. Feel free to
+        <a href="mailto:robot@tinwhiskersbrewing.com">contact
+        us</a> with any comments or questions.
+
+        <h1>The New Site</h1>
+
+        <h2>July 20, 2012</h2>
+
+        <p>
+            We are incredibly excited to launch our website. It has taken a lot of hard work by our dedicated
+            developer and designer to reach this achievement. Stay tuned as the wiki portion of the site will be
+            rolling out in the next few months. Contact us if you have any comments or suggestions on the site.
+        </p>
+
+        <h1>More 20oz Pint Glasses Are In</h1>
+
+        <h2>July 7, 2012</h2>
+
+        We just got in another order of our 20oz pint glasses. They are $10 a piece. The money helps support
+        ordering further merchandise like t-shirts that many of you have been asking for. Stop by the pilot
+        brewery to get yours today.
+        -->
+
+    </div>
+
+    <div id="right">
+    </div>
+</div>
+</template>
+
+<template name="content">
+
+<!--     <div id="content">
+
+        {{#if entry}}
+
+                <div id= "user_toolbar" class="action-toolbar">
+                    <a class="btn" href="#" value="new_page" id="new_page">
+                        <span aria-hidden="true" data-icon="&#xe001;"></span> 
+                        New
+                    </a>
+
+                    {{#if isStarred}}
+                        <a class="btn" href="#" value="toggle_star" id="toggle_star">
+                            <span aria-hidden="true" data-icon="&#xe003;"></span> 
+                            Unstar
+                        </a>
+                    {{else}}
+                        <a class="btn" href="#" value="toggle_star" id="toggle_star">
+                            <span aria-hidden="true" data-icon="&#xe004;"></span> 
+                            Star
+                        </a>
+                    {{/if}}
+
+                    {{#if editable}}
+
+                        {{#if locked}}
+                            <a class="btn disabled" href="javascript:void(0)" value="" id="">
+                                <i class="icon-lock"></i>
+                                Locked
+                            </a>
+                        {{else}}
+                            <a class="btn edit" href="javascript:void(0);" value="edit" id="edit_btn">
+                                 <span aria-hidden="true" data-icon="&#x23;"></span> 
+                                 Edit
+                             </a>
+                        {{/if}}
+
+
+                    {{/if}}
+
+                </div>
+        {{/if}}
+    </div>   -->
+
+</template>
+
+<template name="lower">
+    <div id="lower">
+        <div id="beers">
+            <div id="beer-background">
+                <ul>
+                    <li id="short-circuit"><a class="beer-link" href="/beers/short-circuit">Short Circuit Stout</a></li>
+                    <li id="flip-switch"><a class="beer-link" href="/beers/flip-switch">Flip Switch IPA</a></li>
+                    <li id="wheatstone"><a class="beer-link" href="/beers/wheatstone">Wheatstone Bridge</a></li>
+                    <li id="schottky"><a class="beer-link" href="/beers/schottky">Schottky Pumpkin Ale</a></li>
+                    <li id="ampere"><a class="beer-link" href="/beers/ampere">Ampere Biere De Garde</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="lower-nav">
+
+            <ul>
+                <li>
+                    <div id="connect-twitter">
+                        <h2>Connect on <span class="darker">Twitter</span></h2>
+                        <div id="connect-on-twitter">
+                            <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+                            <script>
+                                new TWTR.Widget({
+                                version: 2,
+                                type: 'profile',
+                                rpp: 3,
+                                interval: 30000,
+                                width: 270,
+                                height: 245,
+                                theme: {
+                                shell: {
+                                background: '#686766',
+                                color: '#ffffff'
+                                },
+                                tweets: {
+                                background: '#b9b6af',
+                                color: '#333131',
+                                links: '#a01821'
+                                }
+                                },
+                                features: {
+                                scrollbar: true,
+                                loop: false,
+                                live: false,
+                                behavior: 'all'
+                                }
+                                }).render().setUser('TinWhiskersBrew').start();
+                            </script>
+                        </div>
+                    </div>
+                </li>
+        <!--        <li>
+                    <img class="v-div" src="/assets/v-divider.png" alt="" />
+                </li>
+                <li>
+                    <div id="connect-for-realz">
+                        <h2>Connect in Real Life</h2>
+                                            <span class="h2">Not Yet!</span>
+                                            <div class="sub">but hopefully soon, stay tuned</div>
+                            <div id="connect-for-real">
+                            <a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1151+County+Road+B+West,+Roseville,+MN&aq=0&oq=1151+county+&sll=45.006746,-93.14857&sspn=0.02127,0.045447&vpsrc=6&ie=UTF8&hq=&hnear=1151+County+Road+B+W,+Roseville,+Minnesota+55113&ll=45.005897,-93.152905&spn=0.02127,0.045447&t=m&z=15&iwloc=A">
+                                <img src="/assets/at-our-brewery.png" alt="At Our Brewery" />
+                            </a>
+                        </div>
+                    </div> 
+                </li> -->
+                <li>
+                    <img class="v-div" src="/assets/v-divider.png" alt="" />
+                </li>
+                <li>
+                    <div id="connect-other">
+                        <h2>Other Ways to <span class="darker">Connect</span></h2>
+                        <div>
+                            <ul>
+                                <li class="blw">
+                                    <a href="/blw">
+                                        <span class="h2">Brew Logic Wiki</span>
+                                        <div class="sub">Recipes &amp; Resources for home/pro brewers</div>
+                                    </a>
+                                </li>
+                                <li class="facebook">
+                                    <a href="https://www.facebook.com/TinWhiskersBrewingCo">
+                                        <span class="h2">Facebook</span>
+                                        <div class="sub">News and Events for Tin Whisker fans</div>
+                                    </a>
+                                </li>
+                                <li class="untappd">
+                                    <span class="h2">Untappd</span>
+                                    <div class="sub">Ratings &amp; Reviews of Tin Whiskers Brews</div>
+                                </li>
+                                <li class="contact">
+                                    <a href="mailto:robot@tinwhiskersbrewing.com">
+                                        <span class="h2">Contact Us</span>
+                                        <div class="sub">Questions &amp; Feedback are welcome</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> 
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<template name="who">
+    <div id="content" class="who">
+        <div id="left" class="about">
+            <h1>One "Devoted connection" to beer.</h1>
+
+            <p>
+                The three founders of Tin Whiskers Brewing Co., LLC are George
+                Kellerman, Jake Johnson, and Jeff Moriarty. They first met in
+                2005 while going to the University of Minnesota for bachelor
+                degrees in Electrical Engineering. Over time, they all worked
+                together as hardware design engineers for a small engineering
+                services company specializing in RF-centric products. Being
+                young engineers working downtown Minneapolis, they attended
+                various happy hours together.  It quickly became clear that
+                they all really loved craft beer and were very intrigued with
+                the science of the brewing process.
+            </p>
+
+            <p>
+                <iframe src="http://player.vimeo.com/video/57411621" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </p>
+
+            <p>
+                <strong>Jake</strong> and <strong>Jeff</strong> are the two
+                brewers of the company who designed and honed the
+                recipes. They got their start in 2006 brewing extract kits on
+                Jake's Mom's kitchen stove much to her chagrin. (A few
+                boil-overs did occur on her stove, whoops!) They brewed
+                countless extract kits until in 2010, when after touring Surly
+                and Flat Earth, they were inspired to turn their passion (like
+                the founders of those breweries) into a business. From that
+                point forward it has been all grain brewing and loving it.
+                Nowadays, Jake focuses on the brewing aspect of the business
+                while Jeff focuses on the brewing as well as the business side
+                of the operation.
+            </p>
+
+            <p>
+                <strong>George</strong>, in the early years, was a force
+                within the brewery by helping out at every brew session and
+                providing needed muscle for cleaning and moving material
+                around the brewhouse. He focused a lot on the quality of our
+                beer and pushed us to design better more complex beers. He has
+                moved on to be in charge of our online presence including
+                developing our own beer wiki engine.
+            </p>
+        </div>
+
+        <div id="right">
+            <h2>What's a <span class="darker">Tin Whisker</span></h2>
+            <p>A Tin Whisker is is an electrical engineering term for a
+                type of product fault that typically has the symptom of a short
+                circuit on the printed circuit board (PCB). It is caused by a tin hair
+                that would grow between adjacent pins of an integrated circuit (IC
+                which are the little black parts you'll see on the circuit
+                board). <a href="http://en.wikipedia.org/wiki/Tin_whisker">Read more on Wikipedia</a></p>
+
+            <div class="twitter-widget"></div>
+        </div>
+    </div>
+</template>
+
+<template name="where">
+    <div id="content" class="where">
+        <div id="left" class="about">
+            <h1>We’re working on it.</h1>
+            <p>The Tin Whiskers founders are busy getting the brewery up
+                and running. If you’re interested in helping out or being a part of
+                it, please contact Tin Whiskers. </p>
+
+            <p>Eventually this page will have all the tools necessary to
+                track down the nearest Tin Whisker's pint, growlers, or 6-pack.</p>
+
+            <h2>Stay Connected</h2>
+            <a href="https://twitter.com/TinWhiskersBrew">Follow Us on Twitter</a><br/>
+            <a href="https://www.facebook.com/TinWhiskersBrewingCo">Check out our Facebook page</a><br/>
+            <a href="/blw">View the Wiki for Resources and Recipes</a><br/>
+        </div>
+        <div id="right">
+            <!-- <a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1151+County+Road+B+West,+Roseville,+MN&aq=0&oq=1151+county+&sll=45.006746,-93.14857&sspn=0.02127,0.045447&vpsrc=6&ie=UTF8&hq=&hnear=1151+County+Road+B+W,+Roseville,+Minnesota+55113&ll=45.005897,-93.152905&spn=0.02127,0.045447&t=m&z=15&iwloc=A">
+                <img src="/assets/at-our-brewery.png" alt="At Our Brewery" />
+            </a> -->
+        </div>
+    </div>
+</template>
+
+<template name="footer">
+    <footer id="footer">
+
+        <div id="footer-primary-nav">
+            <ul>
+                <li>
+                    <a href="/beers">Beer Specifications</a>
+                </li>
+                <li>
+                    <a href="/news">News &amp; Updates</a>
+                </li>
+                <li>
+                    <a href="/who">Who Are We?</a>
+                </li>
+                <li>
+                    <a href="/where">Where to Find Us</a>
+                </li>
+            </ul>
+        </div>
+        <div id="footer-contact">
+            <img src="/assets/tin-whiskers-logo-footer.png" alt="Tin Whiskers Brewing Co." />
+            <p>&copy; Tin Whiskers Brewing Company</p>
+            <p>1151 County Road B West, Roseville, Minnesota 55113</p>
+        </div>
+
+        <div id="footer-secondary-nav">
+            <ul>
+                <li>
+                    <a href="/blw">Brew Logic Wiki</a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/TinWhiskersBrewingCo">On Facebook</a>
+                </li>
+                <li>
+                    <a href="#">On Untappd</a>
+                </li>
+                <li>
+                    <a href="mailto:robot@tinwhiskersbrewing.com">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        
+    </footer>
+</template>
+
+<!-- <template name="search">
+    <h3>Search results for "{{term}}"</h3>
+
+    {{#each results}}
+        <h2><a href="/{{this.title}}">{{this.title}}</a></h2>
+        <p>{{this.text}}</p>
+    {{/each}}
+
+</template>
+
+<template name="tag">
+    <h3>Entries tagged with "{{tag}}"</h3>
+
+    {{#each results}}
+        <h2><a href="/{{this.title}}">{{this.title}}</a></h2>
+        <p>{{this.text}}</p>
+    {{/each}}
+
+</template> -->
+
+
+
