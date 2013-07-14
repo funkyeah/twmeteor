@@ -10,7 +10,8 @@ Handlebars.registerHelper 'pageIs', (u) ->
     return u == page
 
 Handlebars.registerHelper 'spaceIs', (space) ->
-    space = Session.get('space')
+    currSpace = Session.get('space')
+    return space == currSpace
 
 
 # Meteor.subscribe 'entries', onComplete = ->
@@ -26,22 +27,33 @@ Handlebars.registerHelper 'spaceIs', (space) ->
 # Session.set('editMode', false)
 
 # Todo: reloadEntry = true
-# navigate = (location, context) ->
-#     location = "/u/#{context}/#{location}" if context
-#     Router.navigate(location, true)
+navigate = (location, context) ->
+    Router.navigate(location, true)
 
-# evtNavigate = (evt) ->
-#     evt.preventDefault()
-#     window.scrollTo(0,0)
-#     $a = $(evt.target).closest('a')
-#     href = $a.attr('href')
-#     localhost = document.location.host
-#     linkhost = $a[0].host
-#     if localhost == linkhost
-#         navigate(href)
-#     else
-#         window.open( href, '_blank')
+evtNavigate = (evt) ->
+    evt.preventDefault()
+    window.scrollTo(0,0)
+    $a = $(evt.target).closest('a')
+    href = $a.attr('href')
+    localhost = document.location.host
+    linkhost = $a[0].host
+    if localhost == linkhost
+        navigate(href)
+    else
+        window.open( href, '_blank')
+
+Template.primaryNav.events
+    'click a': evtNavigate
    
+Template.banner.events
+    'click a': evtNavigate
+
+# Template.beers.events
+#     'click a': (evt) ->
+#         debugger
+
+Template.news.events
+    'click a': evtNavigate
 
 ## Nav
 
@@ -110,6 +122,7 @@ EntryRouter = Backbone.Router.extend({
     },
     search: (term) ->
         Session.set( 'mode', 'search' )
+        Session.set( 'space', 'search' )
         Session.set( 'search-term', decodeURIComponent( term ) )
     beers: (beers) ->
         Session.set( 'mode', 'beer' )
@@ -121,9 +134,11 @@ EntryRouter = Backbone.Router.extend({
         Session.set( 'title', decodeURIComponent( beer ) )
     main: (title) ->
         Session.set('mode', 'entry')
+        Session.set( 'space', 'main' )
         Session.set('title', decodeURIComponent( title ))
     home: (title) ->
         Session.set('mode', 'entry')
+        Session.set( 'space', 'home' )
         Session.set('title', 'home')
 })
 
