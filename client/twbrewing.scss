@@ -116,7 +116,7 @@ table {
 }
 
 a {
-	color: white;
+	// color: white;
 	text-decoration: none;
 }
 
@@ -734,7 +734,9 @@ body {
 		list-style: none;
 		padding: 6px;
 	}
-
+	a {
+		color: white;
+	}
 	a:hover {
 		text-decoration: underline !important;
 		color: white;
@@ -769,6 +771,54 @@ body {
 
 		a {
 			color: $headline-color;
+		}
+	}
+
+	#beerTabs {
+		@include width( 2 );
+		color: #951C23;
+		font-family: "OstrichSansMedium";
+		font-weight: normal;
+		font-size: 32px;
+	}
+	#beerpane {
+		display: block;
+	// 	div {
+	// 		display: block;
+	// 	}
+	}
+
+	#mid {
+		@include width( 4 );
+
+		padding-right: col-width( 1 );
+		font-size: $font-size;
+		color: $content-color;
+		line-height: 2em;
+		text-align: left;
+
+		h1 {
+			color: $headline-color;
+			font-family: "OstrichSansMedium";
+			font-weight: normal;
+			font-size: 49px;
+			padding-bottom: 23px;
+			padding-top: 60px;
+
+			&:first-child {
+				padding-top: 0px;
+			}
+		}
+
+		a {
+			color: $headline-color;
+		}
+
+		h2 {
+			color: #605f5e;
+			font-family: "OstrichSansBlack";
+			font-size: 28px;
+			padding-bottom: 13px;
 		}
 	}
 
@@ -989,4 +1039,16 @@ body {
 	font-size: $font-size;
     width: 300px;
     margin: -150px 0 0 -150px;
+}
+
+
+// boostrap tab fixes (overrides #content div display-inline)
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none !important;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block !important;
 }

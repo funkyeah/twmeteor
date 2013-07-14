@@ -48,20 +48,60 @@ Template.primaryNav.events
 Template.banner.events
     'click a': evtNavigate
 
-# Template.beers.events
-#     'click a': (evt) ->
-#         debugger
+Template.beers.events
+    'click a': (evt) ->
+
+    'click #beerTabs > li' : (evt) ->
+        $el = $(evt.currentTarget)
+        Session.set( 'activeTab' , $el.attr('id'))
 
 Template.news.events
     'click a': evtNavigate
 
+
+
 ## Nav
 
-# Template.leftNav.isActiveTab = (tab, options)->
-#     Session.equals "activeTab", tab 
+Template.beers.isActiveTab = (tab, options)->
+    Session.equals "activeTab", tab 
 
-# Template.leftNav.isActivePanel = (panel, options)->
-#     Session.equals "activePanel", panel
+
+EntryRouter = Backbone.Router.extend({
+    routes: {
+        "search/:term": "search",
+        "beers": "beers",
+        "beers/:beer": "beer",
+        ":title": "main",
+        "": "home"
+    },
+    search: (term) ->
+        Session.set( 'mode', 'search' )
+        Session.set( 'space', 'search' )
+        Session.set( 'search-term', decodeURIComponent( term ) )
+    beers: (beers) ->
+        Session.set( 'mode', 'beer' )
+        Session.set( 'space', 'beers' )
+        Session.set( 'title', 'beers' )
+    beer: (beer) ->
+        Session.set( 'mode', 'beer' )
+        Session.set( 'space', 'beers' )
+        Session.set( 'title', decodeURIComponent( beer ) )
+    main: (title) ->
+        Session.set('mode', 'entry')
+        Session.set( 'space', 'main' )
+        Session.set('title', decodeURIComponent( title ))
+    home: (title) ->
+        Session.set('mode', 'entry')
+        Session.set( 'space', 'home' )
+        Session.set('title', 'home')
+})
+
+
+Router = new EntryRouter
+
+Meteor.startup ->
+    Backbone.history.start pushState: true
+    Session.set('activeTab', 'short-circuitTab')
 
 # Template.leftNav.term = -> 
 #     Session.get( 'search-term' )
@@ -112,38 +152,3 @@ Template.news.events
 #         return false;
 
 
-EntryRouter = Backbone.Router.extend({
-    routes: {
-        "search/:term": "search",
-        "beers": "beers",
-        "beers/:beer": "beer",
-        ":title": "main",
-        "": "home"
-    },
-    search: (term) ->
-        Session.set( 'mode', 'search' )
-        Session.set( 'space', 'search' )
-        Session.set( 'search-term', decodeURIComponent( term ) )
-    beers: (beers) ->
-        Session.set( 'mode', 'beer' )
-        Session.set( 'space', 'beers' )
-        Session.set( 'title', 'beers' )
-    beer: (beer) ->
-        Session.set( 'mode', 'beer' )
-        Session.set( 'space', 'beers' )
-        Session.set( 'title', decodeURIComponent( beer ) )
-    main: (title) ->
-        Session.set('mode', 'entry')
-        Session.set( 'space', 'main' )
-        Session.set('title', decodeURIComponent( title ))
-    home: (title) ->
-        Session.set('mode', 'entry')
-        Session.set( 'space', 'home' )
-        Session.set('title', 'home')
-})
-
-
-Router = new EntryRouter
-
-Meteor.startup ->
-    Backbone.history.start pushState: true
