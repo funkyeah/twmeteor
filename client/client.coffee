@@ -49,7 +49,7 @@ Template.banner.events
     'click a': evtNavigate
 
 Template.beers.events
-    'click a': (evt) ->
+    # 'click a': (evt) ->
 
     'click #beerTabs > li' : (evt) ->
         $el = $(evt.currentTarget)
@@ -58,6 +58,8 @@ Template.beers.events
 Template.news.events
     'click a': evtNavigate
 
+Template.lower.events
+    'click a': evtNavigate
 
 
 ## Nav
@@ -85,6 +87,7 @@ EntryRouter = Backbone.Router.extend({
     beer: (beer) ->
         Session.set( 'mode', 'beer' )
         Session.set( 'space', 'beers' )
+        Session.set( 'activeTab', decodeURIComponent( beer )+'Tab')
         Session.set( 'title', decodeURIComponent( beer ) )
     main: (title) ->
         Session.set('mode', 'entry')

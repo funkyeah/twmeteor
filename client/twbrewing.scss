@@ -789,9 +789,8 @@ body {
 	}
 
 	#mid {
-		@include width( 4 );
-
-		padding-right: col-width( 1 );
+		@include width( 5 );
+		padding-right: 40px;
 		font-size: $font-size;
 		color: $content-color;
 		line-height: 2em;
@@ -825,7 +824,7 @@ body {
 	#left {
 		@include width( 7 );
 
-		padding-right: col-width( 1 );
+		// padding-right: col-width( 1 );
 		font-size: $font-size;
 		color: $content-color;
 		line-height: 2em;
