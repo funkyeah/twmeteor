@@ -2,13 +2,35 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "scss": {}
+      "scss": {},
+      "pirobox": {},
+      "bootstrap-3": {}
     },
     "packages": {
       "scss": {
         "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.5.3",
-        "commit": "d3438b652f90ff2b418ac143fc3a746be2772e4b"
+        "tag": "v0.6.4.1",
+        "commit": "bf203edb83565943cc0c00a31d536de7094f312b"
+      },
+      "pirobox": {
+        "git": "https://github.com/kenyee/meteor-pirobox.git",
+        "tag": "v1.3.2",
+        "commit": "6bf953b1b698314deaf37c82f66201f362b5d9ab"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "bbb5b5eb3e36aff6a740889a965c8bdb8586ef14"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.9.2",
+        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
+      },
+      "jquery-easing": {
+        "git": "https://github.com/kenyee/meteor-jquery-easing.git",
+        "tag": "v1.3.0",
+        "commit": "556cf106f23692d78e5c92aa8a3bc99cf24bbd49"
       }
     }
   }

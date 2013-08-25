@@ -11,4 +11,6 @@ coffeescript
 accounts-ui
 accounts-google
 less
-bootstrap
+standard-app-packages
+scss
+bootstrap-3

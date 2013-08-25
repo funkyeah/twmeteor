@@ -1,213 +1,12 @@
-/*
-	Frameless			<http://framelessgrid.com/>
-	by Joni Korpi 		<http://jonikorpi.com/>
-	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
-*/
+//vars
 
-
-//
-// Configuration
-//
+$min-site-width: 970px;
 
 $font-size: 14px; 		// Your base font-size in pixels
 $content-color: #606060;
 $headline-color: #951c23;
 $sidebar-color: #ecd7ac;
 $sidebar-background-color: #686765;
-
-$em: $font-size / 1em;	// Shorthand for outputting ems
-
-$column: 80px;	// The column-width of your grid in pixels
-$gutter: 0px;	// The gutter-width of your grid in pixels
-
-
-//
-// Column-widths in variables, in ems
-//
-
- $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
- $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
- $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
- $cols4: ( 4 * ($column + $gutter) - $gutter) / $em;
- $cols5: ( 5 * ($column + $gutter) - $gutter) / $em;
- $cols6: ( 6 * ($column + $gutter) - $gutter) / $em;
- $cols7: ( 7 * ($column + $gutter) - $gutter) / $em;
- $cols8: ( 8 * ($column + $gutter) - $gutter) / $em;
- $cols9: ( 9 * ($column + $gutter) - $gutter) / $em;
-$cols10: (10 * ($column + $gutter) - $gutter) / $em;
-$cols11: (11 * ($column + $gutter) - $gutter) / $em;
-$cols12: (12 * ($column + $gutter) - $gutter) / $em;
-$cols13: (13 * ($column + $gutter) - $gutter) / $em;
-$cols14: (14 * ($column + $gutter) - $gutter) / $em;
-$cols15: (15 * ($column + $gutter) - $gutter) / $em;
-$cols16: (16 * ($column + $gutter) - $gutter) / $em;
-
-
-//
-// Column-widths in a function, in ems
-//
-
-@function col-width ( $cols ) {
-	@return ($cols * ($column + $gutter) - $gutter);
-}
-
-@mixin width ($cols:1) {
-	/* width: ($cols * ($column + $gutter) - $gutter) / $em; */
-	width: col-width( $cols );
-}
-
-
-/*
-	Margin, padding, and border resets
-	except for form elements
-*/
-
-body, div,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-
-/*
-	Consistency fixes
-	adopted from http://necolas.github.com/normalize.css/
-*/
-
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, nav, section, audio, canvas, video {
-	display: block;
-}
-
-html {
-	height: 100%; 
-	-webkit-text-size-adjust: 100%; 
-	-ms-text-size-adjust: 100%;
-}
-
-	body {min-height: 100%; font-size: 100%;}
-
-sub, sup {
-	font-size: 75%; 
-	line-height: 0; 
-	position: relative; 
-	vertical-align: baseline;
-}
-
-	sup {top: -0.5em;}
-	sub {bottom: -0.25em;}
-
-pre {
-	white-space: pre; 
-	white-space: pre-wrap; 
-	word-wrap: break-word;
-}
-
-b, strong {font-weight: bold;}
-abbr[title] {border-bottom: 1px dotted;}
-
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-a {
-	// color: white;
-	text-decoration: none;
-}
-
-a img, img {
-	-ms-interpolation-mode: bicubic;
-	border: 0;
-}
-
-input, textarea, button, select {
-	margin: 0;
-	font-size: 100%;
-	line-height: normal;
-	vertical-align: baseline;
-}
-
-	button,
-	html input[type="button"], 
-	input[type="reset"], 
-	input[type="submit"] {
-	    cursor: pointer;
-	    -webkit-appearance: button;
-	}
-
-	input[type="checkbox"],
-	input[type="radio"] {
-		-webkit-box-sizing: border-box;
-		   -moz-box-sizing: border-box;
-			 -o-box-sizing: border-box;
-			-ms-box-sizing: border-box;
-				box-sizing: border-box;
-	}
-
-	textarea {overflow: auto;}
-
-
-/*
-	These are easy to forget
-*/
-
-::selection {
-	background: red;
-	color: white;
-}
-::-moz-selection {
-	background: red;
-	color: white;
-}
-
-img::selection {
-	background: transparent;
-}
-img::-moz-selection {
-	background: transparent;
-}
-
-body {
-	-webkit-tap-highlight-color: rgba(255,0,0, 0.62);
-}
-
-
-/*
-	Style overrides for IE6-8
-	http://jonikorpi.com/leaving-old-IE-behind/
-*/
-
-.ie {
-
-}
-
-
-/*
-	An easy way to zoom your entire layout in or out (as long as it's set in ems).
-	Just change the media queries to activate them.
-	Assuming your base font-size is 16:
-	- the first one zooms out by a factor of (16-2)/16 = 0.875
-	- the second one zooms in by a factor of (16+2)/16 = 1.125  
-*/
-/*
-@media screen and (max-width: 1px) {
-	body {
-		font-size: ($font-size - 2) / $em;
-	}
-}
-
-@media screen and (max-width: 1px) {
-	body {
-		font-size: ($font-size + 2) / $em;
-	}
-}
-*/
-
 
 // Start custom styles
 
@@ -225,25 +24,60 @@ div.clear {
 	display: none;
 }
 
-body > div, body > header {
-	width: 100%;
-	margin-left: 1px;
-	margin-right: 1px;
-}
+// body > div, body > header {
+// 	width: 100%;
+// 	margin-left: 1px;
+// 	margin-right: 1px;
+// }
 
 div {
 	/* display: inline-block; */
 }
 
 @mixin horizontal-nav {
-	ul {
-		display: inline-block;
-		li {
-			list-style: none;
-			display: inline-block;
-		}
-	}
+	// ul {
+	// 	// display: inline-block;
+	// 	li {
+	// 		list-style: none;
+	// 		// display: inline-block;
+	// 	}
+	// }
 }
+
+
+// .fullwidth {
+//   font-size: 21px;
+//   font-weight: 200;
+//   line-height: 2.1428571435;
+//   color: inherit;
+//   background-color: #eeeeee;
+// }
+
+// .jumbotron h1 {
+//   line-height: 1;
+//   color: inherit;
+// }
+
+// .jumbotron p {
+//   line-height: 1.4;
+// }
+
+// .container .jumbotron {
+//   border-radius: 6px;
+// }
+
+// @media screen and (min-width: 768px) {
+//   .jumbotron {
+//     padding-top: 48px;
+//     padding-bottom: 48px;
+//   }
+//   .container .jumbotron {
+//     padding-right: 60px;
+//     padding-left: 60px;
+//   }
+//   .jumbotron h1 {
+//     font-size: 63px;
+//   }
 
 
 @font-face {
@@ -255,11 +89,7 @@ div {
          url('/assets/fonts/ostrich_black-webfont.svg#OstrichSansBlack') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-
-
-
 
 @font-face {
     font-family: 'OstrichSansBold';
@@ -270,11 +100,7 @@ div {
          url('/assets/fonts/ostrich_bold-webfont.svg#OstrichSansBold') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-
-
-
 
 @font-face {
     font-family: 'OstrichSansDashedMedium';
@@ -285,11 +111,7 @@ div {
          url('/assets/fonts/ostrich_dashed-webfont.svg#OstrichSansDashedMedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-
-
-
 
 @font-face {
     font-family: 'OstrichSansLight';
@@ -300,7 +122,6 @@ div {
          url('/assets/fonts/ostrich_light-webfont.svg#OstrichSansLight') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -315,7 +136,6 @@ div {
          url('/assets/fonts/ostrich_regular-webfont.svg#OstrichSansMedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -346,11 +166,9 @@ body {
 
 #header {
 	background-image: url( "/assets/background-slate.png" );
-		min-width: col-width( 13 );
-
+	min-width: $min-site-width;
+	height: 45px;
 	#hwrapper {
-		display: inline-block;
-		@include width( 12 );
 
 		#tabs {
 			float: left;
@@ -433,93 +251,81 @@ body {
 
 #primaryNav {
 	background-image: url( "/assets/background-sand.png" );
-	min-width: col-width( 13 );
+	min-width: $min-site-width;
 
-	@include horizontal-nav;
+	// @include horizontal-nav;
 	padding: 12px 0 12px;
 
-	ul {
-		@include width(12);
 
-		li {
+	vertical-align: middle;
+	text-align: center;
+	.navtext {
+		padding-top: 40px;
+	}
+	.big {
+		font-weight: normal;
+		text-shadow: 0px 1px 1px white;
+		font-size: 48px;
+		font-family: 'OstrichSansBold', sans-serif;
+		letter-spacing: 2px;
+		color: #8f1720;
+		padding-bottom: 13px;
+		display: block;
 
-			vertical-align: middle;
-			
-			.big {
-				font-weight: normal;
-				text-shadow: 0px 1px 1px white;
-				font-size: 48px;
-				font-family: 'OstrichSansBold', sans-serif;
-				letter-spacing: 2px;
-				color: #8f1720;
-				padding-bottom: 13px;
-				display: block;
-
-				&:hover  {
-					color: #2e2c2c;
-				}
-
-			}
-
-			.selected .big  {
-				color: #2e2c2c;
-			}
-
-			.little {
-				font-weight: normal;
-				text-shadow: 0px 1px 1px white;
-				font-size: 20px;
-				font-family: 'OstrichSansBlack', sans-serif;
-				color: #74685c;
-				background-image: url( '/assets/nav-underline.png' );
-				background-position: bottom center;
-				background-repeat: no-repeat;
-				padding-bottom: 22px;
-				display: block;
-			}
-			
-			@include width(2);
+		&:hover  {
+			color: #2e2c2c;
 		}
 
-		li#logo-cog {
-			@include width(4);
-		}
+	}
 
+	.selected .big  {
+		color: #2e2c2c;
+	}
+
+	.little {
+		font-weight: normal;
+		text-shadow: 0px 1px 1px white;
+		font-size: 20px;
+		font-family: 'OstrichSansBlack', sans-serif;
+		color: #74685c;
+		background-image: url( '/assets/nav-underline.png' );
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		padding-bottom: 22px;
+		display: block;
 	}
 }
 
 #banner {
 	background: url("/assets/banner-short-circuit-stout-temp.jpg") 50% 0 no-repeat, url("/assets/background-granite.png") repeat-x;
-	min-width: col-width( 13 );
+	min-width: $min-site-width;
 	text-align: center;
 	height: 433px;
 
 
-	#cell {
-		@include width( 14 );
-		display: inline-block;
-		background-image: url( "/assets/banner-short-circuit-stout-temp.jpg" );
-		/* background-image: url( "/assets/banner-short-circuit-stout.jpg" ); */
-		background-repeat: no-repeat;
-		background-position: right;
-		text-align: left;
+	// #cell {
+	// 	display: inline-block;
+	// 	background-image: url( "/assets/banner-short-circuit-stout-temp.jpg" );
+	// 	/* background-image: url( "/assets/banner-short-circuit-stout.jpg" ); */
+	// 	background-repeat: no-repeat;
+	// 	background-position: right;
+	// 	text-align: left;
 
-		#text {
-			@include width( 8 );
+	// 	#text {
 
-			height: 433px;
-			padding-top: 100px;
-			padding-left: col-width( 1 );
+	// 		height: 433px;
+	// 		padding-top: 100px;
+	// 		padding-left: col-width( 1 );
 
-			h1 {
-				font-family: 'OstrichSansMedium', sans-serif;
-				font-size: 86px;
-				font-weight: normal;
-				color: white;
-				letter-spacing: -1px;
-			}
-		}
-	}
+	// 		h1 {
+	// 			font-family: 'OstrichSansMedium', sans-serif;
+	// 			font-size: 86px;
+	// 			font-weight: normal;
+	// 			color: white;
+	// 			letter-spacing: -1px;
+	// 		}
+	// 	}
+	// }
 
 	.banner-link-image {
 		position: relative;
@@ -577,7 +383,7 @@ body {
 	background-image: url( "/assets/background-shale.png" );
 	padding-top: 0px;
 	vertical-align: top;
-	min-width: col-width( 13 );
+	min-width: $min-site-width;
 
 	div {
 		display: inline-block;
@@ -630,7 +436,7 @@ body {
 
 #connect-other {
 
-	font-size: $font-size;
+	// font-size: $font-size;
 
 	ul {
 		height: 333px;
@@ -717,7 +523,7 @@ body {
 #footer {
 
 	background-image: url( "/assets/background-slate.png" );
-	min-width: col-width( 13 );
+	min-width: $min-site-width;
 	padding: 30px 0 30px;
 
 	img {
@@ -725,9 +531,9 @@ body {
 	}
 
 	div {
-		@include width( 4 );
+		// @include width( 4 );
 		display: inline-block;
-		font-size: $font-size;
+		// font-size: $font-size;
 	}
 
 	li {
@@ -744,15 +550,14 @@ body {
 }
 
 #content {
-	@include width( 12 );
+
 	background: none;
 	background-color: white;
 	padding: 65px 0 85px 0;
-	display: inline-block;
 	font-size: 0;
 
-	background-image: url( '/assets/border-end.png' ), url( '/assets/border-bottom.png' ), url( '/assets/border.png' );
-	background-position: 605px 66px, 605px bottom, 605px 66px;
+	// background-image: url( '/assets/border-end.png' ), url( '/assets/border-bottom.png' ), url( '/assets/border.png' );
+	// background-position: 605px 66px, 605px bottom, 605px 66px;
 	
 	background-repeat: no-repeat, no-repeat, no-repeat;
 
@@ -760,37 +565,36 @@ body {
 		text-decoration: underline !important;
 	}
 
-	div {
-		display: inline-block;
-		vertical-align: top;
-	}
+	// div {
+	// 	display: inline-block;
+	// 	vertical-align: top;
+	// }
 
 	p {
 		padding-bottom: 1.5em;
 		line-height: 2em;
 
 		a {
-			color: $headline-color;
+			// color: $headline-color;
 		}
 	}
 
 	#beerTabs {
-		@include width( 2 );
 		color: #951C23;
 		font-family: "OstrichSansMedium";
 		font-weight: normal;
-		font-size: 32px;
-	}
-	#beerpane {
-		display: block;
-	// 	div {
-	// 		display: block;
-	// 	}
+		font-size: 26px;
+
+		.tabButton {
+			cursor: pointer;
+		}
+
 	}
 
+	#beerpane img {
+		width: 100%
+	}
 	#mid {
-		@include width( 5 );
-		padding-right: 40px;
 		font-size: $font-size;
 		color: $content-color;
 		line-height: 2em;
@@ -803,6 +607,7 @@ body {
 			font-size: 49px;
 			padding-bottom: 23px;
 			padding-top: 60px;
+			margin-top: 0;
 
 			&:first-child {
 				padding-top: 0px;
@@ -821,8 +626,9 @@ body {
 		}
 	}
 
+
 	#left {
-		@include width( 7 );
+		// @include width( 7 );
 
 		// padding-right: col-width( 1 );
 		font-size: $font-size;
@@ -854,9 +660,13 @@ body {
 			padding-bottom: 13px;
 		}
 	}
+	// #beer-right {
+	// 	display: inline-block;
+	// 	// @include width( 4 );
+	// }
 
 	#right {
-		@include width( 4 );
+		// @include width( 4 );
 
 
 		h2 {
@@ -897,7 +707,6 @@ body {
 			color: #d5d2c8;
 			text-shadow: 0px 1px 1px black;
 			text-align: left;
-			width: 255px;
 			padding-top: 14px;
 			padding-bottom: 14px;
 			padding-left: 15px;
@@ -917,7 +726,6 @@ body {
 			background-repeat: no-repeat;
 			background-position: bottom;
 			font-size: 12px;
-			width: 224px;
 			border-top: 1px solid gray;
 			font-weight: bold;
 			text-shadow: 0px 1px 0px black;
@@ -1050,4 +858,27 @@ body {
 .tab-content > .active,
 .pill-content > .active {
   display: block !important;
+}
+
+.tabbable ul {
+	list-style: none;
+}
+
+.nav-tabs > li > a {
+	border-radius: 4px 4px 4px 4px;
+	padding: 0px 10px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+	border-bottom-color: #DDD;
+}
+
+.nav-tabs {
+	border-bottom: none;
+}
+
+.nav-tabs > li {
+	width: 100%;
 }

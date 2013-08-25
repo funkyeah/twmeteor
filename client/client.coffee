@@ -13,17 +13,6 @@ Handlebars.registerHelper 'spaceIs', (space) ->
     currSpace = Session.get('space')
     return space == currSpace
 
-
-# Meteor.subscribe 'entries', onComplete = ->
-#   Session.set('entryLoaded', true)
-
-
-# Meteor.subscribe('allUserData')
-
-# Meteor.autosubscribe( ->
-#     Meteor.subscribe("userData");
-# );
-
 # Session.set('editMode', false)
 
 # Todo: reloadEntry = true
@@ -48,8 +37,13 @@ Template.primaryNav.events
 Template.banner.events
     'click a': evtNavigate
 
+# Template.beers.rendered = () ->
+#     $('.lightbox').fancybox();
+
+
 Template.beers.events
-    # 'click a': (evt) ->
+#     'click a': (evt) ->
+#         evt.preventDefault()
 
     'click #beerTabs > li' : (evt) ->
         $el = $(evt.currentTarget)
