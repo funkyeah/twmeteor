@@ -7,6 +7,22 @@ $content-color: #606060;
 $headline-color: #951c23;
 $sidebar-color: #ecd7ac;
 $sidebar-background-color: #686765;
+$robot-grey: #4F4D4D;
+
+@mixin OSansBoldwHover($sizeOfFont) {
+	font-weight: normal;
+	text-shadow: 0px 1px 1px white;
+	font-size: $sizeOfFont;
+	font-family: 'OstrichSansBold', sans-serif;
+	letter-spacing: 2px;
+	color: #8f1720;
+	padding-bottom: 13px;
+
+	&:hover  {
+		color: #2e2c2c;
+	}
+
+}
 
 // Start custom styles
 
@@ -78,6 +94,19 @@ div {
 //   .jumbotron h1 {
 //     font-size: 63px;
 //   }
+
+@media (max-width: 767px) {
+  .hidden-xs {
+    display: none !important;
+  }
+  tr.hidden-xs {
+    display: none !important;
+  }
+  th.hidden-xs,
+  td.hidden-xs {
+    display: none !important;
+  }
+}
 
 
 @font-face {
@@ -166,96 +195,33 @@ body {
 
 #header {
 	background-image: url( "/assets/background-slate.png" );
-	min-width: $min-site-width;
+	// min-width: $min-site-width;
 	height: 45px;
 	#hwrapper {
 
-		#tabs {
-			float: left;
-			@include horizontal-nav;
-
-			ul {
-				height: 45px;
-				display: table;
-
-				li {
-					text-align: center;
-					vertical-align: bottom;
-					display: table-cell;
-					padding-left: 15px;
-					padding-bottom: 6px;
-
+				.hdr-btn{
+					margin-top: 5px;
+					margin-left: 10px;
+					background-image: url("/assets/background-sand.png");
+					background-repeat: repeat-x;
+					
+					font-size: 16px;
+					font-family: 'OstrichSansBlack', sans-serif;
+					text-shadow: 1px 1px 1px #666;
 					a {
-						font-size: 20px;
-						font-family: 'OstrichSansBlack', sans-serif;
-						text-shadow: 0px 1px 0px black;
-						color: white;
-						padding-left: 24px;
-						padding-top: 3px;
-						background-repeat: no-repeat;
-						background-position: left;
+						color: white !important;
 					}
 				}
-
-				li:first-child {
-					padding-left: 0;
-				}
-				
-				li#twb-tab {
-					width: 245px;
-					height: 100%;
-
-					a {
-						background-image: url( '/assets/robot-tiny-active.png' );
-					}
-				}
-
-				li#twb-tab.active {
-					background-image: url( "/assets/twb-tab-active.png" );
-
-					a {
-						text-shadow: 0px 1px 0px white;
-						color: #4f4d4d;
-						background-image: url( '/assets/robot-tiny.png' );
-					}
-				}
-
-				li#blw-tab {
-					a {
-						background-image: url( '/assets/pint-tiny.png' );
-					}
-				}
-
-			}
-		}
-
-		#contact {
-			float: right;
-			text-align: right;
-			padding-top: 21px;
-
-			a {
-				color: #c8c6b4;
-				text-shadow: 0px 1px 0px black;
-				font-size: 19px;
-				font-family: 'OstrichSansBlack', sans-serif;
-				padding-left: 24px;
-				padding-top: 3px;
-				background-image: url( '/assets/envelope-tiny.png' );
-				background-repeat: no-repeat;
-				background-position: left;
-			}
-		}
 	}
 }
 
 #primaryNav {
 	background-image: url( "/assets/background-sand.png" );
-	min-width: $min-site-width;
+	// min-width: $min-site-width;
 
 	// @include horizontal-nav;
 	padding: 12px 0 12px;
-
+	background-repeat: repeat;
 
 	vertical-align: middle;
 	text-align: center;
@@ -263,19 +229,7 @@ body {
 		padding-top: 40px;
 	}
 	.big {
-		font-weight: normal;
-		text-shadow: 0px 1px 1px white;
-		font-size: 48px;
-		font-family: 'OstrichSansBold', sans-serif;
-		letter-spacing: 2px;
-		color: #8f1720;
-		padding-bottom: 13px;
-		display: block;
-
-		&:hover  {
-			color: #2e2c2c;
-		}
-
+		@include OSansBoldwHover(50px); //pass fontsize
 	}
 
 	.selected .big  {
@@ -291,16 +245,32 @@ body {
 		background-image: url( '/assets/nav-underline.png' );
 		background-position: bottom center;
 		background-repeat: no-repeat;
-		padding-bottom: 22px;
-		display: block;
+		padding-bottom: 20px;
 	}
 }
 
+.banner_lr_fill {
+	padding-left: 0;
+	padding-right: 0;
+	display: inline-block;
+	background-image: url("/assets/background-granite.png");
+	background-repeat: repeat-x;
+	/* background-image: url( "/assets/banner-short-circuit-stout.jpg" ); */
+	background-position: right;
+	text-align: left;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #banner {
-	background: url("/assets/banner-short-circuit-stout-temp.jpg") 50% 0 no-repeat, url("/assets/background-granite.png") repeat-x;
-	min-width: $min-site-width;
-	text-align: center;
-	height: 433px;
+	// background: url("/assets/banner-short-circuit-stout-temp.jpg") 50% 0 no-repeat, url("/assets/background-granite.png") repeat-x;
+	// min-width: $min-site-width;
+	// text-align: center;
+	// height: 433px;
 
 
 	// #cell {
@@ -383,7 +353,7 @@ body {
 	background-image: url( "/assets/background-shale.png" );
 	padding-top: 0px;
 	vertical-align: top;
-	min-width: $min-site-width;
+	// min-width: $min-site-width;
 
 	div {
 		display: inline-block;
@@ -523,7 +493,7 @@ body {
 #footer {
 
 	background-image: url( "/assets/background-slate.png" );
-	min-width: $min-site-width;
+	// min-width: $min-site-width;
 	padding: 30px 0 30px;
 
 	img {
@@ -750,6 +720,8 @@ body {
 
 // Beer Hover banner
 
+
+
 #banner.beers {
 	background: url( "/assets/background-beers.jpg" ) center no-repeat, url( "/assets/background-granite-beers.png" );
 	display: inline-block;
@@ -798,6 +770,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: top center;
 	width: 100%;
+	overflow: hidden;
 
 	ul	{
 		height: 200px;
@@ -882,3 +855,86 @@ body {
 .nav-tabs > li {
 	width: 100%;
 }
+
+@media (max-width: 767px) {
+
+	// header
+	#header .container {
+		padding: 0;
+	}
+	// nav
+	.navbar-toggle {
+		background-color: $robot-grey;
+		border-color: $robot-grey !important;
+		.icon-bar {
+			background-color: #CCC;
+		}
+	}
+	.navbar-collapse {
+		border: none;
+		box-shadow: none;
+	}
+
+	.navbar-brand {
+		@include OSansBoldwHover(42px); 
+	}
+
+	#primaryNav {
+		border: none;
+		.navbar-nav {
+			padding-right: 0px;
+		}
+		.navtext {
+			padding-top: 10px;
+			text-align: left;
+			
+
+		}
+		.navtext:hover {
+			// background-color: grey;
+			// opacity: 0.2;
+			background: rgba(54, 25, 25, .3);
+		}
+
+		.big {
+			@include OSansBoldwHover(32px); 
+			display: inline-block;
+			padding-right: 10px;
+		}
+		.little {
+			font-size: 18px;
+			display: inline-block;
+			vertical-align: middle;
+			background-image: none;
+		}
+
+		#nav-where {
+			padding-bottom: 0;
+		}
+	}
+
+	#content {
+		padding: 0px 10px 0 10px;
+		.beers {
+			text-align: left;
+			padding-top: 20px;
+		}
+	}
+
+}
+
+@media (max-width: 390px) {
+	.contact-btn {
+		display: none !important;
+	}
+}
+
+
+//bootstrap overrides:
+#primaryNav {
+	.nav > li > a:hover,
+	.nav > li > a:focus {
+		background-color: transparent;
+	}
+}
+	
