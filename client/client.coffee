@@ -23,6 +23,8 @@ evtNavigate = (evt) ->
     evt.preventDefault()
     window.scrollTo(0,0)
     $a = $(evt.target).closest('a')
+    if $a.length is 0
+        $a = $(evt.target).find('a');
     href = $a.attr('href')
     localhost = document.location.host
     linkhost = $a[0].host
@@ -30,6 +32,9 @@ evtNavigate = (evt) ->
         navigate(href)
     else
         window.open( href, '_blank')
+
+Template.header.events
+    'click button': evtNavigate
 
 Template.primaryNav.events
     'click a': evtNavigate
@@ -66,6 +71,7 @@ EntryRouter = Backbone.Router.extend({
     routes: {
         "search/:term": "search",
         "beers": "beers",
+        "store" : "store"
         "beers/:beer": "beer",
         ":title": "main",
         "": "home"
@@ -74,10 +80,14 @@ EntryRouter = Backbone.Router.extend({
         Session.set( 'mode', 'search' )
         Session.set( 'space', 'search' )
         Session.set( 'search-term', decodeURIComponent( term ) )
-    beers: (beers) ->
+    beers: () ->
         Session.set( 'mode', 'beer' )
         Session.set( 'space', 'beers' )
         Session.set( 'title', 'beers' )
+    store: () ->
+        Session.set( 'mode', 'store' )
+        Session.set( 'space', 'main' )
+        Session.set( 'title', 'store' )
     beer: (beer) ->
         Session.set( 'mode', 'beer' )
         Session.set( 'space', 'beers' )

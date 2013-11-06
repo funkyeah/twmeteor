@@ -32,28 +32,38 @@
             <div id="hwrapper" class="col-sm-12">
 
                 <!-- bigger screens button text -->
-                <button type="button" class="hidden-xs btn hdr-btn pull-left">
+                <button href="/" type="button" class="hidden-xs btn hdr-btn pull-left">
                     <img src="/assets/robot-tiny.png">
                     <a href="/">Tin Whiskers Brewing Co. </a>
                 </button>
+
                 <button  type="button" class="hidden-xs btn hdr-btn pull-left">
                     <img src="/assets/pint-tiny.png">
                     <a href="/blw">Protobrew Wiki </a>
                 </button>
+
                 <button type="button" class="contact-btn hidden-xs btn hdr-btn pull-right">
                     <img src="/assets/envelope-tiny.png">
                     <a href="mailto:robot@tinwhiskersbrewing.com">Contact Tin Whiskers </a>
                 </button>
+
+                <button type="button" class="btn hdr-btn pull-right">
+                    <!-- <img src="/assets/envelope-tiny.png"> -->
+                    <a href="/store">Store!</a>
+                </button>
+
 
                 <!-- smaller screens button text -->
                 <button type="button" class="visible-xs btn hdr-btn pull-left">
                     <img src="/assets/robot-tiny.png">
                     <a href="/">TW Brewing </a>
                 </button>
+
                 <button type="button" class="visible-xs btn hdr-btn pull-left">
                     <img src="/assets/pint-tiny.png">
                     <a href="/blw">Protobrew</a>
                 </button>
+
                 <button type="button" class="contact-btn visible-xs btn hdr-btn pull-right">
                     <img src="/assets/envelope-tiny.png">
                     <a href="mailto:robot@tinwhiskersbrewing.com">Contact</a>
@@ -67,6 +77,7 @@
 
 <template name="primaryNav">
 
+.navbar-header
 
     <header id="primaryNav">
     <div class="container">
@@ -78,6 +89,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a href="../" class="navbar-brand visible-xs">Tin Whiskers</a>
+              <div id="brewery-in-collapsed" class="little visible-xs">Brewery</div>
         </div>
         <nav class="navbar-collapse tgt-navbar-collapse collapse" role="navigation" style="height: auto;">
             <ul class="col-sm-12 nav navbar-nav">
@@ -118,53 +130,18 @@
     </div>
     </header>
 
-
-<!-- 
-    <nav id="primaryNav">
-        <div class="col-md-12 container">
-            <div class="col-sm-1m col-md-2 navtext">
-                <a id="nav-beers" href="/beers">
-                    <span class="big">Beer</span>
-                    <span class="little">Specifications</span>
-                </a>
-            </div>
-            <div class="col-sm-1m col-md-2 navtext">
-                <a id="nav-news" href="/news">
-                    <span class="big">News</span>
-                    <span class="little">&amp; Updates</span>
-                </a>
-            </div>
-            <div id="logo-cog" class="col-sm-3 col-md-4">
-                <a href="/">
-                    <img src="/assets/logo-cog.png" alt="Tin Whiskers Brewing" />
-                </a>
-            </div>
-            <div class="col-sm-1m col-md-2 navtext">
-                <a id="nav-who" href="/who">
-                    <span class="big">Who</span>
-                    <span class="little">Are We?</span>
-                </a>
-            </div>
-            <div class="col-sm-1m col-md-2 navtext">
-                <a id="nav-where" href="/where">
-                    <span class="big">Where</span>
-                    <span class="little">To Find Us</span>
-                </a>
-            </div>
-        </div>
-    </nav> -->
 </template>
 
 <template name="banner">
     <div id="banner" class="{{title}} ">
 
-    <div class="col-sm-12 banner_lr_fill">
-            <img class="center img-responsive" src="/assets/banner-short-circuit-stout-temp.jpg">
-    </div>
+
 
 
         {{#if pageIs 'home'}}
-            
+            <div class="col-sm-12 banner_lr_fill">
+                    <img class="center img-responsive" src="/assets/banner-short-circuit-stout-temp.jpg">
+            </div>
 
             <!-- <a href="/beers/short-circuit"><img src="/assets/blank.png" class="banner-link-image"/></a> -->
         {{/if}}
@@ -199,6 +176,9 @@
         {{> beers}}
     {{/if}}
     {{#if pageIs 'general'}}
+    {{/if}}
+    {{#if pageIs 'store'}}
+          {{> store}}
     {{/if}}
     {{#if pageIs 'news'}}
         {{> news}}
@@ -246,70 +226,41 @@
             </div>
         </div>
 
-        <div id="lower-nav">
+        <div id="lower-nav" class="container">
 
             <ul>
-                <li>
+                <li class="col-sm-4">
                     <div id="connect-twitter">
                         <h2>Connect on <span class="darker">Twitter</span></h2>
                         <div id="connect-on-twitter">
-                            <script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
-                            <script>
-                                new TWTR.Widget({
-                                version: 2,
-                                type: 'profile',
-                                rpp: 3,
-                                interval: 30000,
-                                width: 270,
-                                height: 245,
-                                theme: {
-                                shell: {
-                                background: '#686766',
-                                color: '#ffffff'
-                                },
-                                tweets: {
-                                background: '#b9b6af',
-                                color: '#333131',
-                                links: '#a01821'
-                                }
-                                },
-                                features: {
-                                scrollbar: true,
-                                loop: false,
-                                live: false,
-                                behavior: 'all'
-                                }
-                                }).render().setUser('TinWhiskersBrew').start();
-                            </script>
+                                <a class="twitter-timeline" href="https://twitter.com/TinWhiskersBrew" data-widget-id="384949241027637248"> Twitter Action</a>
                         </div>
                     </div>
                 </li>
-        <!--        <li>
+<!--                <li class="col-sm-1">
                     <img class="v-div" src="/assets/v-divider.png" alt="" />
-                </li>
-                <li>
+                </li> -->
+                <li class="col-sm-4">
                     <div id="connect-for-realz">
                         <h2>Connect in Real Life</h2>
-                                            <span class="h2">Not Yet!</span>
-                                            <div class="sub">but hopefully soon, stay tuned</div>
                             <div id="connect-for-real">
                             <a href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=1151+County+Road+B+West,+Roseville,+MN&aq=0&oq=1151+county+&sll=45.006746,-93.14857&sspn=0.02127,0.045447&vpsrc=6&ie=UTF8&hq=&hnear=1151+County+Road+B+W,+Roseville,+Minnesota+55113&ll=45.005897,-93.152905&spn=0.02127,0.045447&t=m&z=15&iwloc=A">
                                 <img src="/assets/at-our-brewery.png" alt="At Our Brewery" />
                             </a>
                         </div>
                     </div> 
-                </li> -->
-                <li>
-                    <img class="v-div" src="/assets/v-divider.png" alt="" />
                 </li>
-                <li>
+<!--                 <li class="col-sm-1">
+                    <img class="v-div" src="/assets/v-divider.png" alt="" />
+                </li> -->
+                <li class="col-sm-4">
                     <div id="connect-other">
                         <h2>Other Ways to <span class="darker">Connect</span></h2>
                         <div>
                             <ul>
                                 <li class="blw">
                                     <a href="/blw">
-                                        <span class="h2">Brew Logic Wiki</span>
+                                        <span class="h2">Protobrew Wiki</span>
                                         <div class="sub">Recipes &amp; Resources for home/pro brewers</div>
                                     </a>
                                 </li>
@@ -339,6 +290,7 @@
 </template>
 
 <template name ="news">
+<div class="container">
     <div id="content" class="col-md-12 news">
         <div id="left" class="news">
         
@@ -420,7 +372,7 @@
             </p>
 
             <p>
-                <iframe src="http://player.vimeo.com/video/57411621" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                <iframe src="http://player.vimeo.com/video/57411621" width="100%" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </p>
 
 
@@ -486,6 +438,7 @@
         <div id="right">
         </div>
     </div>
+</div>
 </template>
 
 <template name="who">
@@ -508,7 +461,7 @@
                 </p>
                 <div class="col-md-6">
                     <p>
-                        <iframe src="http://player.vimeo.com/video/57411621" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                        <iframe src="http://player.vimeo.com/video/57411621" width="100%" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
                     </p>
                 </div>
                 <div class="col-md-6">
@@ -559,34 +512,8 @@
 <div class="container">
     <div id="content" class="col-md-12 where">
         <div id="left" class="about">
-            
 
-            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
-                {{#constant}}
-                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
-                {{/constant}}
-            </div>
-
-            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
-                {{#constant}}
-                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
-                {{/constant}}
-            </div>
-
-            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
-                {{#constant}}
-                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
-                {{/constant}}
-            </div>
-
-            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
-                {{#constant}}
-                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
-                {{/constant}}
-            </div>
-
-
-                <h1>We’re working on it.</h1>
+            <h1>We’re working on it.</h1>
             <p>The Tin Whiskers founders are busy getting the brewery up
                 and running. If you’re interested in helping out or being a part of
                 it, please contact Tin Whiskers. </p>
@@ -606,6 +533,36 @@
         </div>
     </div>
 </div>
+</template>
+
+<template name="store">
+    <div class="container">
+        <div id="store">
+            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
+                {{#constant}}
+                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
+                {{/constant}}
+            </div>
+
+            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
+                {{#constant}}
+                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
+                {{/constant}}
+            </div>
+
+            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
+                {{#constant}}
+                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
+                {{/constant}}
+            </div>
+
+            <div class='col-xs-12 col-sm-6  col-md-4 col-lg-3 text-center'>
+                {{#constant}}
+                 <iframe class='shoplocket-embed' src='https://www.shoplocket.com/products/LJ9dR/embed?style=modal' width='330' height='500' frameborder='0' style='max-width:100%;' scrolling='no'></iframe><script src='https://d1pocdzmde73mw.cloudfront.net/assets/widgets/embed.js' type='text/javascript'></script>
+                {{/constant}}
+            </div>
+        </div>
+    </div>
 </template>
 
 <template name="footer">
@@ -636,7 +593,7 @@
             <div id="footer-secondary-nav">
                 <ul>
                     <li>
-                        <a href="/blw">Brew Logic Wiki</a>
+                        <a href="/blw">Protobrew Wiki</a>
                     </li>
                     <li>
                         <a href="https://www.facebook.  com/TinWhiskersBrewingCo">On Facebook</a>
