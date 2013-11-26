@@ -40,11 +40,6 @@ div.clear {
 	display: none;
 }
 
-// body > div, body > header {
-// 	width: 100%;
-// 	margin-left: 1px;
-// 	margin-right: 1px;
-// }
 
 div {
 	/* display: inline-block; */
@@ -61,39 +56,6 @@ div {
 }
 
 
-// .fullwidth {
-//   font-size: 21px;
-//   font-weight: 200;
-//   line-height: 2.1428571435;
-//   color: inherit;
-//   background-color: #eeeeee;
-// }
-
-// .jumbotron h1 {
-//   line-height: 1;
-//   color: inherit;
-// }
-
-// .jumbotron p {
-//   line-height: 1.4;
-// }
-
-// .container .jumbotron {
-//   border-radius: 6px;
-// }
-
-// @media screen and (min-width: 768px) {
-//   .jumbotron {
-//     padding-top: 48px;
-//     padding-bottom: 48px;
-//   }
-//   .container .jumbotron {
-//     padding-right: 60px;
-//     padding-left: 60px;
-//   }
-//   .jumbotron h1 {
-//     font-size: 63px;
-//   }
 
 @media (max-width: 767px) {
   .hidden-xs {
@@ -190,28 +152,28 @@ body {
 	color: white;
 	font-family: "Helvetica", Arial, sans-serif;
 	line-height: normal;
+	padding-top: 50px;
 }
 
 
-#header {
-	background-image: url( "/assets/background-slate.png" );
+header {
+	background-image: url( "/assets/background-slate.png" ) !important;
 	// min-width: $min-site-width;
 	height: 45px;
-	#hwrapper {
 
-				.hdr-btn{
-					margin-top: 5px;
-					margin-left: 10px;
-					background-image: url("/assets/background-sand.png");
-					background-repeat: repeat-x;
-					
-					font-size: 16px;
-					font-family: 'OstrichSansBlack', sans-serif;
-					text-shadow: 1px 1px 1px #666;
-					a {
-						color: white !important;
-					}
-				}
+	.hdr-btn{
+		margin-top: 5px;
+		margin-left: 10px;
+		background-image: url("/assets/background-sand.png");
+		background-repeat: repeat-x;
+		
+		font-size: 16px;
+		font-family: 'OstrichSansBlack', sans-serif;
+		text-shadow: 1px 1px 1px #666;
+		a {
+			color: white !important;
+		}
+
 	}
 }
 
@@ -476,6 +438,10 @@ img.center {
 
 			&.untappd {
 				background: url( "/assets/untappd-icon.png" ) 17px 0px no-repeat;
+			}
+
+			&.instagram {
+				background: url( "/assets/instagram-icon_52x52.png" ) 5px 5px no-repeat;
 			}
 
 			&.contact {

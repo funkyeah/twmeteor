@@ -27,80 +27,62 @@
 </body>
 
 <template name="header">
-    <div id="header">
+
+    <header class="navbar navbar-fixed-top">
         <div class="container">
-            <div id="hwrapper" class="col-sm-12">
+            <div class="navbar-header">
 
-                <!-- bigger screens button text -->
-                <button href="/" type="button" class="hidden-xs btn hdr-btn pull-left">
-                    <img src="/assets/robot-tiny.png">
-                    <a href="/">Tin Whiskers Brewing Co. </a>
+                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".tw-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
-
-                <button  type="button" class="hidden-xs btn hdr-btn pull-left">
-                    <img src="/assets/pint-tiny.png">
-                    <a href="/blw">Protobrew Wiki </a>
-                </button>
-
-                <button type="button" class="contact-btn hidden-xs btn hdr-btn pull-right">
-                    <img src="/assets/envelope-tiny.png">
-                    <a href="mailto:robot@tinwhiskersbrewing.com">Contact Tin Whiskers </a>
-                </button>
-
-                <button type="button" class="btn hdr-btn pull-right">
-                    <!-- <img src="/assets/envelope-tiny.png"> -->
-                    <a href="/store">Store!</a>
-                </button>
-
-
-                <!-- smaller screens button text -->
-                <button type="button" class="visible-xs btn hdr-btn pull-left">
-                    <img src="/assets/robot-tiny.png">
-                    <a href="/">TW Brewing </a>
-                </button>
-
-                <button type="button" class="visible-xs btn hdr-btn pull-left">
-                    <img src="/assets/pint-tiny.png">
-                    <a href="/blw">Protobrew</a>
-                </button>
-
-                <button type="button" class="contact-btn visible-xs btn hdr-btn pull-right">
-                    <img src="/assets/envelope-tiny.png">
-                    <a href="mailto:robot@tinwhiskersbrewing.com">Contact</a>
-                </button>
-
-
+                    
+                    <a href="/" class="btn hdr-btn hidden-xs">
+                        <img src="/assets/robot-tiny.png">
+                        Tin Whiskers Brewing Co. 
+                    </a>                 
+                    <a href="/" class="btn hdr-btn visible-xs">
+                        <img src="/assets/robot-tiny.png">
+                        TW Brewing 
+                    </a>
             </div>
+
+            <nav class="collapse navbar-collapse tw-navbar-collapse">
+      
+                    <a href="/blw" class="btn hdr-btn">
+                        <img src="/assets/pint-tiny.png">
+                        Protobrew
+                    </a>
+
+                    <a href="mailto:robot@tinwhiskersbrewing.com" class="btn hdr-btn">
+                        <img src="/assets/envelope-tiny.png">
+                        Contact
+                    </a>
+
+                    <a href="/store" class="btn hdr-btn">Store!</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
 </template>
+
+
 
 <template name="primaryNav">
 
-.navbar-header
-
-    <header id="primaryNav">
-    <div class="container">
-        <!-- collapsed button and menu -->
-        <div class="navbar-header">
-              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".tgt-navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a href="../" class="navbar-brand visible-xs">Tin Whiskers</a>
-              <div id="brewery-in-collapsed" class="little visible-xs">Brewery</div>
-        </div>
-        <nav class="navbar-collapse tgt-navbar-collapse collapse" role="navigation" style="height: auto;">
-            <ul class="col-sm-12 nav navbar-nav">
-                <li class="col-sm-2">
-                    <a id="nav-beers" class="navtext" href="/beers">
+    <div id="primaryNav">
+        <div class="container">
+            <ul class="col-sm-12">
+                <li class="col-sm-2 navtext">
+                    <a id="nav-beers" href="/beers">
                         <div class="big">Beer</div>
                         <div class="little">Specifications</div>
                     </a>
                 </li>
-                <li class="col-sm-2">
-                    <a id="nav-news" class="navtext" href="/news">
+                <li class="col-sm-2 navtext">
+                    <a id="nav-news" href="/news">
                         <div class="big">News</div>
                         <div class="little">&amp; Updates</div>
                     </a>
@@ -112,23 +94,21 @@
                         </a>
                     </div>
                 </li>
-                <li class="col-sm-2">
-                    <a id="nav-who" class="navtext" href="/who">
+                <li class="col-sm-2 navtext">
+                    <a id="nav-who" href="/who">
                         <div class="big">Who</div>
                         <div class="little">Are We?</div>
                     </a>
                 </li>
-                <li class="col-sm-2">
-                    <a id="nav-where" class="navtext" href="/where">
+                <li class="col-sm-2 navtext">
+                    <a id="nav-where" href="/where">
                         <div class="big">Where</div>
                         <div class="little">To Find Us</div>
                     </a>
                 </li>
             </ul>
-        </nav>
-
+        </div>
     </div>
-    </header>
 
 </template>
 
@@ -191,21 +171,6 @@
         <!-- {{> banner}} -->
         {{> where}}
     {{/if}}   
-    <!--     <a class="btn btn-inverse" href="#" value="sidenav_btn" id="sidenav_btn">
-            <span aria-hidden="true" data-icon="&#xe002;"></span> 
-        </a>
-
-        <div id="buttons" >
-            {{loginButtons}}
-        </div> -->
-
-    <!--     {{#if modeIs "search"}}
-            {{> search}}
-        {{/if}}
-
-        {{#if modeIs "tag"}}
-            {{> tag}}
-        {{/if}} -->
 
 </template>
 
@@ -270,14 +235,16 @@
                                         <div class="sub">News and Events for Tin Whisker fans</div>
                                     </a>
                                 </li>
-                                <li class="untappd">
-                                    <span class="h2">Untappd</span>
-                                    <div class="sub">Ratings &amp; Reviews of Tin Whiskers Brews</div>
+                                <li class="instagram">
+                                    <a href="http://instagram.com/tinwhiskersbrew">
+                                        <span class="h2">Instagram</span>
+                                        <div class="sub">Delicious pictures of drinkables</div>
+                                    </a>
                                 </li>
                                 <li class="contact">
                                     <a href="mailto:robot@tinwhiskersbrewing.com">
                                         <span class="h2">Contact Us</span>
-                                        <div class="sub">Questions &amp; Feedback are welcome</div>
+                                        <div class="sub">Questions &amp; Feedback is welcome</div>
                                     </a>
                                 </li>
                             </ul>
@@ -596,10 +563,10 @@
                         <a href="/blw">Protobrew Wiki</a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.  com/TinWhiskersBrewingCo">On Facebook</a>
+                        <a href="https://www.facebook.com/TinWhiskersBrewingCo">On Facebook</a>
                     </li>
                     <li>
-                        <a href="#">On Untappd</a>
+                        <a href="http://instagram.com/tinwhiskersbrew">Instagram</a>
                     </li>
                     <li>
                         <a href="mailto:robot@tinwhiskersbrewing.com">  Contact Us</a>
