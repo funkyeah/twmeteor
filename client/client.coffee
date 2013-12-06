@@ -1,3 +1,6 @@
+@responsive_state = ->
+  $(".responsive-state").css "width"
+
 Handlebars.registerHelper 'title', () ->
     Session.get("title")
 
@@ -24,7 +27,7 @@ evtNavigate = (evt) ->
     window.scrollTo(0,0)
     $a = $(evt.target).closest('a')
     if $a.length is 0
-        $a = $(evt.target).find('a');
+        $a = $(evt.target).find('a')
     href = $a.attr('href')
     localhost = document.location.host
     linkhost = $a[0].host
@@ -34,22 +37,29 @@ evtNavigate = (evt) ->
         window.open( href, '_blank')
 
 Template.header.events
-    'click button': evtNavigate
+    'click a': evtNavigate
+
+Template.primaryNav.resizeHelper = ->
+    responsive_state = Session.get "responsive_state"
+    if responsive_state isnt '767px'
+        $('.tw-navbar-collapse').collapse('show')
+    return
+
 
 Template.primaryNav.events
-    'click a': evtNavigate
+    'click a': (evt) ->
+        evtNavigate(evt)
+        rstate = responsive_state()
+        if rstate is '767px'
+            $('.tw-navbar-collapse').collapse('hide')
+        
+        
    
 Template.banner.events
     'click a': evtNavigate
 
-# Template.beers.rendered = () ->
-#     $('.lightbox').fancybox();
-
 
 Template.beers.events
-#     'click a': (evt) ->
-#         evt.preventDefault()
-
     'click #beerTabs > li' : (evt) ->
         $el = $(evt.currentTarget)
         Session.set( 'activeTab' , $el.attr('id'))
@@ -60,6 +70,11 @@ Template.news.events
 Template.lower.events
     'click a': evtNavigate
 
+Template.lower.created = ->
+    if typeof twttr isnt "undefined"
+        setTimeout (->
+            twttr.widgets.load()
+        ), 0
 
 ## Nav
 
@@ -71,7 +86,8 @@ EntryRouter = Backbone.Router.extend({
     routes: {
         "search/:term": "search",
         "beers": "beers",
-        "store" : "store"
+        "store" : "store",
+        "contact" : "contact",
         "beers/:beer": "beer",
         ":title": "main",
         "": "home"
@@ -88,6 +104,10 @@ EntryRouter = Backbone.Router.extend({
         Session.set( 'mode', 'store' )
         Session.set( 'space', 'main' )
         Session.set( 'title', 'store' )
+    contact: () ->
+        Session.set( 'mode', 'contact' )
+        Session.set( 'space', 'main' )
+        Session.set( 'title', 'contact' )
     beer: (beer) ->
         Session.set( 'mode', 'beer' )
         Session.set( 'space', 'beers' )
@@ -109,53 +129,10 @@ Router = new EntryRouter
 Meteor.startup ->
     Backbone.history.start pushState: true
     Session.set('activeTab', 'short-circuitTab')
-
-# Template.leftNav.term = -> 
-#     Session.get( 'search-term' )
-
-# ## GK - Use version of this to highlight select beer badge
-# Template.leftNav.pageIs = (u) ->
-#     page = Session.get('title')
-#     return u == "/" if page == undefined
-#     return u == page
-
-
-
-
-
-## Entry
-
-# Template.entry.title = ->
-#     Session.get("title")
-
-# Template.entry.entryLoaded = ->
-#     Session.get("entryLoaded")
-
-# Template.entry.editable = ->
-#     entry = Session.get('entry')
-#     context = Session.get("context")
-#     user  = Meteor.user()
-#     editable( entry, user, context )
-
-
-# Template.entry.adminable = ->
-#     user  = Meteor.user()
-#     adminable( user, context )
-
-# Template.entry.modeIs = (v) ->
-#     return v == Session.get('entry').mode
-
-# Template.entry.entryLoaded = ->
-#     Session.get('entryLoaded')
-
-
-# Template.main.modeIs = (mode) ->
-#     Session.get('mode') == mode;
-
-# Template.main.loginConfigured = () ->
-#     if Accounts.loginServicesConfigured()
-#         return true;
-#     else
-#         return false;
-
-
+    rstate = responsive_state()
+    if rstate isnt '767px'
+        $('.tw-navbar-collapse').collapse('show')
+    $(window).resize (evt) ->
+        responsive_state = @.responsive_state()
+        if responsive_state isnt '767px'
+            $('.tw-navbar-collapse').collapse('show')

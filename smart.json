@@ -1,7 +1,8 @@
 {
   "packages": {
     "scss": {},
-    "pirobox": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "lightbox2": {},
+    "toastjs": {}
   }
 }

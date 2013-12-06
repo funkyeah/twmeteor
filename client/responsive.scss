@@ -1,0 +1,44 @@
+.responsive-state {
+    display:none;
+    width: 10000px;
+}
+
+@media (max-width: 767px) {
+
+    .responsive-state {
+        width: 767px;
+    }
+
+    .hidden-xs {
+        display: none !important;
+    }
+    tr.hidden-xs {
+        display: none !important;
+    }
+    th.hidden-xs,
+    td.hidden-xs {
+        display: none !important;
+    }
+    header .hdr-btn {
+        margin-right: 75px;
+    }
+    .navbar-header .navbar-toggle {
+        margin-top: 7px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .responsive-state {
+        width: 979px;
+    }
+    .tabs-left {
+        text-align: left;
+    }
+}
+
+@media (min-width: 980px) {
+    .responsive-state {
+        width: 980px;
+    }
+}
+

@@ -1,0 +1,387 @@
+<template name ="beers">
+    <div id="content" class="container">
+        <div class="col-sm-offset-1 col-md-offset-1 col-md-12 beers">
+            <div class="tabbable tabs-left">
+                <ul id="beerTabs" class="col-md-2 nav nav-tabs">
+
+                    <li id="short-circuitTab" class="{{#if isActiveTab 'short-circuitTab'}} active {{/if}}">
+                        <a class='tabButton'>Short Circuit</a>
+                    </li>
+
+                    <li id="flip-switchTab" class="{{#if isActiveTab 'flip-switchTab'}} active {{/if}}">
+                        <a class='tabButton'>Flip-Switch</a>
+                    </li>
+
+                    <li id="wheatstoneTab" class="{{#if isActiveTab 'wheatstoneTab'}} active {{/if}}">
+                        <a class='tabButton'>Wheatstone</a>
+                    </li>
+
+                    <li id="schottkyTab" class="{{#if isActiveTab 'schottkyTab'}} active {{/if}}">
+                        <a class='tabButton'>Schottky</a>
+                    </li>
+
+                    <li id="ampereTab" class="{{#if isActiveTab 'ampereTab'}} active {{/if}}">
+                        <a class='tabButton'>Ampere</a>
+                    </li>
+                </ul>
+
+                <div id="beerpane" class="tab-content">   
+                    
+                    <div class="tab-pane {{#if isActiveTab 'short-circuitTab'}} active {{/if}}">
+                        <div>
+                            <div id="mid" class="col-md-6 short-circuit">
+                                <h1>Short Circuit Stout</h1>
+                                <p>
+                                    Short Circuit Stout is a full-bodied and roasty stout with a
+                                    lingering sweet aftertaste. It uses 5 different malts to create a
+                                    variety of flavors that change in the course of taking a sip. It
+                                    falls into the13B Sweet Stout style category as identified by the
+                                    Beer Judge Certification Program (BJCP).
+                                </p>
+
+                                <h2>What's With the Name?</h2>
+                                <p>
+                                    By definition, a short circuit is an abnormal connection between
+                                    two nodes of an electric circuit, often resulting in overheating,
+                                    fire or even explosion. To the Tin Whiskers crew, this is a great
+                                    way to describe the crossover of the distinct roasted flavors from
+                                    the malts and the sweet aftertaste from the unfermentable lactose
+                                    added during the boil. If you really want to blow your mind, try
+                                    it served over vanilla ice cream for a beer float!
+                                </p>
+
+                                <h2>How's it Made?</h2>
+                                <p>
+                                    <a href="/assets/lightbox-short-circuit.jpg" data-lightbox="ampere" title="#lightbox">
+                                        <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                                    </a>
+   
+                                <h2>Trivia</h2>
+                                <p>
+                                    The 1986 comedy science fiction film, Short Circuit, grossed
+                                    $5,346,808 it's opening weekend, earning a total of $40,697,761 in
+                                    the US Box Office.
+                                </p>
+                            </div>
+                            <div id="right" class="col-md-3 short-circuit">
+                                <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+                                <div id="bjcp">
+                                    <span class="ostrich">BJCP:</span>
+                                    Sweet Stout, Style 13B
+                                </div>
+                                <div id="recipe">
+                                    <h2>Short Circuit Stout Recipe</h2>
+                                    <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                                    <h3>Mash Ingredients</h3>
+                                    Pale Malt Maris Otter 2row 3srm<br/>
+                                    Chocolate Malt 350srm<br/>
+                                    Malted Oats 1srm<br/>
+                                    Crystal 120 120srm<br/>
+                                    Flaked Barley 1.7srm<br/>
+                                    Roasted Barley 300srm<br/>
+                                    Black Malt 500srm
+
+                                    <h3>Mash Temp</h3>
+                                    155&deg;F for 60min
+
+                                    <h3>Boil Ingredients</h3>
+                                    60min - Cluster 7%A<br/>
+                                    30min - Lactose<br/>
+                                    1min - East Kent Goldings 5%A<br/>
+                                    <br/>
+                                    OG 1.066<br/>
+                                    FG 1.024<br/>
+                                    Est. 5.3%ABV<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="tab-pane {{#if isActiveTab 'flip-switchTab'}} active {{/if}}">
+
+                       <div id="mid" class="col-md-6 flip-switch">
+                            <h1>Flip Switch IPA</h1>
+                            <p>
+                                Flip Switch IPA is a hoppy American pale ale with a slight citrus
+                                aroma. It features a variety of American hops, with just the right
+                                amount of bitterness to match the malty base. It falls into the14B
+                                American IPA style category as identified by the Beer Judge
+                                Certification Program (BJCP)
+                            </p>
+
+                            <h2>What's With the Name?</h2>
+                            <p>
+                                A flip switch is a mechanism actuating the transition between open
+                                and closed states of an electrical circuit. Probably the most
+                                common example is a light switch. You know that intense bright
+                                light you get when you flip on a good old fashioned light bulb?
+                                The kind that almost blinds you until your eyes have a second to
+                                adjust? Well the bold hop flavor you experience in the first sip
+                                of a Flip Switch is kind of like that, without the blindness of
+                                course.
+                            </p>
+
+                            <h2>How's it Made?</h2>
+                            <p>
+                                <a href="/assets/lightbox-flip-switch.jpg" data-lightbox="flip-switch">
+                                    <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                                </a>
+                            </p>
+
+                            <h2>Trivia</h2>
+                            <p>
+                                In countries prone to earthquakes, such as Japan, most light
+                                switches are positioned sideways to prevent the switch from
+                                inadvertently being turned on or off by falling objects
+                            </p>
+                        </div>
+
+                        <div id="right" class="col-md-3 flip-switch">
+                            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+                            <div id="bjcp">
+                                <span class="ostrich">BJCP:</span>
+                                American IPA, Style 14B
+                            </div>
+
+                            <div id="recipe">
+                                <h2>Flip Switch IPA Recipe</h2>
+                                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                                <h3>Mash Ingredients</h3>
+                                Pale Malt 2row 2srm <br/>
+                                Caramel/Crystal 20 20srm<br/>
+                                Dextrine Malt 2srm<br/>
+
+                                <h3>Mash Temp</h3>
+                                154&deg;F for 60min
+
+                                <h3>Boil Ingredients</h3>
+                                60min - Chinook 11.4%A<br/>
+                                20min - Warrior 16.8%A<br/>
+                                10min - Centennial 10%A<br/>
+                                1min - Citra 11%A<br/>
+
+                                <h3>Dry Hop</h3>
+                                Citra 11%A<br/>
+                                Warrior 16.8%A<br/>
+                                <br/>
+                                OG 1.066<br/>
+                                FG 1.020<br/>
+                                Est. 6.1%ABV<br/>
+                            </div>
+                        </div>
+
+                    </div> 
+
+                    <div class="tab-pane {{#if isActiveTab 'wheatstoneTab'}} active {{/if}}">
+                        <div id="mid" class="col-md-6 wheatstone">
+                            <h1>Wheatstone Bridge</h1>
+                            <p>
+                                Wheatstone Bridge is a light and refreshing wheat beer with
+                                distinct flavors of honey and chamomile tea. Made by adding
+                                Minnesota honey to an American malted wheat base, the final step
+                                involves steeping chamomile tea. It falls into the 6D American
+                                Wheat style category as identified by the Beer Judge Certification
+                                Program (BJCP).
+                            </p>
+
+                            <h2>What's With the Name?</h2>
+                            <p>
+                                Invented by Samuel Hunter Christie in 1833 and improved and
+                                popularized by Sir Charles Wheatstone in 1843, a Wheatstone bridge
+                                is an electrical circuit used to measure an unknown electrical
+                                resistance by balancing two legs of a bridge circuit, one leg of
+                                which includes the unknown component. But don't over think this
+                                one, instead picture Sir Charles Wheatstone basking in the sun,
+                                drinking a beer and enjoying the fame and popularity that
+                                undoubtedly comes with popularizing someone else's invention.
+                            </p>
+
+                            <h2>How's it Made?</h2>
+                            <p>
+                                <a href="/assets/lightbox-wheatstone.jpg" data-lightbox="wheatstone">
+                                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                                </a>
+                            </p>
+
+                            <h2>Trivia</h2>
+                            <p>
+                                While performing experiments in electricity as a teenager,
+                                Wheatsone ran short of the money he needed to buy copper-plates
+                                for building a battery. While looking at the few copper pennies he
+                                had left, a thought occurred, 'We must use the pennies
+                                themselves,' he said, and the battery was soon complete.
+                            </p>
+                        </div>
+
+                       <div id="right" class="col-md-3 wheatstone">
+                            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+                            <div id="bjcp">
+                                <span class="ostrich">BJCP:</span>
+                                American Style Wheat or Rye, Style 6D
+                            </div>
+                            <div id="recipe">
+                                <h2>Wheatstone Bridge Recipe</h2>
+                                <!-- <em>70% Efficiency, 15 gallons</em> -->
+
+                                <h3>Mash Ingredients</h3>
+                                14.3% Rice Hulls<br/>
+                                34.3% Pale Malt 2row 6srm<br/>
+                                34.3% Wheat Malt 2srm<br/>
+
+                                <h3>Mash Temp</h3>
+                                152&deg;F for 60min
+
+                                <h3>Boil Ingredients</h3>
+                                60min - Vanguard 5.5%A 12.9IBU<br/>
+                                0min - 17.1% Honey, 6oz Chamomile<br/>
+
+                                <br/>
+                                OG 1.054<br/>
+                                FG 1.005<br/>
+                                Est 6.3%ABV<br/>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="tab-pane {{#if isActiveTab 'schottkyTab'}} active {{/if}}">
+                        <div id="mid" class="col-md-6 schottky">
+                            <h1>Schottky Pumpkin Ale</h1>
+                            <p>
+                                Schottky Pumpkin Ale is an amber ale with a sweet pumpkin flavor.
+                                Made with actual roasted
+                                pumpkin and generous amounts of pumpkin pie spice, it is a great
+                                beer to enhance any fall meal. It falls into the 21A Spice, Herb,
+                                or Vegetable Beer category as identified by the Beer Judge
+                                Certification Program (BJCP).
+                            </p>
+
+                            <h2>What's With the Name?</h2>
+                            <p>
+                                This beer is an homage to German physicist Walter H. Schottky
+                                (1888-1976) who played a major role in developing the theory of
+                                electron and ion emission phenomena. The shape you see carved into
+                                the pumpkin on our beer labels is actually the sign for the
+                                Schottky diode, which is a semiconductor diode with a low forward
+                                voltage drop and a very fast switching action.
+                            </p>
+
+                            <h2>How's it Made?</h2>
+                            <p>
+                                <a href="/assets/lightbox-schottky.jpg" data-lightbox="schottky">
+                                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                                </a>
+                            </p>
+
+                            <h2>Trivia</h2>
+                            <p>
+                                Schottky died on March 4, 1976 at the age of 90. His death came
+                                just two years after his former employer, Siemens, had begun
+                                commercially manufacturing Schottky diodes for microwave use.
+                            </p>
+                        </div>
+
+                        <div id="right" class="col-md-3 schottky">
+                            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+                            <div id="bjcp">
+                                <span class="ostrich">BJCP:</span>
+                                Spice, Herb, or Vegetable Beer, Style 21
+                            </div>
+                            <div id="recipe">
+                                <h2>Schottky Pumpkin Recipe</h2>
+                                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                                <h3>Mash Ingredients</h3>
+                                Pale Malt Maris Otther 2row 3srm<br/>
+                                Pumpkin, canned, roasted<br/>
+                                Victory Malt 25srm<br/>
+                                Munich Malt 20srm<br/>
+                                Crystal 60 60srm<br/>
+                                Crystal 80 80srm<br/>
+
+                                <h3>Mash Temp</h3>
+                                156&deg;F for 60min
+
+                                <h3>Boil Ingredients</h3>
+                                60min - Cluster 7aa<br/>
+                                0min - Pumpkin pie spices<br/>
+
+                                <br/>
+                                OG 13.6p<br/>
+                                FG 3.5p<br/>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="tab-pane {{#if isActiveTab 'ampereTab'}} active {{/if}}">
+                        <div id="mid" class="col-md-6 ampere">
+                            <h1>Ampere Biere</h1>
+                            <p>
+                                Ampere Biere is a light-bodied Bière de Garde style French ale
+                                with just the right amount of malty sweetness. It's a smooth and
+                                refreshing beer to drink year round. It falls into the 16D Bière
+                                de Garde category as identified by the Beer Judge Certification
+                                Program (BJCP).
+                            </p>
+
+                            <h2>What's With the Name?</h2>
+                            <p>
+                                An ampere (or amp) is a unit of electric current named after
+                                French mathematician and physicist André-Marie Ampère
+                                (1775–1836). In addition to being the father of electrodynamics,
+                                Ampère was an all around solid guy, described as having "great
+                                amiability and childlike simplicity of character." You could use
+                                these same exact words to describe our solid, year-round Ampere
+                                Biere.
+                            </p>
+
+                            <h2>How's it Made?</h2>
+                            <p>
+                                <a href="/assets/lightbox-ampere.jpg" data-lightbox="ampere">
+                                <img src="/assets/view-the-brew-diagram.jpg" alt="View the Brew Diagram" />
+                                </a>
+                            </p>
+
+                            <h2>Trivia</h2>
+                            <p>
+                                Andre Marie Ampere was dogged by bad luck. His father, for
+                                example, was guillotined during the French Revolution and his wife
+                                died shortly after their marriage. On his deathbed in 1836, he
+                                ordered that an inscription be placed upon his tombstone: Tandem
+                                Felix (Happy at Last).
+                            </p>
+                        </div>
+
+                        <div id="right" class="col-md-3 ampere">
+                            <img src="/assets/sidebar-short-circuit-stout.jpg" alt="Short Circuit Stout" />
+                            <div id="bjcp">
+                                <span class="ostrich">BJCP:</span>
+                                Biere de Garde, Style 16D
+                            </div>
+                            <div id="recipe">
+                                <h2>Ampere Biere Recipe</h2>
+                                <!-- <em>60% Efficiency, 15 gallons</em> -->
+
+                                <h3>Mash Ingredients</h3>
+                                Pilsner 2row<br/>
+                                Vienna Malt 3.5srm<br/>
+                                Aromatic Malt 26srm<br/>
+                                Honey Malt 25srm<br/>
+
+                                <h3>Mash Temp</h3>
+                                151&deg;F for 75min
+
+                                <h3>Boil Ingredients</h3>
+                                60min - Styrian Goldings 5.4aa<br/>
+                                <br/>
+                                OG 1.069<br/>
+                                FG 1.020<br/>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

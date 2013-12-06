@@ -55,22 +55,6 @@ div {
 	// }
 }
 
-
-
-@media (max-width: 767px) {
-  .hidden-xs {
-    display: none !important;
-  }
-  tr.hidden-xs {
-    display: none !important;
-  }
-  th.hidden-xs,
-  td.hidden-xs {
-    display: none !important;
-  }
-}
-
-
 @font-face {
     font-family: 'OstrichSansBlack';
     src: url('/assets/fonts/ostrich_black-webfont.eot');
@@ -147,9 +131,9 @@ div {
 
 body {
 	background-color: white;
-	text-align: center;
-	font-size: 0;
-	color: white;
+	// text-align: center;
+	// font-size: 0;
+	// color: white;
 	font-family: "Helvetica", Arial, sans-serif;
 	line-height: normal;
 	padding-top: 50px;
@@ -169,10 +153,8 @@ header {
 		
 		font-size: 16px;
 		font-family: 'OstrichSansBlack', sans-serif;
-		text-shadow: 1px 1px 1px #666;
-		a {
-			color: white !important;
-		}
+		color: #4f4d4d;
+
 
 	}
 }
@@ -187,6 +169,9 @@ header {
 
 	vertical-align: middle;
 	text-align: center;
+	ul {
+		list-style: none;
+	}
 	.navtext {
 		padding-top: 40px;
 	}
@@ -229,36 +214,6 @@ img.center {
 }
 
 #banner {
-	// background: url("/assets/banner-short-circuit-stout-temp.jpg") 50% 0 no-repeat, url("/assets/background-granite.png") repeat-x;
-	// min-width: $min-site-width;
-	// text-align: center;
-	// height: 433px;
-
-
-	// #cell {
-	// 	display: inline-block;
-	// 	background-image: url( "/assets/banner-short-circuit-stout-temp.jpg" );
-	// 	/* background-image: url( "/assets/banner-short-circuit-stout.jpg" ); */
-	// 	background-repeat: no-repeat;
-	// 	background-position: right;
-	// 	text-align: left;
-
-	// 	#text {
-
-	// 		height: 433px;
-	// 		padding-top: 100px;
-	// 		padding-left: col-width( 1 );
-
-	// 		h1 {
-	// 			font-family: 'OstrichSansMedium', sans-serif;
-	// 			font-size: 86px;
-	// 			font-weight: normal;
-	// 			color: white;
-	// 			letter-spacing: -1px;
-	// 		}
-	// 	}
-	// }
-
 	.banner-link-image {
 		position: relative;
 	}
@@ -399,6 +354,7 @@ img.center {
 			}
 
 			&:first-child {
+				border-top: none;
 				border-top-left-radius: 3px;
 				border-top-right-radius: 3px;
 			}
@@ -406,15 +362,8 @@ img.center {
 			&:last-child {
 				border-bottom-left-radius: 3px;
 				border-bottom-right-radius: 3px;
-			}
-
-			&:first-child {
-				border-top: none;
-			}
-
-			&:last-child {
 				border-bottom: none;
-				height: 75px;
+				padding-bottom: 10px;
 			}
 
 
@@ -493,7 +442,7 @@ img.center {
 	background: none;
 	background-color: white;
 	padding: 65px 0 85px 0;
-	font-size: 0;
+	// font-size: 0;
 
 	// background-image: url( '/assets/border-end.png' ), url( '/assets/border-bottom.png' ), url( '/assets/border.png' );
 	// background-position: 605px 66px, 605px bottom, 605px 66px;
@@ -916,5 +865,36 @@ img.center {
 	.nav > li > a:focus {
 		background-color: transparent;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 432px;
+  background-color:#bbb;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 432px;
 }
 	

@@ -3,34 +3,30 @@
   "dependencies": {
     "basePackages": {
       "scss": {},
-      "pirobox": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "lightbox2": {},
+      "toastjs": {}
     },
     "packages": {
       "scss": {
         "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.6.4.1",
-        "commit": "bf203edb83565943cc0c00a31d536de7094f312b"
-      },
-      "pirobox": {
-        "git": "https://github.com/kenyee/meteor-pirobox.git",
-        "tag": "v1.3.2",
-        "commit": "6bf953b1b698314deaf37c82f66201f362b5d9ab"
+        "tag": "v0.7.0",
+        "commit": "39f60d58c2b890bdd897ef52188644f3093fc2ac"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v0.3.3",
-        "commit": "bbb5b5eb3e36aff6a740889a965c8bdb8586ef14"
+        "tag": "v0.3.6",
+        "commit": "711dbcabe333c8714298b2fd1de97fdcdae6efa7"
       },
-      "jquery-ui": {
-        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
-        "tag": "v1.9.2",
-        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
+      "lightbox2": {
+        "git": "https://github.com/wulx/meteor-lightbox2.git",
+        "tag": "v0.0.1",
+        "commit": "2ddc8f33e47d0790a1ee28177feb9a1f3dabda00"
       },
-      "jquery-easing": {
-        "git": "https://github.com/kenyee/meteor-jquery-easing.git",
-        "tag": "v1.3.0",
-        "commit": "556cf106f23692d78e5c92aa8a3bc99cf24bbd49"
+      "toastjs": {
+        "git": "https://github.com/srackham/toast.js.git",
+        "tag": "v2.0.6",
+        "commit": "a81915d9df2f432486ac6ce8d6981419119e7007"
       }
     }
   }
