@@ -25,6 +25,17 @@
     .navbar-header .navbar-toggle {
         margin-top: 7px;
     }
+    #banner_carousel.carousel .item {
+ 		height: 290px;
+	}
+    #banner_carousel .carousel-caption h1 {
+		font-size: 36px;
+	}
+	#banner_carousel .carousel-caption {
+ 		z-index: 10;
+  		bottom: 15px;
+	}
+
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -34,6 +45,9 @@
     .tabs-left {
         text-align: left;
     }
+    #banner_carousel .carousel-caption h1 {
+		font-size: 66px;
+	}
 }
 
 @media (min-width: 980px) {
@@ -42,3 +56,9 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+.carousel-caption {
+	right: 10%;
+	left: 10%;
+	}
+}
