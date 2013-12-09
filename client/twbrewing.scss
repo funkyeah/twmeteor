@@ -9,20 +9,11 @@ $sidebar-color: #ecd7ac;
 $sidebar-background-color: #686765;
 $robot-grey: #4F4D4D;
 
-@mixin OSansBoldwHover($sizeOfFont) {
-	font-weight: normal;
-	text-shadow: 0px 1px 1px white;
-	font-size: $sizeOfFont;
-	font-family: 'OstrichSansBold', sans-serif;
-	letter-spacing: 2px;
-	color: #8f1720;
-	padding-bottom: 13px;
 
-	&:hover  {
-		color: #2e2c2c;
-	}
-
-}
+// $nav-big-font-shadow: black; //was white
+// $nav-little-font-shadow: black; //was white
+// $nav-background-color: #212121; // was background image
+// $header-background-color: #212121; // was background image
 
 // Start custom styles
 
@@ -38,21 +29,6 @@ div.clear {
 
 .hidden {
 	display: none;
-}
-
-
-div {
-	/* display: inline-block; */
-}
-
-@mixin horizontal-nav {
-	// ul {
-	// 	// display: inline-block;
-	// 	li {
-	// 		list-style: none;
-	// 		// display: inline-block;
-	// 	}
-	// }
 }
 
 @font-face {
@@ -128,7 +104,72 @@ div {
 
 }
 
+////////////////////////////////////////////////
+// @ MIXINS
+/////////////////////////////////////////////////
+@mixin OSansBoldwHover($sizeOfLargeFont, $sizeOfSmallFont, $theme: 'dark') {
+	.big {
+		font-weight: normal;
+		font-size: $sizeOfLargeFont;
+		font-family: 'OstrichSansBold', sans-serif;
+		letter-spacing: 2px;
+		color: #8f1720;
+		padding-bottom: 13px;
+		@if $theme == 'bright' {
+			text-shadow: 0px 1px 1px white;
+		}
+		@else {
+			text-shadow: 0px 1px 1px black;
+		}
 
+		&:hover  {
+			color: #2e2c2c;
+		}
+	}
+	.selected .big  {
+		color: #2e2c2c;
+	}
+
+	.little {
+		font-weight: normal;
+		font-size: $sizeOfSmallFont;
+		font-family: 'OstrichSansBlack', sans-serif;
+		color: #74685c;
+		background-image: url( '/assets/nav-underline.png' );
+		background-position: bottom center;
+		background-repeat: no-repeat;
+		padding-bottom: 20px;
+		@if $theme == 'bright' {
+			text-shadow: 0px 1px 1px white;
+		}
+		@else {
+			text-shadow: 0px 1px 1px black;
+		}
+	}
+}
+
+@mixin fixedHdrBtn($theme: 'dark') {
+	.hdr-btn {
+		margin-top: 5px;
+		margin-left: 10px;
+		font-family: 'OstrichSansBlack', sans-serif;
+		@if $theme == 'bright' {
+			background-image: url("/assets/background-sand.png");
+			background-repeat: repeat-x;
+			color: #4f4d4d;
+			font-size: 16px;
+		}
+		@else {
+			color: white;
+			font-size: 20px;
+
+		}
+	}
+}
+
+/////////////////////////////////
+// Body
+/////////////////////////////////
 body {
 	background-color: white;
 	text-align: center;
@@ -140,33 +181,33 @@ body {
 }
 
 
+/////////////////////////////////
+// Header 
+/////////////////////////////////
+
 header {
-	background-image: url( "/assets/background-slate.png" ) !important;
-	// min-width: $min-site-width;
 	height: 45px;
+}
 
-	.hdr-btn{
-		margin-top: 5px;
-		margin-left: 10px;
-		background-image: url("/assets/background-sand.png");
-		background-repeat: repeat-x;
-		
-		font-size: 16px;
-		font-family: 'OstrichSansBlack', sans-serif;
-		color: #4f4d4d;
-
-
+.theme-dark {
+	header {
+		background-color: #212121;
+		@include fixedHdrBtn('dark');
 	}
 }
 
+.theme-bright {
+	header {
+		background-image: url( "/assets/background-slate.png" ) !important;
+		background-repeat: repeat-x;
+		@include fixedHdrBtn('bright');
+	}
+}
+
+/////////////////////////////////
+// Primary Nav
+/////////////////////////////////
 #primaryNav {
-	background-image: url( "/assets/background-sand.png" );
-	// min-width: $min-site-width;
-
-	// @include horizontal-nav;
-	padding: 12px 0 12px;
-	background-repeat: repeat;
-
 	vertical-align: middle;
 	text-align: center;
 	ul {
@@ -174,28 +215,30 @@ header {
 	}
 	.navtext {
 		padding-top: 40px;
-	}
-	.big {
-		@include OSansBoldwHover(50px); //pass fontsize
-	}
-
-	.selected .big  {
-		color: #2e2c2c;
-	}
-
-	.little {
-		font-weight: normal;
-		text-shadow: 0px 1px 1px white;
-		font-size: 20px;
-		font-family: 'OstrichSansBlack', sans-serif;
-		color: #74685c;
-		background-image: url( '/assets/nav-underline.png' );
-		background-position: bottom center;
-		background-repeat: no-repeat;
-		padding-bottom: 20px;
+		padding-bottom: 31px;
 	}
 }
 
+.theme-dark {
+	#primaryNav {
+		background-color: #212121;
+		padding: 0px 0px 12px 0px;
+		@include OSansBoldwHover(50px, 20px, 'dark'); //pass fontsize
+		
+	}
+}
+
+.theme-bright {
+	#primaryNav {
+		background-image: url( "/assets/background-sand.png" );
+		padding: 12px 0 12px;
+		@include OSansBoldwHover(50px, 20px, 'bright'); //pass fontsize
+	}
+}
+
+/////////////////////////////////
+// Banners
+/////////////////////////////////
 .banner_lr_fill {
 	padding-left: 0;
 	padding-right: 0;
@@ -806,10 +849,24 @@ img.center {
 		box-shadow: none;
 	}
 
-	.navbar-brand {
-		@include OSansBoldwHover(42px); 
+	
+	.theme-dark {
+		.navbar-brand {
+			@include OSansBoldwHover(42px, 20px, 'dark');
+		}
+		#primaryNav {
+			@include OSansBoldwHover(32px, 20px, 'dark'); 
+		}
 	}
-
+	.theme-bright {
+		.navbar-brand {
+			@include OSansBoldwHover(42px, 20px, 'bright');
+		}
+		#primaryNav {
+			@include OSansBoldwHover(32px, 20px, 'bright'); 
+		}
+	}
+		
 	#primaryNav {
 		border: none;
 		.navbar-nav {
@@ -817,9 +874,8 @@ img.center {
 		}
 		.navtext {
 			padding-top: 10px;
+			padding-bottom: 0px;
 			text-align: left;
-			
-
 		}
 		.navtext:hover {
 			// background-color: grey;
@@ -828,15 +884,13 @@ img.center {
 		}
 
 		.big {
-			@include OSansBoldwHover(32px); 
 			display: inline-block;
 			padding-right: 10px;
 		}
 		.little {
-			font-size: 18px;
 			display: inline-block;
 			vertical-align: middle;
-			background-image: none;
+			background-image: none !important;
 		}
 
 		#nav-where {
@@ -896,11 +950,12 @@ img.center {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
+  bottom: 75px;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 432px;
+  height: 430px;
   background-color:#bbb;
 }
 .carousel img {

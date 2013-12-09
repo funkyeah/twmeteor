@@ -67,8 +67,13 @@ Template.beers.events
 Template.news.events
     'click a': evtNavigate
 
+Template.news.posts = ->
+    'click a': evtNavigate
+
 Template.lower.events
     'click a': evtNavigate
+
+
 
 Template.lower.created = ->
     if typeof twttr isnt "undefined"
@@ -136,3 +141,4 @@ Meteor.startup ->
         responsive_state = @.responsive_state()
         if responsive_state isnt '767px'
             $('.tw-navbar-collapse').collapse('show')
+    $('body').addClass("theme-dark");
