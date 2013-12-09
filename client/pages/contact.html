@@ -1,7 +1,13 @@
 <template name="contact">
 <div class="container">
     <div id="content" class="col-md-6 contact">
-
+        <h1>Contact Us</h1>
+        <p>
+            Through the magic of the interwebs, you can use this form to send us an email. Give us your name (or whatever you want us to call you), your email, and your message.
+        </p>
+        <p>
+            The select box is optional but helps us sort. Compliments go to George, complaints to Jeff, and it goes to Jake if you have no emotion.
+        </p> 
         <form role="form">
             <div class="form-group">
                 <label for="contact-name-input">Name</label>
@@ -14,6 +20,13 @@
             <div class="form-group">
                 <label for="contact-msg-input">Message</label>
                 <textarea id="contact-msg-input" class="form-control" placeholder="Your message to us" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <select class="form-control">
+                  <option>It's a happy email.</option>
+                  <option>It's an angry email.</option>
+                  <option>I am a robot, I have no emotions.</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-block btn-success btn-default">Submit</button>
         </form>

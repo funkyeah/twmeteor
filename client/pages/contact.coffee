@@ -3,7 +3,7 @@ Template.contact.events
         evt.preventDefault()
         fromName  = $('#contact-name-input').val() 
         fromEmail = $('#contact-email-input').val() 
-        msg       = $('#contact-msg-input').val() 
+        msg       = $('#contact-msg-input').val()
         if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
             Meteor.call 'sendMessage', fromName, fromEmail, msg, (error, response) ->
                 if error

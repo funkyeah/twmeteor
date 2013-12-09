@@ -438,6 +438,19 @@ img.center {
 }
 
 #content {
+	text-align: left;
+	h1 {
+		color: $headline-color;
+		font-family: "OstrichSansMedium";
+		font-weight: normal;
+		font-size: 49px;
+		padding-bottom: 23px;
+		padding-top: 60px;
+
+		&:first-child {
+			padding-top: 0px;
+		}
+	}
 
 	background: none;
 	background-color: white;
@@ -461,7 +474,7 @@ img.center {
 	p {
 		padding-bottom: 1.5em;
 		line-height: 2em;
-
+		font-size: $font-size;
 		a {
 			// color: $headline-color;
 		}
