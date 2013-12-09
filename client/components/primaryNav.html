@@ -17,9 +17,15 @@
                 </li>
                 <li class="col-sm-4 hidden-xs">
                     <div id="logo-cog" class="text-center">
-                        <a href="/">
-                            <img src="/assets/logo-cog.png" alt="Tin Whiskers Brewing">
-                        </a>
+                        {{#if lighttheme}}
+                            <a href="/">
+                                <img src="/assets/logo-cog.png" alt="Tin Whiskers Brewing">
+                            </a>
+                        {{else}}
+                            <a href="/">
+                                <img src="/assets/logo-badge.png" alt="Tin Whiskers Brewing">
+                            </a>
+                        {{/if}}
                     </div>
                 </li>
                 <li class="col-sm-2 navtext">
