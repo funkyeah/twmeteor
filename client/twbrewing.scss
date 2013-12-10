@@ -215,7 +215,10 @@ header {
 	}
 	.navtext {
 		padding-top: 40px;
+		padding-left: 20px;
 		padding-bottom: 31px;
+		position: relative;
+		display: block;
 	}
 }
 
@@ -867,7 +870,7 @@ img.center {
 		.navtext:hover {
 			// background-color: grey;
 			// opacity: 0.2;
-			background: rgba(54, 25, 25, .3);
+			background: rgba(163, 14, 14, .3);
 		}
 
 		.big {

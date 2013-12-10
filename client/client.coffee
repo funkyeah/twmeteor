@@ -58,6 +58,9 @@ Template.primaryNav.events
 Template.banner.events
     'click a': evtNavigate
 
+Template.banner_carousel.events
+    'click a.btn': evtNavigate
+
 
 Template.beers.events
     'click #beerTabs > li' : (evt) ->
