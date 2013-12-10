@@ -215,7 +215,6 @@ header {
 	}
 	.navtext {
 		padding-top: 40px;
-		padding-left: 20px;
 		padding-bottom: 31px;
 		position: relative;
 		display: block;
@@ -325,7 +324,7 @@ img.center {
 	h2 {
 		font-weight: normal;
 		text-shadow: 0px 1px 1px white;
-		font-size: 25px;
+		font-size: 27px;
 		font-family: 'OstrichSansBlack', sans-serif;
 		color: #918f8b;
 		padding-bottom: 24px;
@@ -648,7 +647,6 @@ img.center {
 
 			.ostrich {
 				font-family: 'OstrichSansBlack';
-				font-weight: bold;
 			}
 		}
 
@@ -863,6 +861,7 @@ img.center {
 			padding-right: 0px;
 		}
 		.navtext {
+			padding-left: 20px;
 			padding-top: 10px;
 			padding-bottom: 0px;
 			text-align: left;

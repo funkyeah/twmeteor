@@ -45,15 +45,27 @@ Template.primaryNav.resizeHelper = ->
         $('.tw-navbar-collapse').collapse('show')
     return
 
+Template.primaryNav.themeBright = ->
+    return Session.get 'themeBright'
+
 
 Template.primaryNav.events
-    'click a': (evt) ->
+    'click a.navtext': (evt) ->
         evtNavigate(evt)
         rstate = responsive_state()
         if rstate is '767px'
             $('.tw-navbar-collapse').collapse('hide')
         
-        
+    'click #logo-cog a': (evt) ->
+        evt.preventDefault()
+        $('body').toggleClass('theme-dark')
+        $('body').toggleClass('theme-bright')
+        Session.set('themeBright' , !Session.get('themeBright'))
+
+Template.primaryNav.rendered = ->
+    rstate = responsive_state()
+    if rstate isnt '767px'
+        $('.tw-navbar-collapse').collapse('show')
    
 Template.banner.events
     'click a': evtNavigate
@@ -137,11 +149,9 @@ Router = new EntryRouter
 Meteor.startup ->
     Backbone.history.start pushState: true
     Session.set('activeTab', 'short-circuitTab')
-    rstate = responsive_state()
-    if rstate isnt '767px'
-        $('.tw-navbar-collapse').collapse('show')
     $(window).resize (evt) ->
         responsive_state = @.responsive_state()
         if responsive_state isnt '767px'
             $('.tw-navbar-collapse').collapse('show')
-    $('body').addClass("theme-dark");
+    $('body').addClass('theme-dark');
+    Session.set('themeBright', false)
