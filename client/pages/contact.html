@@ -28,7 +28,11 @@
                   <option>I am a robot, I have no emotions.</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-block btn-success btn-default">Submit</button>
+            {{#if sendingEmail}}
+                <button type="submit" class="btn btn-block btn-success btn-default" disabled="disabled">Sending</button>
+            {{else}}
+                <button type="submit" class="btn btn-block btn-success btn-default">Submit</button>
+            {{/if}}
         </form>
     </div>
 

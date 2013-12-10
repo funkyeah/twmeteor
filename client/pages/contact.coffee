@@ -1,16 +1,19 @@
 Template.contact.events
     'click button[type=submit]': (evt) ->
+        Session.set('sendingEmail', true)
         evt.preventDefault()
         fromName  = $('#contact-name-input').val() 
         fromEmail = $('#contact-email-input').val() 
         msg       = $('#contact-msg-input').val()
         if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
             Meteor.call 'sendMessage', fromName, fromEmail, msg, (error, response) ->
+                Session.set('sendingEmail', false)
                 if error
                     Toast.error('Undescriptive Error Message')
                 else
                     Toast.success('Congratulations, your electronic mail has been sent on a journey through interwebs. Wish it luck!') 
         else
+            Session.set('sendingEmail', false)
             if not emailIsValid(fromEmail)
                 Toast.error('My regular expression is telling me your email is not valid and it rarely lies.')
             if fromName.length is 0 
@@ -28,3 +31,7 @@ Template.contact.events
             console.log 'bad email'
             $('#contact-email-input').parent().addClass('has-error')
             $('#contact-email-input').parent().removeClass('has-success')
+
+
+Template.contact.sendingEmail = ->
+    return Session.get('sendingEmail')

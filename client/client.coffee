@@ -155,3 +155,4 @@ Meteor.startup ->
             $('.tw-navbar-collapse').collapse('show')
     $('body').addClass('theme-dark');
     Session.set('themeBright', false)
+    Session.set('sendingEmail', false)
