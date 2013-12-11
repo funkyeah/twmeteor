@@ -47,6 +47,13 @@
  		z-index: 10;
   		bottom: 15px;
 	}
+	#lower #connect-on-twitter {
+		display: none;
+	}
+	#lower #connect-other {
+		padding: 0 15px;
+	}
+	
 
 }
 
@@ -60,12 +67,18 @@
     #banner_carousel .carousel-caption h1 {
 		font-size: 66px;
 	}
+	#lower #connect-other, #lower #connect-on-twitter, #lower #connect-taproom {
+		padding: 0 100px;
+	}
 }
 
 @media (min-width: 980px) {
     .responsive-state {
         width: 980px;
     }
+    #lower #connect-other, #lower #connect-on-twitter, #lower #connect-taproom {
+		padding: 0 30px;
+	}
 }
 
 @media screen and (min-width: 768px) {
