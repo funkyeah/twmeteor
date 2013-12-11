@@ -20,11 +20,19 @@
                         TW Brewing 
                     </a>
             </div>
-
-            <a href="/blw" class="btn hdr-btn hidden-xs navbar-right">
+            {{#if themeBright}}
+                <a href="#" class="theme-select btn hdr-btn hidden-xs navbar-right">
+                    Malty
+                </a>
+            {{else}}
+                <a href="#" class="theme-select btn hdr-btn hidden-xs navbar-right">
+                    Roasty
+                </a>
+            {{/if}}
+<!--             <a href="/blw" class="btn hdr-btn hidden-xs navbar-right">
                 <img src="/assets/pint-tiny.png">
                 Protobrew
-            </a>
+            </a> -->
 
             <a href="/contact" class="btn hdr-btn hidden-xs navbar-right">
                 <img src="/assets/envelope-tiny.png">

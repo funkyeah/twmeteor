@@ -36,8 +36,18 @@ evtNavigate = (evt) ->
     else
         window.open( href, '_blank')
 
+Template.header.themeBright = ->
+    return Session.get 'themeBright'
+
 Template.header.events
+    'click a.theme-select ': (evt) ->
+        evt.preventDefault()
+        $('body').toggleClass('theme-dark')
+        $('body').toggleClass('theme-bright')
+        Session.set('themeBright' , !Session.get('themeBright'))
+
     'click a': evtNavigate
+
 
 Template.primaryNav.resizeHelper = ->
     responsive_state = Session.get "responsive_state"
@@ -50,17 +60,11 @@ Template.primaryNav.themeBright = ->
 
 
 Template.primaryNav.events
-    'click a.navtext': (evt) ->
+    'click a': (evt) ->
         evtNavigate(evt)
         rstate = responsive_state()
         if rstate is '767px'
             $('.tw-navbar-collapse').collapse('hide')
-        
-    'click #logo-cog a': (evt) ->
-        evt.preventDefault()
-        $('body').toggleClass('theme-dark')
-        $('body').toggleClass('theme-bright')
-        Session.set('themeBright' , !Session.get('themeBright'))
 
 Template.primaryNav.rendered = ->
     rstate = responsive_state()
