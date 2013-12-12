@@ -1,3 +1,10 @@
+#modify to include password
+Meteor.startup ->
+    # process.env.MAIL_URL = "smtp://robot%40tinwhiskersbrewing.com :$robot123@smtp.mailgun.org:587"
+     process.env.MAIL_URL = "smtp://postmaster%40tinwhiskersbrewing.com:$robot123@smtp.mailgun.org:587"
+    # process.env.MAIL_URL = "smtp://postmaster%40sandbox1733.mailgun.org:20r4l9tynvc6@smtp.mailgun.org:587"
+
+
 Meteor.methods
     sendMessage: (fromName, fromEmail, msg, callback) ->
     	if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
@@ -12,23 +19,30 @@ Meteor.methods
                 
 
 
-#sendMessage = (fromName, fromEmail, msg) ->
+Meteor.publish('blogPosts', () ->
 
+    # Todo: Temporary
+    return BlogPosts.find({})
 
-#modify to include password
-Meteor.startup ->
-    # process.env.MAIL_URL = "smtp://robot%40tinwhiskersbrewing.com :$robot123@smtp.mailgun.org:587"
-     process.env.MAIL_URL = "smtp://postmaster%40tinwhiskersbrewing.com:$robot123@smtp.mailgun.org:587"
-    # process.env.MAIL_URL = "smtp://postmaster%40sandbox1733.mailgun.org:20r4l9tynvc6@smtp.mailgun.org:587"
+    # Todo: Use when Meteor gets aggregates
+    # user = Meteor.users.findOne({_id: this.userId}) if this.userId
 
+    # Admins see all!
+    # if user && user.group == "admin"
+    #     return Entries.find({})
 
+    # conditions = [{$ne: ["$entry.mode", "private"]}]
 
-# ContactUs.validateEmail = function(email) { 
-#   // use either of these
-#   //   /^([a-zA-Z0-9_.-\+])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/
-#   //   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\  ".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA  -Z\-0-9]+\.)+[a-zA-Z]{2,}))$/  
-#   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\  ".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA  -Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;    
-#   if(!re.test(email)){
-#     throw new Meteor.Error(500, 'Please enter a valid "email" address.'); 
-#   }
-# };
+)
+
+# Meteor.publish("userData", ->
+#     Meteor.users.find({_id: this.userId}, {fields: {'username': 1, 'group': 1, 'profile': 1}})
+# )
+
+# Meteor.publish("allUserData", () ->
+#   user = Meteor.users.findOne({_id: this.userId}) if this.userId
+#   if user && user.group == "admin"
+#     return Meteor.users.find();
+#   else
+#     Meteor.users.find({}, {fields: {'username': 1}});
+# )

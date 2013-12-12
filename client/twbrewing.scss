@@ -482,7 +482,7 @@ img.center {
 	}
 }
 
-#content {
+.content {
 
 	background: none;
 	background-color: white;
@@ -683,8 +683,6 @@ img.center {
 
 // Beer Hover banner
 
-
-
 #banner.beers {
 	background: url( "/assets/background-beers.jpg" ) center no-repeat, url( "/assets/background-granite-beers.png" );
 	display: inline-block;
@@ -727,7 +725,7 @@ img.center {
 	}
 }
 
-#beers {
+#beer-circles {
 	padding-bottom: 24px;
 	background-image: url( "/assets/beers.png" );
 	background-repeat: no-repeat;
@@ -888,14 +886,14 @@ img.center {
 		}
 	}
 
-	#content {
+	.content {
 		padding: 0px 10px 0 10px;
 		.beers {
 			text-align: left;
 			padding-top: 20px;
 		}
 	}
-	#beers {
+	#lower {
 		display: none !important;
 	}
 

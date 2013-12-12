@@ -1,0 +1,22 @@
+<template name ="blogPost">
+<div class="container">
+    <div id="{{_id}}" class="col-md-12 blog">
+	
+    	{{! 2 columns}}
+    	<div class="col-md-10">
+	    	<h1>{{this.title}}</h1>
+	    </div>
+    	<div class="col-md-2">
+	    	<button class="btn btn-primary">Edit</button>
+	    </div>
+	    {{! end 2 cols}}
+
+	    <div class="col-md-12">
+			<h2>{{date}}</h2>
+
+			{{{this.content}}}
+		</div>
+	</div>
+
+</div>
+</template>

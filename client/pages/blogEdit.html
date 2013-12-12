@@ -1,0 +1,74 @@
+<template name ="blogEditor">
+<div class="container">
+    <div id="blog-edit" class="col-md-12 blog">
+    
+        <button type="submit" class="btn btn-block btn-success btn-default">Add New Post</button>
+
+        <form role="form">
+
+            {{! 2 columns}}
+            <div class="form-group col-md-10">
+                <label for="post-title-input">Post Title</label>
+                <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
+            </div>
+            <div class="form-group col-md-2">
+                <label for="post-title-input">Post Title</label>
+                <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
+            </div>
+
+            {{! end 2 cols}}
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="control-label" for="post-date-input">Email address</label>
+                    <input type="date" class="form-control" id="post-date-input" placeholder="Date of post">
+                </div>
+                <div class="form-group">
+                    <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                      <option>Private</option>
+                      <option>Public</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</template>
+
+<template name ="blogEdit">
+
+    <form role="form">
+
+        {{! 2 columns}}
+        <div class="form-group col-md-10">
+            <label for="post-title-input">Post Title</label>
+            <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post" value="{{this.title}}">
+        </div>
+        <div class="form-group col-md-2">
+            <label for="post-title-input">Post Title</label>
+            <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
+        </div>
+
+        {{! end 2 cols}}
+
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="control-label" for="post-date-input">Email address</label>
+                <input type="date" class="form-control" id="post-date-input" placeholder="Date of post">
+            </div>
+            <div class="form-group">
+                <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <select class="form-control">
+                  <option>Private</option>
+                  <option>Public</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</template>

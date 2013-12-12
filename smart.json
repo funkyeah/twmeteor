@@ -3,6 +3,7 @@
     "scss": {},
     "bootstrap-3": {},
     "lightbox2": {},
-    "toastjs": {}
+    "toastjs": {},
+    "roles": {}
   }
 }
