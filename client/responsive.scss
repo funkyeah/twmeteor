@@ -16,7 +16,13 @@
 // }
 
 @media (max-width: 767px) {
-
+	body.theme-dark, body.theme-bright {
+		padding-top: 50px;
+	}
+	header.navbar.navbar-fixed-top {
+		height: 50px;
+		min-height: 50px;
+	}
     .responsive-state {
         width: 767px;
     }
@@ -31,8 +37,12 @@
     td.hidden-xs {
         display: none !important;
     }
-    header .hdr-btn {
-        margin-right: 75px;
+    .theme-dark header.navbar .hdr-btn {
+        margin-top: 11px;
+    }
+    .theme-bright header.navbar .hdr-btn {
+    	width: 150px;
+    	margin-top: 11px;
     }
     .navbar-header .navbar-toggle {
         margin-top: 7px;
@@ -48,6 +58,17 @@
   		bottom: 15px;
 	}
 
+	#lower li.divider, #lower #connect-on-twitter {
+		display: none;
+	}
+ 
+	#lower #lower-nav li#connect-taproom, #lower #lower-nav li#connect-other {
+		width: 100%;
+		float: none;
+		padding: 0 10px;
+	}
+	
+
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -60,11 +81,34 @@
     #banner_carousel .carousel-caption h1 {
 		font-size: 66px;
 	}
+	#lower #connect-other, #lower #connect-on-twitter, #lower #connect-taproom {
+		padding: 0 100px;
+	}
+	#lower-nav.container {
+		width: auto;
+		padding-right: 30px;
+		padding-left: 30px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	#lower #lower-nav h2 {
+		font-size: 22px;
+		padding: 0;
+	}
+	#lower #lower-nav p {
+		font-size: 12px;
+	}
+	#lower #lower-nav h3, #lower #connect-other ul li h3 {
+		font-size: 26px;
+	}
 }
 
 @media (min-width: 980px) {
     .responsive-state {
         width: 980px;
+    }
+    #lower #connect-other, #lower #connect-on-twitter, #lower #connect-taproom {
+		padding: 0 30px;
     }
 }
 
