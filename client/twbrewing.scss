@@ -123,7 +123,7 @@ div.clear {
 		}
 
 		&:hover  {
-			color: #2e2c2c;
+			color: #4f4d4d;
 		}
 	}
 	.selected .big  {
@@ -146,6 +146,7 @@ div.clear {
 			text-shadow: 0px 1px 1px black;
 			color: #7a7a79;
 			background-image: url( '/assets/nav-underline-dark.png' );
+			background-size: 63px 5px;
 		}
 	}
 }
@@ -156,11 +157,11 @@ div.clear {
 		margin-left: 10px;
 		font-family: 'OstrichSansBlack', sans-serif;
 		font-size: 18px;
+		text-align: left;
 		@if $theme == 'bright' {
-			background-image: url("/assets/background-sand.png");
 			background-repeat: repeat-x;
 			color: #4f4d4d;
-			
+
 		}
 		@else {
 			color: #4f4d4d;
@@ -179,7 +180,7 @@ body {
 	// color: white;
 	font-family: "Helvetica", Arial, sans-serif;
 	line-height: normal;
-	padding-top: 50px;
+	padding-top: 40px;
 }
 
 
@@ -187,24 +188,57 @@ body {
 // Header 
 /////////////////////////////////
 
-header {
-	height: 45px;
+header.navbar {
+	height: 40px;
+	min-height: 40px;
 }
 
 .theme-dark {
 	header {
-		background-color: #212121;
+		background-color: #000;
 		@include fixedHdrBtn('dark');
 	}
 }
 
 .theme-bright {
 	header {
-		background-image: url( "/assets/background-slate.png" ) !important;
+		background-image: url( "/assets/background-sand-dark.png" ) !important;
 		background-repeat: repeat-x;
 		@include fixedHdrBtn('bright');
 	}
 }
+
+/////////////////////////////////
+// Theme Switch
+/////////////////////////////////
+
+#theme-switch {
+	float:right;
+	margin-top: 9px;
+	margin-left: 10px;
+}
+.theme-dark {
+	#theme-switch .btn-default {
+		background-color: #212121;
+		border-color: #4f4d4d;
+		color: #7a7a79;
+	}
+	#theme-switch .btn-default .caret {
+		border-top-color: #7a7a79;
+	}
+}
+
+.theme-bright {
+	#theme-switch .btn-default {
+		background-image: url( "/assets/background-sand.png" );
+		border: none;
+		color: #4f4d4d;
+	}
+	#theme-switch .btn-default .caret {
+		border-top-color: #4f4d4d;
+	}
+}
+
 
 /////////////////////////////////
 // Primary Nav
@@ -238,6 +272,9 @@ header {
 		padding: 12px 0 12px;
 		@include OSansBoldwHover(50px, 20px, 'bright'); //pass fontsize
 	}
+}
+#logo-cog {
+	padding-top: 12px;
 }
 
 /////////////////////////////////
@@ -310,7 +347,29 @@ img.center {
 }
 
 
+/////////////////////////////////
+// Flexible Map for Where Page
+/////////////////////////////////
 
+.Flexible-container {
+    position: relative;
+    padding-bottom: 322px;
+    height: 0;
+    overflow: hidden;
+}
+
+.Flexible-container iframe,   
+.Flexible-container object,  
+.Flexible-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/////////////////////////////////
+// Lower Columns on Homepage
+/////////////////////////////////
 
 #lower {
 	padding-bottom: 68px;
@@ -319,17 +378,13 @@ img.center {
 	vertical-align: top;
 	// min-width: $min-site-width;
 
-	div {
-		display: inline-block;
-	}
-
 	h2 {
 		font-weight: normal;
 		text-shadow: 0px 1px 1px white;
 		font-size: 27px;
 		font-family: 'OstrichSansBlack', sans-serif;
 		color: #918f8b;
-		padding-bottom: 24px;
+		margin-bottom: 20px;
 	}
 	h3 {
 		color: #fff;
@@ -343,48 +398,48 @@ img.center {
 		line-height: 1.5em;
 		padding: 0 20px;
 	}
-	img {
-		vertical-align: bottom;
-	}
-
-	img.h2 {
-		padding-bottom: 24px;
-	}
 	
 	#lower-nav {
-		img {
-			width: 100%
-		}
 
-		div {
-			vertical-align: bottom;
-		}
-
-		img.v-div {
-			padding-bottom: 30px;
-		}
-
-		ul, ul li.col-md-4 {
+		ul, li {
 			margin: 0;
 			padding: 0;
 		}
-		
+		li.divider {
+			padding-top: 115px;
+		}
 	}
 }
 
-#connect-on-twitter .wrapper, #connect-other .wrapper {
-	width: 100%;
-}
+/* Set up lower column widths, easier to override in responsive.scss */ 
+
+	li.divider {
+		width: 5%;
+		float: left;
+	}
+	
+	li#connect-on-twitter, li#connect-taproom, li#connect-other {
+		width: 30%;
+		float: left;
+	}
+		
+	#connect-on-twitter .wrapper, #connect-other .wrapper {
+		width: 100%;
+	}
+
+/* CONNECT IN REAL LIFE */
+ 
 #connect-taproom {
 	padding: 0 15px;
 	width: 100%;
-}
-#connect-taproom .wrapper {
-	background-color: #686766;
-	border-radius: 5px;
-	width: 100%;
-	height: 335px;
-}
+	
+	.wrapper {
+		background-color: #686766;
+		border-radius: 5px;
+		width: 100%;
+		height: 335px;
+	}
+	
 	#taproom-map {
 		background: url(/assets/taproom-map.jpg) center;
 		background-size: cover;
@@ -392,14 +447,16 @@ img.center {
 		width: 100%;
 		border-radius: 5px 5px 0 0;
 	}
+	
 	#taproom-map .btn {
 		margin: 110px 0 0 0;
 	}
+}
+
+	
+/* OTHER WAYS TO CONNECT */
 
 #connect-other {
-	width: 100%;
-	// font-size: $font-size;
-	
 	
 	ul {
 		background-color: #b9b6af;
@@ -414,17 +471,13 @@ img.center {
 			border-bottom: 1px solid #908e8a;
 			text-align: left;
 			padding: 0 0 0 15px;
+			background-color: #b9b6af;
+			transition: background-color .5s;
+			-webkit-transition: background-color .5s; /* Safari */
 
-			.h2 {
-				font-family: 'OstrichSansMedium';
-				font-size: 34px;
-				color: white;
-				text-shadow: 0px 1px 0px #666;
-				display: inline-block;
-				padding-left: 45px;
-				padding-top: 12px;
-				padding-bottom: 5px;
-				text-decoration: none !important;
+			h3 {
+				padding: 15px 0 1px 55px;
+				margin: 0;
 			}
 
 			&:first-child {
@@ -444,43 +497,47 @@ img.center {
 			.sub {
 				font-size: 12px;
 				color: #686766;
-				text-shadow: 0px 1px 1px white;
-				padding-left: 45px;
-				padding-bottom: 5px;
+				padding: 0 15px 15px 15px;
 			}
 
 			list-style: none;
 
 			&.blw {
-				background: url( "/assets/blw-icon.png" ) 20px 12px no-repeat;
+				background: url( "/assets/icon-protobrew.png" ) 15px 13px no-repeat;
+				background-size: 35px 35px;
 			}
 
 			&.facebook {
-				background: url( "/assets/facebook-icon.png" ) 17px 0px no-repeat;
+				background: url( "/assets/icon-facebook.png" ) 15px 13px no-repeat;
+				background-size: 35px 35px;
 			}
 
 			&.untappd {
-				background: url( "/assets/untappd-icon.png" ) 17px 0px no-repeat;
+				background: url( "/assets/icon-untappd.png" ) 15px 13px no-repeat;
+				background-size: 35px 35px;
 			}
 
 			&.instagram {
-				background: url( "/assets/instagram-icon_52x52.png" ) 5px 5px no-repeat;
+				background: url( "/assets/icon-instagram.png" ) 15px 13px no-repeat;
+				background-size: 35px 35px;
 			}
 
 			&.contact {
-				background: url( "/assets/contact-icon.png" ) 17px 4px no-repeat;
+				background: url( "/assets/icon-contact.png" ) 15px 13px no-repeat;
+				background-size: 35px 35px;
 			}
 
 			&:hover {
 				background-color: #9c1923;
 				.sub {
 					color: white;
-					text-shadow: 0px 1px 1px black;
+					
 				}
 			}
 		}				
 	}
 }
+
 
 #footer {
 
@@ -654,10 +711,7 @@ img.center {
 			line-height: 2em;
 		}
 
-		#connect-other, #connect-twitter {
-			padding-bottom: 30px;
-		}
-
+		
 
 		#recipe-header {
 			background-color: $sidebar-background-color;
@@ -956,13 +1010,6 @@ img.center {
 
 
 
-
-
-
-
-
-
-
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -1016,7 +1063,7 @@ img.center {
 	transition: opacity 1s;
 	-webkit-transition: opacity 1s; /* Safari */
 }
-.btn {
+#banner .btn, #connect-taproom .btn {
 	font-size: 24px;
 	padding: 1px 10px;
 }
