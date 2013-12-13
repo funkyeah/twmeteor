@@ -4,6 +4,7 @@
     "bootstrap-3": {},
     "lightbox2": {},
     "toastjs": {},
-    "roles": {}
+    "roles": {},
+    "external-file-loader": {}
   }
 }

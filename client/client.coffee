@@ -29,6 +29,8 @@ evtNavigate = (evt) ->
     if $a.length is 0
         $a = $(evt.target).find('a')
     href = $a.attr('href')
+    if href is '#'
+        return
     localhost = document.location.host
     linkhost = $a[0].host
     if localhost == linkhost
@@ -160,3 +162,6 @@ Meteor.startup ->
     $('body').addClass('theme-dark');
     Session.set('themeBright', false)
     Session.set('sendingEmail', false)
+    Session.set('gmapsAPInotLoaded', true)
+    # $("#gmaps-iframe").on "load", (e) ->
+    #     Session.set('gmapsIframeNotLoaded', false)

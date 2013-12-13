@@ -6,7 +6,8 @@
       "bootstrap-3": {},
       "lightbox2": {},
       "toastjs": {},
-      "roles": {}
+      "roles": {},
+      "external-file-loader": {}
     },
     "packages": {
       "scss": {
@@ -31,8 +32,13 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.1.1",
-        "commit": "b6080b89885c02af228c62576f5ba48b95f715c6"
+        "tag": "v1.2.0",
+        "commit": "565ed93b9a532dd7171651f23cfb5d7c81b57498"
+      },
+      "external-file-loader": {
+        "git": "https://github.com/davidd8/meteor-external-file-loader.git",
+        "tag": "v0.1.4",
+        "commit": "352694a7cf906b8241161c2fd1435161c1d5409f"
       }
     }
   }
