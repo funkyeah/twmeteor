@@ -545,7 +545,7 @@ img.center {
 
 
 #footer {
-
+	font-size: 14px;
 	background-image: url( "/assets/background-slate.png" );
 	// min-width: $min-site-width;
 	padding: 30px 0 30px;
@@ -558,6 +558,11 @@ img.center {
 		// @include width( 4 );
 		display: inline-block;
 		// font-size: $font-size;
+	}
+	ul {
+		list-style: none;
+		padding: 6px;
+		margin: 0;
 	}
 
 	li {
@@ -572,6 +577,24 @@ img.center {
 		color: white;
 	}
 }
+
+// #footer {
+//   background-image: url("assets/background-slate.png");
+//   min-width: 1040px;
+//   padding: 30px 0 30px; }
+//   #footer img {
+//     padding-bottom: 15px; }
+//   #footer div {
+//     /* width: ($cols * ($column + $gutter) - $gutter) / $em; */
+//     width: 320px;
+//     display: inline-block;
+//     font-size: 14px; }
+//   #footer li {
+//     list-style: none;
+//     padding: 6px; }
+//   #footer a:hover {
+//     text-decoration: underline !important;
+//     color: white; }
 
 .content {
 
@@ -1096,4 +1119,27 @@ img.center {
 	margin: 1px 5px;
 	width: 10px;
 	height: 10px;
+}
+
+
+// redactor dropdown fixes
+.redactor_format_h1 {
+	font-size: 30px;
+	line-height: 36px;
+}
+.redactor_format_h2 {
+	font-size: 24px;
+	line-height: 36px;
+}
+.redactor_format_h3 {
+	font-size: 20px;
+	line-height: 30px;
+}
+.redactor_format_h4 {
+	font-size: 16px;
+	line-height: 26px;
+}
+.redactor_format_h5 {
+	font-size: 14px;
+	line-height: 23px;
 }

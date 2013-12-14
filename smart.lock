@@ -32,8 +32,8 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.0",
-        "commit": "565ed93b9a532dd7171651f23cfb5d7c81b57498"
+        "tag": "v1.2.2",
+        "commit": "3b2becad35c50aa2ace476663af65681243056fa"
       },
       "external-file-loader": {
         "git": "https://github.com/davidd8/meteor-external-file-loader.git",

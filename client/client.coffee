@@ -88,7 +88,7 @@ Template.beers.events
 Template.news.events
     'click a': evtNavigate
 
-Template.news.posts = ->
+Template.footer.events
     'click a': evtNavigate
 
 Template.lower.events

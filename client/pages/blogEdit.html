@@ -1,74 +1,37 @@
-<template name ="blogEditor">
+<template name ="blogEdit">
 <div class="container">
     <div id="blog-edit" class="col-md-12 blog">
     
-        <button type="submit" class="btn btn-block btn-success btn-default">Add New Post</button>
-
         <form role="form">
 
-            {{! 2 columns}}
-            <div class="form-group col-md-10">
+            <div class="form-group col-md-12">
                 <label for="post-title-input">Post Title</label>
-                <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
+                <input type="title" class="form-control" id="post-title-input" value="{{this.title}}" placeholder="Title of the post">                     
             </div>
-            <div class="form-group col-md-2">
-                <label for="post-title-input">Post Title</label>
-                <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
-            </div>
-
-            {{! end 2 cols}}
 
             <div class="col-md-12">
-                <div class="form-group">
-                    <label class="control-label" for="post-date-input">Email address</label>
-                    <input type="date" class="form-control" id="post-date-input" placeholder="Date of post">
+                <div class="form-group col-md-6">
+                        <label class="control-label" for="post-date-input">Post Date + Time</label>
+                        <input type="datetime-local" value="{{this.date}}" class="form-control" id="post-datetime-input"> 
                 </div>
-                <div class="form-group">
-                    <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10"></textarea>
+                <div class="form-group col-md-6">
+                        <label for="post-title-input">Day</label>
+                        <input type="text" class="form-control" id="post-day-input" value="{{this.day}}" placeholder="Day of Post">                     
                 </div>
-                <div class="form-group">
-                    <select class="form-control">
-                      <option>Private</option>
-                      <option>Public</option>
-                    </select>
+
+                </div>
+                <div class="col-md-12 form-group">
+                    <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10">{{this.content}}</textarea>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary editBlogButton">Save</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-primary editBlogButton">Cancel</button>
                 </div>
             </div>
         </form>
     </div>
 
 </div>
-</template>
-
-<template name ="blogEdit">
-
-    <form role="form">
-
-        {{! 2 columns}}
-        <div class="form-group col-md-10">
-            <label for="post-title-input">Post Title</label>
-            <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post" value="{{this.title}}">
-        </div>
-        <div class="form-group col-md-2">
-            <label for="post-title-input">Post Title</label>
-            <input type="title" class="form-control" id="post-title-input" placeholder="Title of the post">
-        </div>
-
-        {{! end 2 cols}}
-
-        <div class="col-md-12">
-            <div class="form-group">
-                <label class="control-label" for="post-date-input">Email address</label>
-                <input type="date" class="form-control" id="post-date-input" placeholder="Date of post">
-            </div>
-            <div class="form-group">
-                <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10"></textarea>
-            </div>
-            <div class="form-group">
-                <select class="form-control">
-                  <option>Private</option>
-                  <option>Public</option>
-                </select>
-            </div>
-        </div>
-    </form>
 </template>
