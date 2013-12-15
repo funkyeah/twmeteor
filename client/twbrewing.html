@@ -28,7 +28,9 @@
 </body>
 
 <template name="main">
-
+    {{#if pageIs 'admin'}}
+        {{> admin}}
+    {{/if}}
     {{#if pageIs 'home'}}
         {{> banner_carousel}}
         {{> lower}}

@@ -5,29 +5,29 @@
         <form role="form">
 
             <div class="form-group col-md-12">
-                <label for="post-title-input">Post Title</label>
-                <input type="title" class="form-control" id="post-title-input" value="{{this.title}}" placeholder="Title of the post">                     
+                <label for="post-edit-title-input">Post Title</label>
+                <input type="title" class="form-control" id="post-edit-title-input" value="{{this.title}}" placeholder="Title of the post">                     
             </div>
 
             <div class="col-md-12">
                 <div class="form-group col-md-6">
-                        <label class="control-label" for="post-date-input">Post Date + Time</label>
-                        <input type="datetime-local" value="{{this.date}}" class="form-control" id="post-datetime-input"> 
+                        <label class="control-label" for="post-edit-datetime-input">Post Date + Time</label>
+                        <input type="datetime-local" value="{{this.datetime}}" class="form-control" id="post-edit-datetime-input"> 
                 </div>
                 <div class="form-group col-md-6">
-                        <label for="post-title-input">Day</label>
-                        <input type="text" class="form-control" id="post-day-input" value="{{this.day}}" placeholder="Day of Post">                     
+                        <label for="post-edit-day-input">Day</label>
+                        <input type="text" class="form-control" id="post-edit-day-input" value="{{this.day}}" placeholder="Day of Post">                     
                 </div>
 
                 </div>
                 <div class="col-md-12 form-group">
-                    <textarea id="post-content" class="form-control" placeholder="Placeholder for post content" rows="10">{{this.content}}</textarea>
+                    <textarea id="post-edit-content" class="form-control" placeholder="Placeholder for post content" rows="10">{{this.content}}</textarea>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-primary editBlogButton">Save</button>
+                    <button class="saveEdit btn btn-success btn-block">Save</button>
                 </div>
                 <div class="col-md-6">
-                    <button class="btn btn-primary editBlogButton">Cancel</button>
+                    <button class="cancelEdit btn btn-warning btn-block">Cancel</button>
                 </div>
             </div>
         </form>

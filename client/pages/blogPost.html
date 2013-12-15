@@ -1,8 +1,8 @@
 <template name ="blogPost">
 <div class="container">
     <div id="{{_id}}" class="col-md-12 blog">
-		
-		{{#if editing}}
+        
+        {{#if editing}}
 
             {{#with this}}
               {{> blogEdit}}
@@ -10,22 +10,29 @@
 
         {{else}}
 
-	    	{{! 2 columns}}
-	    	<div class="col-md-10">
-		    	<h1>{{this.title}}</h1>
-		    </div>
-	    	<div class="col-md-2">
-		    	<button class="btn btn-primary editBlogButton">Edit</button>
-		    </div>
-		    {{! end 2 cols}}
+            {{! 3 columns - title, edit, delete}}
+            <div class="col-md-10">
+                <h1>{{this.title}}</h1>
+            </div>
+            {{#if notEditing}}
+            <div class="col-md-1">
+                <button class="btn btn-block editPostButton">Edit</button>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-block btn-danger deletePostButton">Delete</button>
+            </div>
+            {{/if}}
 
-		    <div class="col-md-12">
-				<h2>{{date}}</h2>
 
-				{{{this.content}}}
-			</div>
-		{{/if}}
-	</div>
+            {{! end 3 cols}}
+
+            <div class="col-md-12">
+                <h2>{{day}}, {{datetime}}</h2>
+
+                {{{this.content}}}
+            </div>
+        {{/if}}
+    </div>
 
 </div>
 </template>

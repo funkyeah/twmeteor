@@ -7,16 +7,23 @@ Meteor.startup ->
 
 Meteor.methods
     sendMessage: (fromName, fromEmail, msg, callback) ->
-    	if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
-	        Email.send
-	            from: fromEmail
-	            to: "robot@tinwhiskersbrewing.com"
-	            replyTo: fromEmail or `undefined`
-	            subject: "Website Email:" + " from " + fromName + " at " + fromEmail
-	            text: msg
-	    else
-	    	throw new Meteor.Error(403, "Invalid Email Content")
-                
+        if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
+            Email.send
+                from: fromEmail
+                to: "robot@tinwhiskersbrewing.com"
+                replyTo: fromEmail or `undefined`
+                subject: "Website Email:" + " from " + fromName + " at " + fromEmail
+                text: msg
+        else
+            throw new Meteor.Error(403, "Invalid Email Content")
+
+    savePost: (postId, post) ->
+        loggedInUser = Meteor.user()
+        post = verifySave(postId, post, loggedInUser)
+        if BlogPosts.findOne({_id: postId})
+            BlogPosts.update({_id: postId}, post)
+        else
+            BlogPosts.insert(post)        
 
 
 Meteor.publish('blogPosts', () ->

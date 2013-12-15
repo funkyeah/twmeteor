@@ -5,17 +5,38 @@ Template.blog.blog_posts = ->
   return blog_posts
 
 
+Template.blog.notEditing = ->
+     return not Session.get('editPostId')
+
+Template.blogPost.notEditing = ->
+     return not Session.get('editPostId')
+
 Template.blogPost.editing = ->
      return Session.equals('editPostId', this._id);
 
 Template.blogPost.events
-	'click .editBlogButton' : (evt) ->
-		evt.preventDefault()
-		Session.set('editPostId', this._id);
+    'click .editPostButton' : (evt) ->
+        evt.preventDefault()
+        Session.set('editPostId', this._id);
+    
+    'click .cancelEdit' : (evt) ->
+        evt.preventDefault()
+        Session.set('editPostId', false);
+
+    'click .saveEdit' : (evt) ->
+        evt.preventDefault()
+        savePost( evt )
+        Session.set('editPostId', false);
+
+
+    'click .deletePostButton': (evt) ->
+        evt.preventDefault()
+        $('#delete-confirm-input').val('')
+        $('#delete-confirm-modal').modal('show')
 
 
 Template.blogEdit.rendered = ->
-    el = $( '#post-content' )
+    el = $( '#post-edit-content' )
     el.redactor(
         imageUpload: '/images'
         # linebreaks: true # buggy - insert link on last line, hit enter to break,
@@ -32,3 +53,32 @@ Template.blogEdit.rendered = ->
         #         filepicker.store(file, {location:"S3", path: Meteor.userId() + "/" + file.filename },
         #         (file) -> callback( filelink: file.url )))
     )
+
+
+@savePost = (evt) ->
+    postId = Session.get('editPostId');
+    post = {
+        'title': $('#post-edit-title-input').val()
+        'day' : $('#post-edit-day-input').val()
+        'datetime' : $('#post-edit-datetime-input').val()
+        'content': rewriteLinks( $('#post-edit-content').val() )
+        'mode': $('#mode').val()
+    }
+    Meteor.call('savePost', postId, post)
+    if BlogPosts.findOne({_id: postId})
+        BlogPosts.update({_id: postId}, post)
+    else
+        BlogPosts.insert(post)     
+
+@rewriteLinks = ( text ) ->
+    $html = $('<div>')
+    $html.html( text )
+
+    for el in $html.find( 'a' )
+        href = $(el).attr( 'href' )
+        if href
+            href = href.replace( /https?:\/\/([^\/.]+)$/, '/$1' )
+            $(el).attr( 'href', href )
+            $(el).addClass( 'entry-link' )
+
+    $html.html()
