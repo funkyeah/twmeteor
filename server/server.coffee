@@ -23,13 +23,21 @@ Meteor.methods
         if BlogPosts.findOne({_id: postId})
             BlogPosts.update({_id: postId}, post)
         else
-            BlogPosts.insert(post)        
+            BlogPosts.insert(post) 
+
+    deletePost:(postId) ->
+        # add permission check
+        console.log(postId)
+        if postId?
+            BlogPosts.remove({_id: postId})
+        else
+            return
 
 
 Meteor.publish('blogPosts', () ->
 
     # Todo: Temporary
-    return BlogPosts.find({})
+    return BlogPosts.find({}, {date: -1, time: -1})
 
     # Todo: Use when Meteor gets aggregates
     # user = Meteor.users.findOne({_id: this.userId}) if this.userId

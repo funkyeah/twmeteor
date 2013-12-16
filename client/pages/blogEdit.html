@@ -10,11 +10,15 @@
             </div>
 
             <div class="col-md-12">
-                <div class="form-group col-md-6">
-                        <label class="control-label" for="post-edit-datetime-input">Post Date + Time</label>
-                        <input type="datetime-local" value="{{this.datetime}}" class="form-control" id="post-edit-datetime-input"> 
+                <div class="form-group col-md-4">
+                        <label class="control-label" for="post-edit-date-input">Post Date</label>
+                        <input type="date" value="{{this.date}}" class="form-control" id="post-edit-date-input"> 
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
+                        <label class="control-label" for="post-edit-time-input">Post Time</label>
+                        <input type="time" value="{{this.time}}" class="form-control" id="post-edit-time-input"> 
+                </div>
+                <div class="form-group col-md-4">
                         <label for="post-edit-day-input">Day</label>
                         <input type="text" class="form-control" id="post-edit-day-input" value="{{this.day}}" placeholder="Day of Post">                     
                 </div>

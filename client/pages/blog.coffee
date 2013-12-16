@@ -4,9 +4,17 @@ Template.blog.blog_posts = ->
   blog_posts = BlogPosts.find( {}, {sort: {date: -1}})
   return blog_posts
 
-
 Template.blog.notEditing = ->
      return not Session.get('editPostId')
+
+Template.blog.addingPost = ->
+     return Session.get('addingPost')
+
+ Template.blog.events
+    'click .addPostButton' : (evt) ->
+        evt.preventDefault()
+        Session.set('addingPost', true);
+
 
 Template.blogPost.notEditing = ->
      return not Session.get('editPostId')
@@ -14,25 +22,41 @@ Template.blogPost.notEditing = ->
 Template.blogPost.editing = ->
      return Session.equals('editPostId', this._id);
 
-Template.blogPost.events
-    'click .editPostButton' : (evt) ->
-        evt.preventDefault()
-        Session.set('editPostId', this._id);
-    
+
+Template.blogEdit.events
     'click .cancelEdit' : (evt) ->
         evt.preventDefault()
+        Session.set('addingPost', false);
         Session.set('editPostId', false);
 
     'click .saveEdit' : (evt) ->
         evt.preventDefault()
         savePost( evt )
+        Session.set('addingPost', false);
         Session.set('editPostId', false);
 
-
+Template.blogPost.events
+    'click .editPostButton' : (evt) ->
+        evt.preventDefault()
+        Session.set('editPostId', this._id);
+    
     'click .deletePostButton': (evt) ->
         evt.preventDefault()
+        Session.set('deletePostId', this._id);
         $('#delete-confirm-input').val('')
         $('#delete-confirm-modal').modal('show')
+
+
+Template.deleteConfirmModal.events
+    'click #delete-confirm-button': (e) ->
+        deleteInput = $('#delete-confirm-input').val()
+        if deleteInput == "DELETE"
+            deletePost()
+            $('#delete-confirm-modal').modal('hide')
+
+    'click #delete-cancel-button': (e) ->
+        $('#delete-confirm-modal').modal('hide')
+
 
 
 Template.blogEdit.rendered = ->
@@ -60,7 +84,8 @@ Template.blogEdit.rendered = ->
     post = {
         'title': $('#post-edit-title-input').val()
         'day' : $('#post-edit-day-input').val()
-        'datetime' : $('#post-edit-datetime-input').val()
+        'date' : $('#post-edit-date-input').val()
+        'time' : $('#post-edit-time-input').val()
         'content': rewriteLinks( $('#post-edit-content').val() )
         'mode': $('#mode').val()
     }
@@ -69,6 +94,13 @@ Template.blogEdit.rendered = ->
         BlogPosts.update({_id: postId}, post)
     else
         BlogPosts.insert(post)     
+
+@deletePost = (evt) ->
+    postId = Session.get('deletePostId')
+    if postId
+        Meteor.call('deletePost',postId)
+        BlogPosts.remove({_id: postId})
+
 
 @rewriteLinks = ( text ) ->
     $html = $('<div>')

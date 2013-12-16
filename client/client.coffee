@@ -95,7 +95,6 @@ Template.lower.events
     'click a': evtNavigate
 
 
-
 Template.lower.created = ->
     if typeof twttr isnt "undefined"
         setTimeout (->

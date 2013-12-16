@@ -3,7 +3,10 @@
     <div id="blog-page" class="content col-md-12 blog">
 		<div id="left">
 			{{#if notEditing}}
-				<button type="submit" class="btn btn-block btn-success btn-default">Add New Post</button>
+				<button type="submit" class="addPostButton btn btn-block btn-default">Add New Post</button>
+			{{/if}}
+			{{#if addingPost}}
+				{{> blogEdit}}
 			{{/if}}
 			{{#each blog_posts}}
 				{{> blogPost}}
