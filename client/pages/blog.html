@@ -2,8 +2,10 @@
 <div class="container">
     <div id="blog-page" class="content col-md-12 blog">
 		<div id="left">
-			{{#if notEditing}}
-				<button type="submit" class="addPostButton btn btn-block btn-default">Add New Post</button>
+			{{#if isInRole 'editor'}}
+				{{#if notEditing}}
+					<button type="submit" class="addPostButton btn btn-block btn-default">Add New Post</button>
+				{{/if}}
 			{{/if}}
 			{{#if addingPost}}
 				{{> blogEdit}}

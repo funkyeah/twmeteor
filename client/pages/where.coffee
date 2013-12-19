@@ -21,10 +21,14 @@ Template.where.gmapsIframeNotLoaded = ->
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions)
     marker = new google.maps.Marker(
         position: twLatlng
-        title: "Tin Whiskers Central Command"
+        title: "Tin Whiskers Brewing Company"
     )
     marker.setMap map
     map.setOptions({styles: styles})
+    contentString = '<div style="font-weight:700">Tin Whiskers Brewing Company</div> <div style="font-weight:700">125 E 9th St</div> <div style="font-weight:700">St. Paul, MN </div>'
+    infowindow = new google.maps.InfoWindow(content: contentString)
+    google.maps.event.addListener marker, "click", ->
+        infowindow.open map, marker
 
 Template.where.rendered = ->
     if Session.get('gmapsAPInotLoaded')

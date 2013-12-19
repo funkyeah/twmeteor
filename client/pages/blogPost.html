@@ -1,7 +1,7 @@
 <template name ="blogPost">
 <div class="container">
-    <div id="{{_id}}" class="col-md-12 blog">
-        
+    <div id="{{_id}}" class="col-md-8 col-md-offset-2 blog">
+    
         {{#if editing}}
 
             {{#with this}}
@@ -14,13 +14,15 @@
             <div class="col-md-10">
                 <h1>{{this.title}}</h1>
             </div>
-            {{#if notEditing}}
-            <div class="col-md-1">
-                <button class="btn btn-block editPostButton">Edit</button>
-            </div>
-            <div class="col-md-1">
-                <button class="btn btn-block btn-danger deletePostButton">Delete</button>
-            </div>
+            {{#if isInRole 'editor'}}
+                {{#if notEditing}}
+                <div class="col-md-1">
+                    <button class="btn btn-block editPostButton">Edit</button>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-block btn-danger deletePostButton">Delete</button>
+                </div>
+                {{/if}}
             {{/if}}
 
 
