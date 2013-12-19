@@ -5,7 +5,10 @@ Template.blog.blog_posts = ->
   return blog_posts
 
 Template.blog.notEditing = ->
-     return not Session.get('editPostId')
+    if not Session.get('editPostId') and not Session.get('addingPost')
+        return true
+    else
+        return false
 
 Template.blog.addingPost = ->
      return Session.get('addingPost')
@@ -17,7 +20,10 @@ Template.blog.addingPost = ->
 
 
 Template.blogPost.notEditing = ->
-     return not Session.get('editPostId')
+    if not Session.get('editPostId') and not Session.get('addingPost')
+        return true
+    else
+        return false
 
 Template.blogPost.editing = ->
      return Session.equals('editPostId', this._id);
