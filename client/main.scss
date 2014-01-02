@@ -1,0 +1,1197 @@
+//vars
+
+$min-site-width: 970px;
+
+$font-size: 14px;     // Your base font-size in pixels
+$content-color: #606060;
+$headline-color: #951c23;
+$sidebar-color: #ecd7ac;
+$sidebar-background-color: #686765;
+$robot-grey: #4F4D4D;
+
+
+// $nav-big-font-shadow: black; //was white
+// $nav-little-font-shadow: black; //was white
+// $nav-background-color: #212121; // was background image
+// $header-background-color: #212121; // was background image
+
+// Start custom styles
+
+a {
+  text-decoration: none !important;
+}
+
+div.clear {
+  clear: both !important;
+  height: 0px !important;
+  float: none !important;
+}
+
+.hidden {
+  display: none;
+}
+
+@font-face {
+    font-family: 'OstrichSansBlack';
+    src: url('/assets/fonts/ostrich_black-webfont.eot');
+    src: url('/assets/fonts/ostrich_black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ostrich_black-webfont.woff') format('woff'),
+         url('/assets/fonts/ostrich_black-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ostrich_black-webfont.svg#OstrichSansBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OstrichSansBold';
+    src: url('/assets/fonts/ostrich_bold-webfont.eot');
+    src: url('/assets/fonts/ostrich_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ostrich_bold-webfont.woff') format('woff'),
+         url('/assets/fonts/ostrich_bold-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ostrich_bold-webfont.svg#OstrichSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OstrichSansDashedMedium';
+    src: url('/assets/fonts/ostrich_dashed-webfont.eot');
+    src: url('/assets/fonts/ostrich_dashed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ostrich_dashed-webfont.woff') format('woff'),
+         url('/assets/fonts/ostrich_dashed-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ostrich_dashed-webfont.svg#OstrichSansDashedMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'OstrichSansLight';
+    src: url('/assets/fonts/ostrich_light-webfont.eot');
+    src: url('/assets/fonts/ostrich_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ostrich_light-webfont.woff') format('woff'),
+         url('/assets/fonts/ostrich_light-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ostrich_light-webfont.svg#OstrichSansLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+  font-family: 'OstrichSansMedium';
+  src: url('/assets/fonts/ostrich_regular-webfont.eot');
+  src: url('/assets/fonts/ostrich_regular-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/ostrich_regular-webfont.woff') format('woff'),
+       url('/assets/fonts/ostrich_regular-webfont.ttf') format('truetype'),
+       url('/assets/fonts/ostrich_regular-webfont.svg#OstrichSansMedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'OstrichSansRoundedMedium';
+    src: url('/assets/fonts/ostrich_rounded-webfont.eot');
+    src: url('/assets/fonts/ostrich_rounded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/assets/fonts/ostrich_rounded-webfont.woff') format('woff'),
+         url('/assets/fonts/ostrich_rounded-webfont.ttf') format('truetype'),
+         url('/assets/fonts/ostrich_rounded-webfont.svg#OstrichSansRoundedMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+////////////////////////////////////////////////
+// @ MIXINS
+/////////////////////////////////////////////////
+@mixin OSansBoldwHover($sizeOfLargeFont, $sizeOfSmallFont, $theme: 'dark') {
+  .big {
+    font-weight: normal;
+    font-size: $sizeOfLargeFont;
+    font-family: 'OstrichSansBold', sans-serif;
+    letter-spacing: 2px;
+    color: #8f1720;
+    padding-bottom: 13px;
+    @if $theme == 'bright' {
+      text-shadow: 0px 1px 1px white;
+    }
+    @else {
+      text-shadow: 0px 1px 1px black;
+    }
+
+    &:hover  {
+      color: #4f4d4d;
+    }
+  }
+  .selected .big  {
+    color: #2e2c2c;
+  }
+
+  .little {
+    font-weight: normal;
+    font-size: $sizeOfSmallFont;
+    font-family: 'OstrichSansBlack', sans-serif;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    padding-bottom: 20px;
+    @if $theme == 'bright' {
+      text-shadow: 0px 1px 1px white;
+      color: #74685c;
+      background-image: url( '/assets/nav-underline.png' );
+    }
+    @else {
+      text-shadow: 0px 1px 1px black;
+      color: #7a7a79;
+      background-image: url( '/assets/nav-underline-dark.png' );
+      background-size: 63px 5px;
+    }
+  }
+}
+
+@mixin fixedHdrBtn($theme: 'dark') {
+  .hdr-btn {
+    margin-top: 5px;
+    margin-left: 10px;
+    font-family: 'OstrichSansBlack', sans-serif;
+    font-size: 18px;
+    text-align: left;
+    @if $theme == 'bright' {
+      //background-image: url("/assets/background-sand.png");
+      background-repeat: repeat-x;
+      color: #4f4d4d;
+      //font-size: 16px;
+    }
+    @else {
+      color: #4f4d4d;
+
+    }
+  }
+}
+
+/////////////////////////////////
+// Body
+/////////////////////////////////
+body {
+  background-color: white;
+  text-align: center;
+  font-size: 0;
+  // color: white;
+  font-family: "Helvetica", Arial, sans-serif;
+  line-height: normal;
+  padding-top: 40px;
+}
+
+
+/////////////////////////////////
+// Header 
+/////////////////////////////////
+
+header.navbar {
+  height: 40px;
+  min-height: 40px;
+}
+
+.theme-dark {
+  header {
+    background-color: #000;
+    @include fixedHdrBtn('dark');
+  }
+}
+
+.theme-bright {
+  header {
+    background-image: url( "/assets/background-sand-dark.png" ) !important;
+    background-repeat: repeat-x;
+    @include fixedHdrBtn('bright');
+  }
+}
+
+/////////////////////////////////
+// Theme Switch
+/////////////////////////////////
+
+#theme-switch {
+  float:right;
+  margin-top: 9px;
+  margin-left: 10px;
+}
+.theme-dark {
+  #theme-switch .btn-default {
+    background-color: #212121;
+    border-color: #4f4d4d;
+    color: #7a7a79;
+  }
+  #theme-switch .btn-default .caret {
+    border-top-color: #7a7a79;
+  }
+}
+
+.theme-bright {
+  #theme-switch .btn-default {
+    background-image: url( "/assets/background-sand.png" );
+    border: none;
+    color: #4f4d4d;
+  }
+  #theme-switch .btn-default .caret {
+    border-top-color: #4f4d4d;
+  }
+}
+
+
+/////////////////////////////////
+// Primary Nav
+/////////////////////////////////
+#primaryNav {
+  vertical-align: middle;
+  text-align: center;
+  ul {
+    list-style: none;
+  }
+  .navtext {
+    padding-top: 40px;
+    padding-bottom: 31px;
+    position: relative;
+    display: block;
+  }
+}
+
+.theme-dark {
+  #primaryNav {
+    background-color: #212121;
+    padding: 0px 0px 12px 0px;
+    @include OSansBoldwHover(50px, 20px, 'dark'); //pass fontsize
+    
+  }
+}
+
+.theme-bright {
+  #primaryNav {
+    background-image: url( "/assets/background-sand.png" );
+    padding: 12px 0 12px;
+    @include OSansBoldwHover(50px, 20px, 'bright'); //pass fontsize
+  }
+}
+#logo-cog {
+  padding-top: 12px;
+}
+
+/////////////////////////////////
+// Banners
+/////////////////////////////////
+.banner_lr_fill {
+  padding-left: 0;
+  padding-right: 0;
+  display: inline-block;
+  background-image: url("/assets/background-granite.png");
+  background-repeat: repeat-x;
+  /* background-image: url( "/assets/banner-short-circuit-stout.jpg" ); */
+  background-position: right;
+  text-align: left;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#banner {
+  .banner-link-image {
+    position: relative;
+  }
+
+
+  &.home {
+    .banner-link-image {
+      top: 294px;
+      left: -219px;
+      width: 198px;
+      height: 51px;
+    }
+  }
+
+  // &.general {
+  //  height: 132px;
+  //  background: url("/assets/bg-highlight.jpg") 50% 0 no-repeat, url("/assets/background-granite-news.jpg") repeat-x;
+
+
+  //  .h1 {
+  //    vertical-align: middle;
+  //    font-size: 86px;
+  //    font-family: 'OstrichSansMedium';
+  //    text-shadow: 0 1px 0 black;
+  //    padding-top: 59px;
+  //  }
+  // }
+
+  &.who {
+    background: url("/assets/three-electrical-engineers.jpg") 50% 0 no-repeat, url("/assets/background-granite-2.jpg") repeat-x;
+    height: 322px;
+  }
+
+  // &.where {
+  //  background: url("/assets/banner-our-brewery.jpg") 50% 0 no-repeat, url("/assets/background-granite-2.jpg") repeat-x;
+  //  height: 322px;
+
+  //  .banner-link-image {
+  //    top: 225px;
+  //    left: -359px;
+  //    width: 238px;
+  //    height: 51px;
+  //  }
+
+  // }
+
+}
+
+
+/////////////////////////////////
+// Flexible Map for Where Page
+/////////////////////////////////
+
+.Flexible-container {
+    position: relative;
+    padding-bottom: 322px;
+    height: 0;
+    overflow: hidden;
+}
+
+.Flexible-container iframe,   
+.Flexible-container object,  
+.Flexible-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/////////////////////////////////
+// Lower Columns on Homepage
+/////////////////////////////////
+
+#lower {
+  padding-bottom: 68px;
+  background-image: url( "/assets/background-shale.png" );
+  padding-top: 0px;
+  vertical-align: top;
+  // min-width: $min-site-width;
+
+  //div {
+  //  display: inline-block;
+  //}
+
+  h2 {
+    font-weight: normal;
+    text-shadow: 0px 1px 1px white;
+    font-size: 27px;
+    font-family: 'OstrichSansBlack', sans-serif;
+    color: #918f8b;
+    margin-bottom: 20px;
+  }
+  h3 {
+    color: #fff;
+    font-family: 'OstrichSansMedium', sans-serif;
+    font-size: 34px;
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 14px;
+    color: #b9b6af;
+    line-height: 1.5em;
+    padding: 0 20px;
+  }
+  
+  #lower-nav {
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+    li.divider {
+      padding-top: 115px;
+    }
+  }
+    }
+
+/* Set up lower column widths, easier to override in responsive.scss */ 
+
+  li.divider {
+    width: 5%;
+    float: left;
+    }
+
+  li#connect-on-twitter, li#connect-taproom, li#connect-other {
+    width: 30%;
+    float: left;
+    }
+
+  #connect-on-twitter .wrapper, #connect-other .wrapper {
+    width: 100%;
+  }
+
+/* CONNECT IN REAL LIFE */
+ 
+#connect-taproom {
+  padding: 0 15px;
+  width: 100%;
+  
+  .wrapper {
+    background-color: #686766;
+    border-radius: 5px;
+    width: 100%;
+    height: 335px;
+        }
+  
+  #taproom-map {
+    background: url(/assets/taproom-map.jpg) center;
+    background-size: cover;
+    height: 167px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+        }
+  
+  #taproom-map .btn {
+    margin: 110px 0 0 0;
+      }
+    }
+
+  
+/* OTHER WAYS TO CONNECT */
+
+#connect-other {
+
+  ul {
+    background-color: #b9b6af;
+    width: 100%;
+    border-radius: 3px;
+    padding-left: 0;
+    height: 335px; 
+
+    li {
+      vertical-align: top;
+      border-top: 1px solid #dedbd1;
+      border-bottom: 1px solid #908e8a;
+      text-align: left;
+      padding: 0 0 0 15px;
+      background-color: #b9b6af;
+      transition: background-color .5s;
+      -webkit-transition: background-color .5s; /* Safari */
+
+      h3 {
+        padding: 15px 0 1px 55px;
+        margin: 0;
+      }
+
+      &:first-child {
+        border-top: none;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+      
+      &:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom: none;
+        padding-bottom: 10px;
+      }
+
+
+      .sub {
+        font-size: 12px;
+        color: #686766;
+        padding: 0 15px 15px 15px;
+      }
+
+      list-style: none;
+
+      &.blw {
+        background: url( "/assets/icon-protobrew.png" ) 15px 13px no-repeat;
+        background-size: 35px 35px;
+      }
+
+      &.facebook {
+        background: url( "/assets/icon-facebook.png" ) 15px 13px no-repeat;
+        background-size: 35px 35px;
+      }
+
+      &.untappd {
+        background: url( "/assets/icon-untappd.png" ) 15px 13px no-repeat;
+        background-size: 35px 35px;
+      }
+
+      &.instagram {
+        background: url( "/assets/icon-instagram.png" ) 15px 13px no-repeat;
+        background-size: 35px 35px;
+      }
+
+      &.contact {
+        background: url( "/assets/icon-contact.png" ) 15px 13px no-repeat;
+        background-size: 35px 35px;
+      }
+
+      &:hover {
+        background-color: #9c1923;
+        .sub {
+          color: white;
+          
+        }
+      }
+    }       
+  }
+}
+
+
+#footer {
+  font-size: 14px;
+  background-image: url( "/assets/background-slate.png" );
+  // min-width: $min-site-width;
+  padding: 30px 0 30px;
+
+  img {
+    padding-bottom: 15px;
+  }
+
+  div {
+    // @include width( 4 );
+    display: inline-block;
+    // font-size: $font-size;
+  }
+  ul {
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+    padding: 6px;
+  }
+  a {
+    color: white;
+  }
+  a:hover {
+    text-decoration: underline !important;
+    color: white;
+  }
+}
+
+// #footer {
+//   background-image: url("assets/background-slate.png");
+//   min-width: 1040px;
+//   padding: 30px 0 30px; }
+//   #footer img {
+//     padding-bottom: 15px; }
+//   #footer div {
+//     /* width: ($cols * ($column + $gutter) - $gutter) / $em; */
+//     width: 320px;
+//     display: inline-block;
+//     font-size: 14px; }
+//   #footer li {
+//     list-style: none;
+//     padding: 6px; }
+//   #footer a:hover {
+//     text-decoration: underline !important;
+//     color: white; }
+
+.content {
+
+  background: none;
+  background-color: white;
+  padding: 65px 0 85px 0;
+  // font-size: 0;
+
+  // background-image: url( '/assets/border-end.png' ), url( '/assets/border-bottom.png' ), url( '/assets/border.png' );
+  // background-position: 605px 66px, 605px bottom, 605px 66px;
+  
+  background-repeat: no-repeat, no-repeat, no-repeat;
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  // div {
+  //  display: inline-block;
+  //  vertical-align: top;
+  // }
+
+  p {
+    padding-bottom: 0.5em;
+    line-height: 2em;
+    font-size: 14px;
+    text-align: left;
+    a {
+      // color: $headline-color;
+    }
+  }
+
+  #beerTabs {
+    color: #951C23;
+    font-family: "OstrichSansMedium";
+    font-weight: normal;
+    font-size: 26px;
+
+    .tabButton {
+      cursor: pointer;
+    }
+
+  }
+
+  #beerpane img {
+    width: 100%
+  }
+  #mid {
+    font-size: $font-size;
+    color: $content-color;
+    line-height: 2em;
+    text-align: left;
+
+    h1 {
+      color: $headline-color;
+      font-family: "OstrichSansMedium";
+      font-weight: normal;
+      font-size: 49px;
+      padding-bottom: 23px;
+      padding-top: 60px;
+      margin-top: 0;
+
+      &:first-child {
+        padding-top: 0px;
+      }
+    }
+
+    a {
+      color: $headline-color;
+    }
+
+    h2 {
+      color: #605f5e;
+      font-family: "OstrichSansBlack";
+      font-size: 28px;
+      padding-bottom: 13px;
+    }
+  }
+
+
+  #left {
+    // @include width( 7 );
+
+    // padding-right: col-width( 1 );
+    font-size: $font-size;
+    color: $content-color;
+    line-height: 2em;
+    text-align: left;
+
+    h1 {
+      color: $headline-color;
+      font-family: "OstrichSansMedium";
+      font-weight: normal;
+      font-size: 49px;
+      padding-bottom: 0px;
+      padding-top: 60px;
+
+      &:first-child {
+        padding-top: 0px;
+      }
+    }
+
+    a {
+      color: $headline-color;
+    }
+
+    h2 {
+      color: #605f5e;
+      font-family: "OstrichSansBlack";
+      font-size: 28px;
+      padding-bottom: 13px;
+      margin-top: 0;
+      margin-bottom: 0px;
+    }
+  }
+  // #beer-right {
+  //  display: inline-block;
+  //  // @include width( 4 );
+  // }
+
+  #right {
+    // @include width( 4 );
+
+
+    h2 {
+      color: #918f8b;
+      font-size: 26px;
+      font-family: 'OstrichSansBlack';
+      font-weight: normal;
+      padding-bottom: 25px;
+
+      .darker {
+        color: #4a4844;
+      }
+    }
+
+    p {
+      padding-bottom: 50px;
+      padding-left: 20px;
+
+      color: #3f3f3f;
+      font-size: 12px;
+      text-align: left;
+      line-height: 2em;
+    }
+
+
+
+    #recipe-header {
+      background-color: $sidebar-background-color;
+    }
+
+    #bjcp {
+      background-color: #686766;
+      font-size: 16px;
+      font-family: Helvetica;
+      color: #d5d2c8;
+      text-shadow: 0px 1px 1px black;
+      text-align: left;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      padding-left: 15px;
+      border-bottom: 1px solid #acaaa3;
+
+      .ostrich {
+        font-family: 'OstrichSansBlack';
+      }
+    }
+
+    #recipe {
+      padding: 25px 23px 32px 23px;
+      text-align: left;
+      background-color: #918f8b;
+      background-image: url( '/assets/sidebar-bottom.png' );
+      background-repeat: no-repeat;
+      background-position: bottom;
+      font-size: 12px;
+      border-top: 1px solid gray;
+      font-weight: bold;
+      // text-shadow: 0px 1px 0px black;
+      line-height: 1.8em;
+      h2 {
+        font-family: "Helvetica", Arial, sans-serif;
+        color: white;
+        font-size: 18px;
+        padding-bottom: 5px;
+      }
+
+      h3 {
+        font-family: "OstrichSansBlack";
+        padding-top: 20px;
+        color: #ecdcaa;
+        font-size: 16px;
+      }
+    }
+
+  }
+}
+
+#contact {
+  // @include width( 7 );
+
+  // padding-right: col-width( 1 );
+  font-size: $font-size;
+  color: $content-color;
+  line-height: 2em;
+  text-align: left;
+
+  h1 {
+    color: $headline-color;
+    font-family: "OstrichSansMedium";
+    font-weight: normal;
+    font-size: 49px;
+    padding-bottom: 0px;
+    padding-top: 60px;
+    margin-bottom: 0px;
+
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+
+  a {
+    color: $headline-color;
+  }
+
+  h2 {
+    color: #605f5e;
+    font-family: "OstrichSansBlack";
+    font-size: 28px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+  p {
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+  }
+}
+
+#delete-confirm-modal {
+  font-size: 14px;
+  text-align: left;
+  .modal-title {
+    padding-left: 20px;
+  }
+}
+
+// Beer Hover banner
+
+
+
+#banner.beers {
+  background: url( "/assets/background-beers.jpg" ) center no-repeat, url( "/assets/background-granite-beers.png" );
+  display: inline-block;
+  height: 321px;
+}
+
+
+#banner.beers ul  {
+  height: 214px;
+  width: 960px;
+  background: transparent url("/assets/bg_beers_internal.jpg") top left no-repeat;
+  margin: 107px auto 0 auto;
+  padding: 0;
+  position: relative;
+
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+
+    a {
+      height: 125px;
+      width: 125px;
+      display: block;
+      text-indent: -9999px;
+    }
+
+    &#short-circuit {left: 0px; top: 70px; }
+    &#flip-switch {left: 209px; top: 20px; }
+    &#wheatstone  {left: 418px; top: 70px; }
+    &#schottky {left: 627px; top: 20px; }
+    &#ampere {left: 835px; top: 70px; }
+
+    &#short-circuit a:hover, &#short-circuit.selected {background: transparent url("/assets/bg_beers_internal.jpg") 0 -285px no-repeat; }
+    &#flip-switch a:hover, &#flip-switch.selected {background: transparent url("/assets/bg_beers_internal.jpg") -209px -235px no-repeat; }
+    &#wheatstone a:hover, &#wheatstone.selected {background: transparent url("/assets/bg_beers_internal.jpg") -418px -285px no-repeat; }
+    &#schottky a:hover, &#schottky.selected {background: transparent url("/assets/bg_beers_internal.jpg") -627px -235px no-repeat; }
+    &#ampere a:hover, &#ampere.selected {background: transparent url("/assets/bg_beers_internal.jpg") -835px -285px no-repeat; }
+  }
+}
+
+#beer-circles {
+  padding-bottom: 24px;
+  background-image: url( "/assets/beers.png" );
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 100%;
+  overflow: hidden;
+
+  ul  {
+    height: 200px;
+    width: 960px;
+    background: transparent url("/assets/bg_beers_home.jpg") top left no-repeat;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    position: relative;
+
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      position: absolute;
+
+      a {
+        height: 125px;
+        width: 125px;
+        display: block;
+        text-indent: -9999px;
+      }
+
+      &#short-circuit {left: 0px; top: 63px; }
+      &#flip-switch {left: 209px; top: 13px; }
+      &#wheatstone  {left: 418px; top: 63px; }
+      &#schottky {left: 627px; top: 13px; }
+      &#ampere {left: 835px; top: 63px; }
+
+      &#short-circuit a:hover, &#short-circuit.selected {background: transparent url("/assets/bg_beers_home.jpg") 0 -263px no-repeat; }
+      &#flip-switch a:hover, &#flip-switch.selected {background: transparent url("/assets/bg_beers_home.jpg") -209px -213px no-repeat; }
+      &#wheatstone a:hover, &#wheatstone.selected {background: transparent url("/assets/bg_beers_home.jpg") -418px -263px no-repeat; }
+      &#schottky a:hover, &#schottky.selected {background: transparent url("/assets/bg_beers_home.jpg") -627px -213px no-repeat; }
+      &#ampere a:hover, &#ampere.selected {background: transparent url("/assets/bg_beers_home.jpg") -835px -263px no-repeat; }
+    }
+  }
+
+}
+
+// Twitter widget fix
+.twtr-hd {
+  width: 200px;
+}
+
+#myModal {
+  color: black;
+  font-size: $font-size;
+    width: 300px;
+    margin: -150px 0 0 -150px;
+}
+
+
+// boostrap tab fixes (overrides #content div display-inline)
+.tab-content > .tab-pane,
+.pill-content > .pill-pane {
+  display: none !important;
+}
+
+.tab-content > .active,
+.pill-content > .active {
+  display: block !important;
+}
+
+.tabbable ul {
+  list-style: none;
+}
+
+.nav-tabs > li > a {
+  border-radius: 4px 4px 4px 4px;
+  padding: 0px 10px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border-bottom-color: #DDD;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs > li {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+
+  // header
+  #header .container {
+    padding: 0;
+  }
+  // nav
+  .navbar-toggle {
+    background-color: $robot-grey;
+    border-color: $robot-grey !important;
+    .icon-bar {
+      background-color: #CCC;
+    }
+  }
+  .navbar-collapse {
+    border: none;
+    box-shadow: none;
+  }
+
+  
+  .theme-dark {
+    .navbar-brand {
+      @include OSansBoldwHover(42px, 20px, 'dark');
+    }
+    #primaryNav {
+      @include OSansBoldwHover(32px, 20px, 'dark'); 
+    }
+  }
+  .theme-bright {
+    .navbar-brand {
+      @include OSansBoldwHover(42px, 20px, 'bright');
+    }
+    #primaryNav {
+      @include OSansBoldwHover(32px, 20px, 'bright'); 
+    }
+  }
+    
+  #primaryNav {
+    border: none;
+    .navbar-nav {
+      padding-right: 0px;
+    }
+    .navtext {
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 0px;
+      text-align: left;
+    }
+    .navtext:hover {
+      // background-color: grey;
+      // opacity: 0.2;
+      background: rgba(163, 14, 14, .3);
+    }
+
+    .big {
+      display: inline-block;
+      padding-right: 10px;
+    }
+    .little {
+      display: inline-block;
+      vertical-align: middle;
+      background-image: none !important;
+    }
+
+    #nav-where {
+      padding-bottom: 0;
+    }
+  }
+
+  .content {
+    padding: 0px 10px 0 10px;
+    .beers {
+      text-align: left;
+      padding-top: 20px;
+    }
+  }
+  #lower {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 390px) {
+  .contact-btn {
+    display: none !important;
+  }
+}
+
+
+#primaryNav #brewery-in-collapsed {
+  font-size: 26px;
+  position: relative;
+  float: left;
+  top: 14px;
+}
+
+
+//bootstrap overrides:
+#primaryNav {
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: transparent;
+  }
+}
+
+
+
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  bottom: 75px;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 430px;
+  background-color:#bbb;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 432px;
+}
+  
+#banner1 {
+  background: url('/assets/banner-three-engineers.jpg') center no-repeat;
+  background-size: cover;
+}
+#banner2 {
+  background: url('/assets/banner-hard-wired.jpg') center no-repeat;
+  background-size: cover;
+}
+#banner3 {
+  background: url('/assets/banner-taproom.jpg') center no-repeat;
+  background-size: cover;
+}
+#banner_carousel h1 {
+  vertical-align: middle;
+  font-size: 86px;
+  font-family: 'OstrichSansMedium';
+  text-shadow: 0 1px 0 black;
+  margin: 0;
+}
+#banner_carousel p {
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+.btn-primary {
+  background-color: #eaeaea;
+  color: #8f1720;
+  font-family: 'OstrichSansBold';
+  border: none;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; /* Safari */
+}
+#banner .btn, #connect-taproom .btn {
+  font-size: 24px;
+  padding: 1px 10px;
+}
+.btn-lg {
+  font-size: 36px;
+  padding: 2px 18px;
+  line-height: 1.33;
+  border-radius: 18px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  background-color: #eaeaea;
+  color: #252424;
+  opacity: .8;
+}
+
+.carousel-indicators li {
+  margin: 1px 5px;
+  opacity: .2;
+  border: none;
+  background: #fff;
+}
+.carousel-indicators li.active {
+  opacity: 1;
+  margin: 1px 5px;
+  width: 10px;
+  height: 10px;
+}
+
+
+// redactor dropdown fixes
+.redactor_format_h1 {
+  font-size: 30px;
+  line-height: 36px;
+}
+.redactor_format_h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+.redactor_format_h3 {
+  font-size: 20px;
+  line-height: 30px;
+}
+.redactor_format_h4 {
+  font-size: 16px;
+  line-height: 26px;
+}
+.redactor_format_h5 {
+  font-size: 14px;
+  line-height: 23px;
+}

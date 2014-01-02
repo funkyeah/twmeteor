@@ -1,4 +1,4 @@
-Template.where.gmapsIframeNotLoaded = ->
+Template.locationMap.gmapsIframeNotLoaded = ->
     return Session.get 'gmapsAPInotLoaded'
 
 
@@ -30,7 +30,7 @@ Template.where.gmapsIframeNotLoaded = ->
     google.maps.event.addListener marker, "click", ->
         infowindow.open map, marker
 
-Template.where.rendered = ->
+Template.locationMap.rendered = ->
     if Session.get('gmapsAPInotLoaded')
         Meteor.Loader.loadJs "http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=makeGmap"
     else

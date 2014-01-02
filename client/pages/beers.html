@@ -4,30 +4,30 @@
             <div class="tabbable tabs-left">
                 <ul id="beerTabs" class="col-md-2 nav nav-tabs">
 
-                    <li id="short-circuitTab" class="{{#if isActiveTab 'short-circuitTab'}} active {{/if}}">
+                    <li data-beertab="short-circuit" class="{{#if isActiveTab 'short-circuit'}} active {{/if}}">
                         <a class='tabButton'>Short Circuit</a>
                     </li>
 
-                    <li id="flip-switchTab" class="{{#if isActiveTab 'flip-switchTab'}} active {{/if}}">
+                    <li data-beertab="flip-switch" class="{{#if isActiveTab 'flip-switch'}} active {{/if}}">
                         <a class='tabButton'>Flip-Switch</a>
                     </li>
 
-                    <li id="wheatstoneTab" class="{{#if isActiveTab 'wheatstoneTab'}} active {{/if}}">
+                    <li data-beertab="wheatstone" class="{{#if isActiveTab 'wheatstone'}} active {{/if}}">
                         <a class='tabButton'>Wheatstone</a>
                     </li>
 
-                    <li id="schottkyTab" class="{{#if isActiveTab 'schottkyTab'}} active {{/if}}">
+                    <li data-beertab="schottky" class="{{#if isActiveTab 'schottky'}} active {{/if}}">
                         <a class='tabButton'>Schottky</a>
                     </li>
 
-                    <li id="ampereTab" class="{{#if isActiveTab 'ampereTab'}} active {{/if}}">
+                    <li data-beertab="ampere" class="{{#if isActiveTab 'ampere'}} active {{/if}}">
                         <a class='tabButton'>Ampere</a>
                     </li>
                 </ul>
 
                 <div id="beerpane" class="tab-content">   
                     
-                    <div class="tab-pane {{#if isActiveTab 'short-circuitTab'}} active {{/if}}">
+                    <div class="tab-pane {{#if isActiveTab 'short-circuit'}} active {{/if}}">
                         <div>
                             <div id="mid" class="col-md-6 short-circuit">
                                 <h1>Short Circuit Stout</h1>
@@ -98,7 +98,7 @@
                         </div>
                     </div> 
 
-                    <div class="tab-pane {{#if isActiveTab 'flip-switchTab'}} active {{/if}}">
+                    <div class="tab-pane {{#if isActiveTab 'flip-switch'}} active {{/if}}">
 
                        <div id="mid" class="col-md-6 flip-switch">
                             <h1>Flip Switch IPA</h1>
@@ -174,7 +174,7 @@
 
                     </div> 
 
-                    <div class="tab-pane {{#if isActiveTab 'wheatstoneTab'}} active {{/if}}">
+                    <div class="tab-pane {{#if isActiveTab 'wheatstone'}} active {{/if}}">
                         <div id="mid" class="col-md-6 wheatstone">
                             <h1>Wheatstone Bridge</h1>
                             <p>
@@ -245,7 +245,7 @@
                         </div>
                     </div> 
 
-                    <div class="tab-pane {{#if isActiveTab 'schottkyTab'}} active {{/if}}">
+                    <div class="tab-pane {{#if isActiveTab 'schottky'}} active {{/if}}">
                         <div id="mid" class="col-md-6 schottky">
                             <h1>Schottky Pumpkin Ale</h1>
                             <p>
@@ -314,7 +314,7 @@
                         </div>
                     </div> 
 
-                    <div class="tab-pane {{#if isActiveTab 'ampereTab'}} active {{/if}}">
+                    <div class="tab-pane {{#if isActiveTab 'ampere'}} active {{/if}}">
                         <div id="mid" class="col-md-6 ampere">
                             <h1>Ampere Biere</h1>
                             <p>

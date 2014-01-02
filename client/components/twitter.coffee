@@ -1,6 +1,6 @@
 # TODO: implement re-render protection http://stackoverflow.com/questions/16100123/embed-javascript-widget-in-meteor-template
 
-Template.lower.rendered = ->
+Template.home.rendered = ->
 	d = window.document
 	s = "script"
 	id = "twitter-wjs"

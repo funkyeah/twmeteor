@@ -7,7 +7,8 @@
       "lightbox2": {},
       "toastjs": {},
       "roles": {},
-      "external-file-loader": {}
+      "external-file-loader": {},
+      "iron-router": {}
     },
     "packages": {
       "scss": {
@@ -32,13 +33,18 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.2",
-        "commit": "3b2becad35c50aa2ace476663af65681243056fa"
+        "tag": "v1.2.6",
+        "commit": "f2a9058281f8f2fe028767841d7445aadd6893cf"
       },
       "external-file-loader": {
         "git": "https://github.com/davidd8/meteor-external-file-loader.git",
         "tag": "v0.1.4",
         "commit": "352694a7cf906b8241161c2fd1435161c1d5409f"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.6.1",
+        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
       }
     }
   }

@@ -20,48 +20,20 @@
 </head>
 
 
-<body>
+
+<template name="layout">
+  <body>
     {{> header}}
     {{> primaryNav}}
-    {{> main}}
+    {{yield 'banner'}}
+    {{yield}}
     {{> footer}}
     {{> deleteConfirmModal }}
-</body>
 
-<template name="main">
-    {{#if pageIs 'admin'}}
-        {{> admin}}
-    {{/if}}
-    {{#if pageIs 'home'}}
-        {{> banner_carousel}}
-        {{> lower}}
-    {{/if}}
-    {{#if spaceIs 'beers'}}
-        {{> beers}}
-    {{/if}}
-    {{#if pageIs 'store'}}
-          {{> store}}
-    {{/if}}
-    {{#if pageIs 'news'}}
-        {{> news}}
-    {{/if}}
-
-    {{#if pageIs 'blog'}}
-        {{> blog}}
-    {{/if}}
-
-
-    {{#if pageIs 'who'}}
-        {{> banner}}
-        {{> who}}
-    {{/if}}
-    {{#if pageIs 'where'}}
-        {{> where}}
-    {{/if}} 
-    {{#if pageIs 'contact'}}
-        {{> contact}}
-    {{/if}}
     <span class="responsive-state"></span>
-
+  </body>
 </template>
+
+
+
 
