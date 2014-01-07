@@ -50,7 +50,6 @@
 #---------------------------------------------------------------
 Router.configure
   layoutTemplate: "layout"
-  loadingTemplate: "loading"
   notFoundTemplate: "not_found"
 
 
@@ -66,6 +65,11 @@ filters =
 
 
 Router.before ->
+  # check for ie8 or less (don't support document.addEventListener)
+  if not document.addEventListener and not Session.get('oldBrowserProceed')
+    console.log('ie8!')
+    @render('upgrade_browser')
+    @stop()
   if @path is '/'
     Session.set('page', 'home')
   else 
@@ -96,109 +100,6 @@ Router.before(filters.resetScroll)
 
 #
 
-#--------------------------------------------------------------------------------------------------//
-#------------------------------------------- Controllers ------------------------------------------//
-#--------------------------------------------------------------------------------------------------//
-
-# Controller for all posts lists
-PostsListController = RouteController.extend(
-  template: "posts_list"
-  waitOn: ->
-    
-    # take the first segment of the path to get the view, unless it's '/' in which case the view default to 'top'
-    # note: most of the time this.params.slug will be empty
-    @_terms =
-      view: (if @path is "/" then "top" else @path.split("/")[1])
-      limit: @params.limit or getSetting("postsPerPage", 10)
-      category: @params.slug
-      query: Session.get("searchQuery")
-
-    [Meteor.subscribe("postsList", @_terms), Meteor.subscribe("postsListUsers", @_terms)]
-
-  data: ->
-    parameters = getParameters(@_terms)
-    posts = Posts.find(parameters.find, parameters.options)
-    postsCount = posts.count()
-    Session.set "postsLimit", @_terms.limit
-    postsList: posts
-    postsCount: postsCount
-
-  after: ->
-    view = (if @path is "/" then "top" else @path.split("/")[1])
-    Session.set "view", view
-)
-
-# Controller for post digest
-# BlogListController = RouteController.extend(
-#   template: "posts_digest"
-#   waitOn: ->
-    
-#     # if day is set, use that. If not default to today
-#     currentDate = (if @params.day then new Date(@params.year, @params.month - 1, @params.day) else Session.get("today"))
-#     terms =
-#       view: "digest"
-#       after: moment(currentDate).startOf("day").valueOf()
-#       before: moment(currentDate).endOf("day").valueOf()
-
-#     [Meteor.subscribe("postsList", terms), Meteor.subscribe("postsListUsers", terms)]
-
-#   data: ->
-#     currentDate = (if @params.day then new Date(@params.year, @params.month - 1, @params.day) else Session.get("today"))
-#     terms =
-#       view: "digest"
-#       after: moment(currentDate).startOf("day").valueOf()
-#       before: moment(currentDate).endOf("day").valueOf()
-
-#     parameters = getParameters(terms)
-#     Session.set "currentDate", currentDate
-#     posts: Posts.find(parameters.find, parameters.options)
-# )
-
-# Controller for post pages
-PostPageController = RouteController.extend(
-  template: "post_page"
-  waitOn: ->
-    [Meteor.subscribe("singlePost", @params._id), Meteor.subscribe("postComments", @params._id), Meteor.subscribe("postUsers", @params._id)]
-
-  data: ->
-    postId: @params._id
-
-  after: ->
-    window.queueComments = false
-    window.openedComments = []
-)
-
-# TODO: scroll to comment position
-
-# Controller for comment pages
-CommentPageController = RouteController.extend(
-  waitOn: ->
-    [Meteor.subscribe("singleComment", @params._id), Meteor.subscribe("commentUser", @params._id), Meteor.subscribe("commentPost", @params._id)]
-
-  data: ->
-    comment: Comments.findOne(@params._id)
-
-  after: ->
-    window.queueComments = false
-)
-
-# Controller for user pages
-UserPageController = RouteController.extend(
-  waitOn: ->
-    Meteor.subscribe "singleUser", @params._idOrSlug
-
-  data: ->
-    findById = Meteor.users.findOne(@params._idOrSlug)
-    findBySlug = Meteor.users.findOne(slug: @params._idOrSlug)
-    if typeof findById isnt "undefined"
-      
-      # redirect to slug-based URL
-      Router.go getProfileUrl(findById),
-        replaceState: true
-
-    else
-      user: (if (typeof findById is "undefined") then findBySlug else findById)
-)
 
 #--------------------------------------------------------------------------------------------------//
 #--------------------------------------------- Routes ---------------------------------------------//
@@ -229,8 +130,22 @@ Router.map ->
 
   # Blog
   @route 'blog',
-    path: '/blog/:blogPostID?'
+    path: '/blog/'
+    waitOn: ->
+      Meteor.subscribe 'blogPosts'
+    data: ->
+      blogPosts: BlogPosts.find({}, {date: -1, time: -1})
     # controller: BlogListController
+
+  @route 'blogPost',
+    path: '/blog/:blogPostTitle'
+    waitOn: ->
+      Meteor.subscribe 'singlePost', @params.blogPostTitle
+    data: ->
+      BlogPosts.findOne({title: @params.blogPostTitle})
+
+
+    # controller: BlogPostController
 
   # who
   @route 'who',
@@ -255,13 +170,13 @@ Router.map ->
   # User Profile
   @route "user_profile",
     path: "/users/:_idOrSlug"
-    controller: UserPageController
+    # controller: UserPageController
 
   
   # User Edit
   @route "user_edit",
     path: "/users/:_idOrSlug/edit"
-    controller: UserPageController
+    # controller: UserPageController
 
   
   # Account

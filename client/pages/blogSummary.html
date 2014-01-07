@@ -1,0 +1,20 @@
+<template name ="blogSummary">
+    <div id="{{_id}}" class="col-md-12">
+    
+
+            <img src="{{this.titleImageLink}}">
+        
+            <div class="col-md-12">
+                <a href="/blog{{postLink this}}">
+                    <h1>{{this.title}}</h1>
+                </a>
+            </div>
+
+            <div class="col-md-12">
+                <h2>{{day}}, {{date}} @  {{time}}</h2>
+
+                {{{this.summary}}}
+            </div>
+    </div>
+</template>
+

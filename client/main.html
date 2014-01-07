@@ -22,18 +22,37 @@
 
 
 <template name="layout">
-  <body>
+    <span class="responsive-state"></span>
     {{> header}}
     {{> primaryNav}}
     {{yield 'banner'}}
     {{yield}}
     {{> footer}}
     {{> deleteConfirmModal }}
-
-    <span class="responsive-state"></span>
-  </body>
 </template>
 
+
+<template name="upgrade_browser">
+    <div class="container">
+    <div class="content">
+    <div class="centered">
+        <h1>Rusty Browser Warning</h1>
+        <p>Our sensors detect that you may be attempting to view the Tin Whiskers site with a browser that needs to be traded in for a shiny new one. </p>
+        <p> We reccomend one of the following: </p>
+        <ul>
+            <li>
+                <a href="http://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+            </li>
+            <li>
+                <a href="www.google.com/chrome/‎">Chrome</a>
+            </li>
+        </ul>
+        <p> or proceed with caution </p>
+        <button class="btn btn-block btn-danger old-browser-proceed">Proceed</button>
+    </div>
+    </div>
+    </div>
+</template>
 
 
 

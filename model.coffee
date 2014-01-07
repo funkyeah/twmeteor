@@ -1,6 +1,10 @@
 
 @BlogPosts = new Meteor.Collection("blogPosts")
 
+@postLink = (blogPost) ->
+  encodedTitle = encodeURIComponent(blogPost.title)
+  return "/#{encodedTitle}"
+
 @emailIsValid = (email) ->
     re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\  ".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA  -Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if re.test(email)

@@ -4,6 +4,10 @@
 Handlebars.registerHelper 'page', () ->
     Session.get('page')
 
+Handlebars.registerHelper('postLink', (blogPost) ->
+  postLink(blogPost)
+)
+
 ## GK - Use version of this to highlight select beer badge
 Handlebars.registerHelper 'pageIs', (u) ->
     page = Session.get('page')
@@ -14,6 +18,10 @@ Handlebars.registerHelper 'spaceIs', (space) ->
     currSpace = Session.get('space')
     return space == currSpace
 
+Template.upgrade_browser.events
+    'click button.old-browser-proceed': (evt) ->
+        evt.preventDefault()
+        Session.set('oldBrowserProceed', true)
 
 Template.header.themeBright = ->
     return Session.get 'themeBright'
@@ -27,12 +35,8 @@ Template.header.events
 
     'click a': evtNavigate
 
-
-Template.primaryNav.resizeHelper = ->
-    responsive_state = Session.get "responsive_state"
-    if responsive_state isnt '767px'
-        $('.tw-navbar-collapse').collapse('show')
-    return
+Template.primaryNav.primaryNavCollapse = ->
+    Session.get('primaryNavCollapse')
 
 Template.primaryNav.themeBright = ->
     return Session.get 'themeBright'
@@ -41,14 +45,16 @@ Template.primaryNav.themeBright = ->
 Template.primaryNav.events
     'click a': (evt) ->
         evtNavigate(evt)
-        rstate = responsive_state()
-        if rstate is '767px'
-            $('.tw-navbar-collapse').collapse('hide')
+        r_state = responsive_state()
+        if r_state is '767px'
+            Session.set('primaryNavCollapse', '')  
 
 Template.primaryNav.rendered = ->
-    rstate = responsive_state()
-    if rstate isnt '767px'
-        $('.tw-navbar-collapse').collapse('show')
+    r_state = responsive_state()
+    if r_state isnt '767px'
+        Session.set('primaryNavCollapse', 'in')  
+    else
+        Session.set('primaryNavCollapse', '')  
    
 Template.banner.events
     'click a': evtNavigate
@@ -83,16 +89,14 @@ Template.home.created = ->
 Template.beers.isActiveTab = (tab, options)->
     Session.equals "activeBeerTab", tab 
 
-
 Meteor.startup ->
     Session.set('activeBeerTab', 'short-circuit')
     $(window).resize (evt) ->
-        responsive_state = @.responsive_state()
+        responsive_state = @responsive_state()
         if responsive_state isnt '767px'
-            $('.tw-navbar-collapse').collapse('show')
+            Session.set('primaryNavCollapse', 'in')  
     $('body').addClass('theme-dark');
     Session.set('themeBright', false)
     Session.set('sendingEmail', false)
     Session.set('gmapsAPInotLoaded', true)
-    # $("#gmaps-iframe").on "load", (e) ->
-    #     Session.set('gmapsIframeNotLoaded', false)
+    Session.set('editPostId', false)

@@ -1,23 +1,14 @@
-Meteor.subscribe('blogPosts')
-
-Template.blog.blog_posts = ->
-  blog_posts = BlogPosts.find( {}, {sort: {date: -1}})
-  return blog_posts
-
-Template.blog.notEditing = ->
-    if not Session.get('editPostId') and not Session.get('addingPost')
-        return true
-    else
-        return false
-
-Template.blog.addingPost = ->
-     return Session.get('addingPost')
-
- Template.blog.events
+#################################################################
+#       Blog List
+#################################################################
+Template.blog.events
     'click .addPostButton' : (evt) ->
         evt.preventDefault()
         Session.set('addingPost', true);
 
+#################################################################
+#       Blog Post
+#################################################################
 
 Template.blogPost.notEditing = ->
     if not Session.get('editPostId') and not Session.get('addingPost')
@@ -26,20 +17,7 @@ Template.blogPost.notEditing = ->
         return false
 
 Template.blogPost.editing = ->
-     return Session.equals('editPostId', this._id);
-
-
-Template.blogEdit.events
-    'click .cancelEdit' : (evt) ->
-        evt.preventDefault()
-        Session.set('addingPost', false);
-        Session.set('editPostId', false);
-
-    'click .saveEdit' : (evt) ->
-        evt.preventDefault()
-        savePost( evt )
-        Session.set('addingPost', false);
-        Session.set('editPostId', false);
+    return Session.equals('editPostId', this._id);
 
 Template.blogPost.events
     'click .editPostButton' : (evt) ->
@@ -52,19 +30,9 @@ Template.blogPost.events
         $('#delete-confirm-input').val('')
         $('#delete-confirm-modal').modal('show')
 
-
-Template.deleteConfirmModal.events
-    'click #delete-confirm-button': (e) ->
-        deleteInput = $('#delete-confirm-input').val()
-        if deleteInput == "DELETE"
-            deletePost()
-            $('#delete-confirm-modal').modal('hide')
-
-    'click #delete-cancel-button': (e) ->
-        $('#delete-confirm-modal').modal('hide')
-
-
-
+#################################################################
+#       Blog Edit
+#################################################################
 Template.blogEdit.rendered = ->
     el = $( '#post-edit-content' )
     el.redactor(
@@ -83,6 +51,31 @@ Template.blogEdit.rendered = ->
         #         filepicker.store(file, {location:"S3", path: Meteor.userId() + "/" + file.filename },
         #         (file) -> callback( filelink: file.url )))
     )
+
+Template.blogEdit.events
+    'click .cancelEdit' : (evt) ->
+        evt.preventDefault()
+        Session.set('addingPost', false);
+        Session.set('editPostId', false);
+
+    'click .saveEdit' : (evt) ->
+        evt.preventDefault()
+        savePost( evt )
+        Session.set('addingPost', false);
+        Session.set('editPostId', false);
+
+
+
+
+Template.deleteConfirmModal.events
+    'click #delete-confirm-button': (e) ->
+        deleteInput = $('#delete-confirm-input').val()
+        if deleteInput == "DELETE"
+            deletePost()
+            $('#delete-confirm-modal').modal('hide')
+
+    'click #delete-cancel-button': (e) ->
+        $('#delete-confirm-modal').modal('hide')
 
 
 @savePost = (evt) ->

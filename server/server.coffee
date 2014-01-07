@@ -34,21 +34,15 @@ Meteor.methods
             return
 
 
-Meteor.publish('blogPosts', () ->
-
+Meteor.publish 'blogPosts', () ->
     # Todo: Temporary
-    return BlogPosts.find({}, {date: -1, time: -1})
+    BlogPosts.find({}, {date: -1, time: -1})
 
-    # Todo: Use when Meteor gets aggregates
-    # user = Meteor.users.findOne({_id: this.userId}) if this.userId
+Meteor.publish 'singlePost', (title) ->
+  decodedTitle = decodeURIComponent(title)
+  BlogPosts.find title: decodedTitle
 
-    # Admins see all!
-    # if user && user.group == "admin"
-    #     return Entries.find({})
 
-    # conditions = [{$ne: ["$entry.mode", "private"]}]
-
-)
 
 # Meteor.publish("userData", ->
 #     Meteor.users.find({_id: this.userId}, {fields: {'username': 1, 'group': 1, 'profile': 1}})

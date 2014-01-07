@@ -625,6 +625,9 @@ img.center {
     a {
       // color: $headline-color;
     }
+    img {
+      width: 100%;
+    }
   }
 
   #beerTabs {
@@ -671,6 +674,42 @@ img.center {
       font-family: "OstrichSansBlack";
       font-size: 28px;
       padding-bottom: 13px;
+    }
+  }
+
+  .centered {
+    // @include width( 7 );
+
+    // padding-right: col-width( 1 );
+    font-size: $font-size;
+    color: $content-color;
+    line-height: 2em;
+    text-align: left;
+
+    h1 {
+      color: $headline-color;
+      font-family: "OstrichSansMedium";
+      font-weight: normal;
+      font-size: 49px;
+      padding-bottom: 0px;
+      padding-top: 60px;
+
+      &:first-child {
+        padding-top: 0px;
+      }
+    }
+
+    a {
+      color: $headline-color;
+    }
+
+    h2 {
+      color: #605f5e;
+      font-family: "OstrichSansBlack";
+      font-size: 28px;
+      padding-bottom: 13px;
+      margin-top: 0;
+      margin-bottom: 0px;
     }
   }
 

@@ -1,39 +1,48 @@
 <template name ="blogPost">
+
+<div class="container">
     <div id="{{_id}}" class="col-md-12">
-    
-        {{#if editing}}
+                
+        <div class="content col-md-8 col-md-offset-2 blog">
+            <div class="centered">
 
-            {{#with this}}
-              {{> blogEdit}}
-            {{/with}}
-
-        {{else}}
-
-            {{! 3 columns - title, edit, delete}}
-            <div class="col-md-10">
-                <h1>{{this.title}}</h1>
-            </div>
             {{#if isInRole 'editor'}}
                 {{#if notEditing}}
-                <div class="col-md-1">
+                <div class="col-md-6">
                     <button class="btn btn-block editPostButton">Edit</button>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-6">
                     <button class="btn btn-block btn-danger deletePostButton">Delete</button>
                 </div>
                 {{/if}}
             {{/if}}
 
+            {{#if editing}}
 
-            {{! end 3 cols}}
+                {{#with this}}
+                  {{> blogEdit}}
+                {{/with}}
 
-            <div class="col-md-12">
-                <h2>{{day}}, {{date}} @  {{time}}</h2>
+            {{else}}
 
-                {{{this.content}}}
+
+                <img src="{{this.titleImageLink}}">
+                <div class="col-md-12">
+                    <a href="/blog{{postLink this}}">
+                        <h1>{{this.title}}</h1>
+                    </a>
+                </div>
+                <div class="col-md-12">
+                    <h2>{{day}}, {{date}} @  {{time}}</h2>
+
+                    {{{this.content}}}
+                </div>
+
+            {{/if}}
             </div>
-        {{/if}}
+        </div>
     </div>
+</div>
 </template>
 
 
