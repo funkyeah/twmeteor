@@ -4,20 +4,14 @@
         <div class="container">
             <ul class="col-sm-12">
                 <li class="col-sm-2">
-                    <a id="nav-beers" class="navtext" href="/beers">
+                    <a id="nav-beers" class="navtext {{#if pageIs 'beers'}}selected{{/if}}" href="/beers">
                         <div class="big">Beer</div>
                         <div class="little">Specifications</div>
                     </a>
                 </li>
-<!--                 <li class="col-sm-2">
-                    <a id="nav-news" class="navtext" href="/news">
-                        <div class="big">News</div>
-                        <div class="little">&amp; Updates</div>
-                    </a>
-                </li> -->
 
                 <li class="col-sm-2">
-                    <a id="nav-blog" class="navtext" href="/blog">
+                    <a id="nav-blog" class="navtext {{#if pageIs 'blog'}}selected{{/if}}" href="/blog">
                         <div class="big">Blog</div>
                         <div class="little">&amp; News</div>
                     </a>
@@ -36,35 +30,23 @@
                     </div>
                 </li>
                 <li class="col-sm-2">
-                    <a id="nav-who" class="navtext" href="/who">
+                    <a id="nav-who" class="navtext  {{#if pageIs 'who'}}selected{{/if}}" href="/who">
                         <div class="big">Who</div>
                         <div class="little">Are We?</div>
                     </a>
                 </li>
                 <li class="col-sm-2">
-                    <a id="nav-where" class="navtext" href="/where">
+                    <a id="nav-where" class="navtext  {{#if pageIs 'where'}}selected{{/if}}" href="/where">
                         <div class="big">Where</div>
                         <div class="little">To Find Us</div>
                     </a>
                 </li>
-<!--                 <li class="col-xs-12 visible-xs">
-                    <a href="/blw" class="navtext">
-                        <div class="big">Protobrew</div>
-                        <div class="little">Wiki</div>
-                    </a>
-                </li> -->
                <li class="col-xs-12 visible-xs">
-                    <a href="/contact" class="navtext">
+                    <a href="/contact" class="navtext ">
                         <div class="big">Contact Us</div>
                         <div class="little">You Know You Want To</div>
                     </a>
                 </li>
-<!--                <li class="col-xs-12 visible-xs">
-                    <a href="/store" class="navtext">
-                        <div class="big">The Store</div>
-                        <div class="little">With Sweet Gear</div>
-                    </a>
-                </li> -->
             </ul>
         </div>
     </div>

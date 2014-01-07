@@ -14,10 +14,6 @@ Handlebars.registerHelper 'pageIs', (u) ->
     return u == "/" if page == undefined
     return u == page
 
-Handlebars.registerHelper 'spaceIs', (space) ->
-    currSpace = Session.get('space')
-    return space == currSpace
-
 Template.upgrade_browser.events
     'click button.old-browser-proceed': (evt) ->
         evt.preventDefault()
