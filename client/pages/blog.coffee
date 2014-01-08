@@ -37,8 +37,6 @@ Template.blogEdit.rendered = ->
     el = $( '#post-edit-content' )
     el.redactor(
         imageUpload: '/images'
-        # linebreaks: true # buggy - insert link on last line, hit enter to break,
-        # with cursor on newline try to insert link (modal only show edit of previous link)
         buttons: ['html', '|', 'formatting', '|', 'bold', 'italic', 'deleted', '|',
                   'unorderedlist', 'orderedlist', 'outdent', 'indent', '|',
                   'image', 'table', 'link', '|',
@@ -80,8 +78,15 @@ Template.deleteConfirmModal.events
 
 @savePost = (evt) ->
     postId = Session.get('editPostId');
+    convertToSlug = (Text) ->
+        Text.toLowerCase().replace(RegExp(" ", "g"), "-").replace(/[^\w-]+/g, "")
+    title = $('#post-edit-title-input').val()
+    slug = convertToSlug(title)
     post = {
-        'title': $('#post-edit-title-input').val()
+        'title': title
+        'slug' : slug
+        'titleImageLink': $('#post-edit-titleImageLink').val()
+        'summary': $('#post-edit-summary-input').val()
         'day' : $('#post-edit-day-input').val()
         'date' : $('#post-edit-date-input').val()
         'time' : $('#post-edit-time-input').val()

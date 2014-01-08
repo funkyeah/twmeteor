@@ -38,9 +38,8 @@ Meteor.publish 'blogPosts', () ->
     # Todo: Temporary
     BlogPosts.find({}, {date: -1, time: -1})
 
-Meteor.publish 'singlePost', (title) ->
-  decodedTitle = decodeURIComponent(title)
-  BlogPosts.find title: decodedTitle
+Meteor.publish 'singlePost', (slug) ->
+  BlogPosts.find slug: slug
 
 
 

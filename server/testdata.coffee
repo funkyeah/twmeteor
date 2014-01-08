@@ -47,3 +47,16 @@ if Meteor.users.find().count() is 0
         )
         console.log user
         Roles.addUsersToRoles id, user.roles  if user.roles.length > 0
+
+#################################################################
+#       Migrate
+#################################################################
+Meteor.startup ->
+  BlogPosts.find().forEach (post)->
+    if typeof post.slug is "undefined"
+      convertToSlug = (Text) ->
+        Text.toLowerCase().replace(RegExp(" ", "g"), "-").replace(/[^\w-]+/g, "")
+      slug = convertToSlug(post.title)
+      BlogPosts.update post._id,
+        $set:
+          slug: slug

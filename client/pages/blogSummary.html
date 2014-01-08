@@ -1,11 +1,11 @@
 <template name ="blogSummary">
     <div id="{{_id}}" class="col-md-12">
     
-
-            <img src="{{this.titleImageLink}}">
-        
+            <a href="/blog/{{this.slug}}">
+                <img src="{{this.titleImageLink}}">
+            </a>
             <div class="col-md-12">
-                <a href="/blog{{postLink this}}">
+                <a href="/blog/{{this.slug}}">
                     <h1>{{this.title}}</h1>
                 </a>
             </div>
