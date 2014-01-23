@@ -4,7 +4,10 @@
 Template.blog.events
     'click .addPostButton' : (evt) ->
         evt.preventDefault()
-        Session.set('addingPost', true);
+        Session.set('addingPost', true)
+
+Template.blog.addingPost = ->
+    Session.get('addingPost')
 
 #################################################################
 #       Blog Post
@@ -16,17 +19,22 @@ Template.blogPost.notEditing = ->
     else
         return false
 
+
+Template.blogPost.path = ->
+    #Router.current().path.split( "/" )
+    Router.current().path.split( "/" )[2]
+
 Template.blogPost.editing = ->
-    return Session.equals('editPostId', this._id);
+    return Session.equals('editPostId', this._id)
 
 Template.blogPost.events
     'click .editPostButton' : (evt) ->
         evt.preventDefault()
-        Session.set('editPostId', this._id);
+        Session.set('editPostId', this._id)
     
     'click .deletePostButton': (evt) ->
         evt.preventDefault()
-        Session.set('deletePostId', this._id);
+        Session.set('deletePostId', this._id)
         $('#delete-confirm-input').val('')
         $('#delete-confirm-modal').modal('show')
 
@@ -53,14 +61,14 @@ Template.blogEdit.rendered = ->
 Template.blogEdit.events
     'click .cancelEdit' : (evt) ->
         evt.preventDefault()
-        Session.set('addingPost', false);
-        Session.set('editPostId', false);
+        Session.set('addingPost', false)
+        Session.set('editPostId', false)
 
     'click .saveEdit' : (evt) ->
         evt.preventDefault()
         savePost( evt )
-        Session.set('addingPost', false);
-        Session.set('editPostId', false);
+        Session.set('addingPost', false)
+        Session.set('editPostId', false)
 
 
 
@@ -77,7 +85,7 @@ Template.deleteConfirmModal.events
 
 
 @savePost = (evt) ->
-    postId = Session.get('editPostId');
+    postId = Session.get('editPostId')
     convertToSlug = (Text) ->
         Text.toLowerCase().replace(RegExp(" ", "g"), "-").replace(/[^\w-]+/g, "")
     title = $('#post-edit-title-input').val()

@@ -3,7 +3,7 @@
 <div class="container">
     <div id="{{_id}}" class="col-md-12">
                 
-        <div class="content col-md-8 col-md-offset-2 blog">
+        <div id="blog-page" class="content col-md-8 col-md-offset-2 blog">
             <div class="centered">
 
             {{#if isInRole 'editor'}}
@@ -16,7 +16,10 @@
                 </div>
                 {{/if}}
             {{/if}}
-
+            <ol class="breadcrumb">
+                <li><a href="/blog">Blog</a></li>
+                <li>{{path}}</li>
+            </ol>
             {{#if editing}}
 
                 {{#with this}}
@@ -26,11 +29,9 @@
             {{else}}
 
 
-                <img src="{{this.titleImageLink}}">
-                <div class="col-md-12">
-                    <a href="/blog{{postLink this}}">
-                        <h1>{{this.title}}</h1>
-                    </a>
+                <img src="{{this.titleImageLink}}" class="blog-title-image">
+                <div class="post-title col-md-12">
+                    <h1>{{this.title}}</h1>
                 </div>
                 <div class="col-md-12">
                     <h2>{{day}}, {{date}} @  {{time}}</h2>

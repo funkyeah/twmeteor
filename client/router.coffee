@@ -82,10 +82,7 @@ Router.before(filters.resetScroll)
         return
     localhost = document.location.host
     linkhost = $a[0].host
-    if localhost == linkhost
-        Router.go(href)
-    else
-        window.open( href, '_blank')
+    Router.go(href)
 
 # Unload Hooks
 
@@ -115,8 +112,7 @@ Router.map ->
     path: '/beers/:beer?'
     before: ->
       if this.params.beer?
-        Session.set( 'activeBeerTab', this.params.beer)
-    
+        Session.set( 'activeBeerTab', this.params.beer)  
 
   # Blog
   @route 'blog',
@@ -124,7 +120,7 @@ Router.map ->
     waitOn: ->
       Meteor.subscribe 'blogPosts'
     data: ->
-      blogPosts: BlogPosts.find({}, {date: -1, time: -1})
+      blogPosts: BlogPosts.find({}, {sort: {date: -1, time: -1}})
 
   @route 'blogPost',
     path: '/blog/:blogPostSlug'
@@ -132,6 +128,10 @@ Router.map ->
       Meteor.subscribe 'singlePost', @params.blogPostSlug
     data: ->
       BlogPosts.findOne({slug: @params.blogPostSlug})
+    after: ->
+      r_state = responsive_state()
+      if r_state isnt '767px'
+        $("body").scrollTop 225
 
   # who
   @route 'who',

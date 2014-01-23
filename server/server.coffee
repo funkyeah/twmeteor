@@ -36,7 +36,7 @@ Meteor.methods
 
 Meteor.publish 'blogPosts', () ->
     # Todo: Temporary
-    BlogPosts.find({}, {date: -1, time: -1})
+    BlogPosts.find({}, {sort: {date: -1, time: -1}})
 
 Meteor.publish 'singlePost', (slug) ->
   BlogPosts.find slug: slug

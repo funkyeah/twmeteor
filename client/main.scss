@@ -17,8 +17,8 @@ $robot-grey: #4F4D4D;
 
 // Start custom styles
 
-a {
-  text-decoration: none !important;
+a , a:hover{
+  text-decoration: none;
 }
 
 div.clear {
@@ -573,28 +573,30 @@ img.center {
     color: white;
   }
   a:hover {
-    text-decoration: underline !important;
+    text-decoration: underline;
     color: white;
   }
 }
 
-// #footer {
-//   background-image: url("assets/background-slate.png");
-//   min-width: 1040px;
-//   padding: 30px 0 30px; }
-//   #footer img {
-//     padding-bottom: 15px; }
-//   #footer div {
-//     /* width: ($cols * ($column + $gutter) - $gutter) / $em; */
-//     width: 320px;
-//     display: inline-block;
-//     font-size: 14px; }
-//   #footer li {
-//     list-style: none;
-//     padding: 6px; }
-//   #footer a:hover {
-//     text-decoration: underline !important;
-//     color: white; }
+#blog-page {
+  .btn {
+    margin-bottom: 15px;
+  }
+  .blog-summary {
+    margin-bottom: 5em;
+  }
+  .post-title a {
+    text-decoration: none;
+  }
+  .post-summary-text {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #acaaa3;
+  }
+}
+
+img.blog-title-image {
+  width: 100%;
+}
 
 .content {
 
@@ -609,7 +611,7 @@ img.center {
   background-repeat: no-repeat, no-repeat, no-repeat;
 
   a {
-    text-decoration: underline !important;
+    text-decoration: underline;
   }
 
   // div {
@@ -754,6 +756,7 @@ img.center {
   //  // @include width( 4 );
   // }
 
+
   #right {
     // @include width( 4 );
 
@@ -884,8 +887,6 @@ img.center {
 }
 
 // Beer Hover banner
-
-
 
 #banner.beers {
   background: url( "/assets/background-beers.jpg" ) center no-repeat, url( "/assets/background-granite-beers.png" );

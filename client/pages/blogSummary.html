@@ -1,18 +1,19 @@
 <template name ="blogSummary">
-    <div id="{{_id}}" class="col-md-12">
+    <div id="{{_id}}" class="blog-summary col-md-12">
     
             <a href="/blog/{{this.slug}}">
-                <img src="{{this.titleImageLink}}">
+                <img src="{{this.titleImageLink}}" class="blog-title-image">
             </a>
-            <div class="col-md-12">
+            <div class="post-title col-md-12" >
                 <a href="/blog/{{this.slug}}">
                     <h1>{{this.title}}</h1>
                 </a>
             </div>
 
-            <div class="col-md-12">
+            <div class="post-time col-md-12">
                 <h2>{{day}}, {{date}} @  {{time}}</h2>
-
+            </div>
+            <div class="post-summary-text col-md-12">
                 {{{this.summary}}}
             </div>
     </div>

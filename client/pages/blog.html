@@ -1,15 +1,23 @@
 <template name ="blog">
 <div class="container">
     <div id="blog-page" class="content col-md-8 col-md-offset-2 blog">
-		<div class="centered">
-			{{#if isInRole 'editor'}}
-				<button type="submit" class="addPostButton btn btn-block btn-default">Add New Post</button>
-			{{/if}}
-			{{#each blogPosts}}
-				{{> blogSummary}}
-			{{/each}}
-		</div>
-	</div>
+        <div class="centered">
+
+            {{#unless addingPost}}
+                {{#if isInRole 'editor'}}
+                    <button type="submit" class="addPostButton btn btn-block btn-default">Add New Post</button>
+                {{/if}}
+            {{/unless}}
+
+            {{#if addingPost}}
+                {{> blogEdit}}
+            {{else}}
+                {{#each blogPosts}}
+                    {{> blogSummary}}
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
 
 </div>
 </template>
