@@ -120,7 +120,7 @@ Router.map ->
     before: ->
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
-        jQuery.getScript( '/redactor/redactor.js') ->
+        jQuery.getScript '/redactor/redactor.js', ->
           Session.set('redactorLoaded', true)
     waitOn: ->
       Meteor.subscribe 'blogPosts'
@@ -136,7 +136,7 @@ Router.map ->
     before: ->
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
-        jQuery.getScript( '/redactor/redactor.js') ->
+        jQuery.getScript '/redactor/redactor.js', ->
           Session.set('redactorLoaded', true)
     after: ->
       r_state = responsive_state()

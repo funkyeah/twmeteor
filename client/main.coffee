@@ -96,4 +96,5 @@ Meteor.startup ->
     Session.set('sendingEmail', false)
     Session.set('gmapsAPInotLoaded', true)
     Session.set('editPostId', false)
-    Session.set('addingPost', false);
+    Session.set('addingPost', false)
+    Session.set('redactorLoaded', false)
