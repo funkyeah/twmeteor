@@ -117,6 +117,11 @@ Router.map ->
   # Blog
   @route 'blog',
     path: '/blog/'
+    before: ->
+      isRedactorLoaded = Session.get('redactorLoaded')
+      if Meteor.user() and not isRedactorLoaded
+        jQuery.getScript( '/redactor/redactor.js') ->
+          Session.set('redactorLoaded', true)
     waitOn: ->
       Meteor.subscribe 'blogPosts'
     data: ->
@@ -128,6 +133,11 @@ Router.map ->
       Meteor.subscribe 'singlePost', @params.blogPostSlug
     data: ->
       BlogPosts.findOne({slug: @params.blogPostSlug})
+    before: ->
+      isRedactorLoaded = Session.get('redactorLoaded')
+      if Meteor.user() and not isRedactorLoaded
+        jQuery.getScript( '/redactor/redactor.js') ->
+          Session.set('redactorLoaded', true)
     after: ->
       r_state = responsive_state()
       if r_state isnt '767px'
