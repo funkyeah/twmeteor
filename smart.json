@@ -6,6 +6,7 @@
     "toastjs": {},
     "roles": {},
     "external-file-loader": {},
-    "iron-router": {}
+    "iron-router": {},
+    "GAnalytics": {}
   }
 }

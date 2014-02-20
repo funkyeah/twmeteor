@@ -21,3 +21,4 @@ external-file-loader
 iron-router
 scss
 spin
+GAnalytics

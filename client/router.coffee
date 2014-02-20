@@ -103,6 +103,7 @@ Router.map ->
         to: 'banner'
     before: ->
       Session.set('title', 'home')
+      GAnalytics.pageview("/")
 
   # Admin
   @route 'admin'
@@ -111,6 +112,7 @@ Router.map ->
   @route 'beers',
     path: '/beers/:beer?'
     before: ->
+      GAnalytics.pageview("/beers")
       if this.params.beer?
         Session.set( 'activeBeerTab', this.params.beer)  
 
@@ -118,6 +120,7 @@ Router.map ->
   @route 'blog',
     path: '/blog/'
     before: ->
+      GAnalytics.pageview("/blog")
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
@@ -130,10 +133,11 @@ Router.map ->
   @route 'blogPost',
     path: '/blog/:blogPostSlug'
     waitOn: ->
-      Meteor.subscribe 'singlePost', @params.blogPostSlug
+      Meteor.subscribe('singlePost', @params.blogPostSlug)
     data: ->
       BlogPosts.findOne({slug: @params.blogPostSlug})
     before: ->
+      GAnalytics.pageview("/blogPost/"+@params.blogPostSlug)
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
@@ -148,19 +152,27 @@ Router.map ->
     yieldTemplates:
       'banner':
         to: 'banner'
+    before: ->
+      GAnalytics.pageview("/who")
 
   # where
   @route 'where',
     yieldTemplates:
       'locationMap':
         to: 'banner'
+    before: ->
+      GAnalytics.pageview("/who")
 
   # store
-  @route 'store'
+  @route 'store',
+    before: ->
+      GAnalytics.pageview("/store");
 
   # contact
-  @route 'contact'
-  
+  @route 'contact',
+    before: ->
+      GAnalytics.pageview("/contact");
+
   # -------------------------------------------- Users -------------------------------------------- //
   
   # User Profile
