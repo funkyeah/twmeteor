@@ -1,42 +1,5 @@
 
 #################################################################
-#       Filters
-#################################################################
-
-# isLoggedIn
-# isLoggedOut
-# isAdmin
- 
-# canView
-# canPost
-# canEditPost
-# canEditComment
-
-#################################################################
-#       Routes
-#################################################################
-
-# Home
-# Beer listing
-# Paginated Blog list
-  # Blog Posts
-    # Blog editing
-# Who
-# Where
-# Contact
-# Store
-
-
-# Admin and Users
-
-# User Profile
-# User Edit
-# Account
-# Sign In
-# Settings
-
-
-#################################################################
 #       Router Global
 #################################################################
 Router.configure
@@ -55,7 +18,7 @@ filters =
     $("body").css "min-height", 0
 
 
-Router.before ->
+Router.onBeforeAction ->
   # check for ie8 or less (don't support document.addEventListener)
   if not document.addEventListener and not Session.get('oldBrowserProceed')
     console.log('ie8!')
@@ -66,9 +29,9 @@ Router.before ->
   else 
     Session.set('page', @path.split("/")[1])
 
-Router.before(filters.resetScroll)
+Router.onBeforeAction(filters.resetScroll)
 
-# Router.after ->
+# Router.onAfterAction ->
 #   analyticsRequest() # log this request with mixpanel, etc
 
 
@@ -101,7 +64,7 @@ Router.map ->
     yieldTemplates:
       'banner_carousel':
         to: 'banner'
-    before: ->
+    onBeforeAction: ->
       Session.set('title', 'home')
       GAnalytics.pageview("/")
 
@@ -111,7 +74,7 @@ Router.map ->
   # Beers
   @route 'beers',
     path: '/beers/:beer?'
-    before: ->
+    onBeforeAction: ->
       GAnalytics.pageview("/beers")
       if this.params.beer?
         Session.set( 'activeBeerTab', this.params.beer)  
@@ -119,7 +82,7 @@ Router.map ->
   # Blog
   @route 'blog',
     path: '/blog/'
-    before: ->
+    onBeforeAction: ->
       GAnalytics.pageview("/blog")
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
@@ -136,13 +99,13 @@ Router.map ->
       Meteor.subscribe('singlePost', @params.blogPostSlug)
     data: ->
       BlogPosts.findOne({slug: @params.blogPostSlug})
-    before: ->
+    onBeforeAction: ->
       GAnalytics.pageview("/blogPost/"+@params.blogPostSlug)
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
           Session.set('redactorLoaded', true)
-    after: ->
+    onAfterAction: ->
       r_state = responsive_state()
       if r_state isnt '767px'
         $("body").scrollTop 225
@@ -152,7 +115,7 @@ Router.map ->
     yieldTemplates:
       'banner':
         to: 'banner'
-    before: ->
+    onBeforeAction: ->
       GAnalytics.pageview("/who")
 
   # where
@@ -160,18 +123,23 @@ Router.map ->
     yieldTemplates:
       'locationMap':
         to: 'banner'
-    before: ->
+    onBeforeAction: ->
       GAnalytics.pageview("/who")
 
   # store
   @route 'store',
-    before: ->
-      GAnalytics.pageview("/store");
+    onBeforeAction: ->
+      GAnalytics.pageview("/store")
 
   # contact
   @route 'contact',
-    before: ->
-      GAnalytics.pageview("/contact");
+    onBeforeAction: ->
+      GAnalytics.pageview("/contact")
+
+  # contact
+  @route 'protobrew',
+    onBeforeAction: ->
+      GAnalytics.pageview("/protobrew");
 
   # -------------------------------------------- Users -------------------------------------------- //
   

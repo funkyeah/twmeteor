@@ -11,3 +11,5 @@ external-file-loader
 bootstrap-datepicker
 iron-router
 GAnalytics
+mailchimp
+blaze-layout

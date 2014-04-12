@@ -98,3 +98,4 @@ Meteor.startup ->
     Session.set('editPostId', false)
     Session.set('addingPost', false)
     Session.set('redactorLoaded', false)
+    Session.set('subscriptionSubmitted', false)

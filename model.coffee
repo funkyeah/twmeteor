@@ -19,6 +19,10 @@
     bail = (message, status = 403) ->
         throw new Meteor.Error(status, message)
 
+    #  validate save 
+    if post.title.length < 3 or post.slug.length < 3 
+        bail("Invalid Post Parameters")
+
     # Only members can edit
     if(!loggedInUser || !Roles.userIsInRole(loggedInUser, ['admin', 'editor']))
         bail("Bad permissions")

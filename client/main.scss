@@ -507,7 +507,7 @@ img.center {
 
       list-style: none;
 
-      &.blw {
+      &.protobrew {
         background: url( "/assets/icon-protobrew.png" ) 15px 13px no-repeat;
         background-size: 35px 35px;
       }
@@ -834,6 +834,17 @@ img.blog-title-image {
       }
     }
 
+  }
+}
+
+#protobrew {
+  .centered {
+
+    h1 {
+
+      font-size: 72px;
+      text-align: center;
+    }
   }
 }
 

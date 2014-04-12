@@ -28,8 +28,8 @@
     <span class="responsive-state"></span>
     {{> header}}
     {{> primaryNav}}
-    {{yield 'banner'}}
-    {{yield}}
+    {{> yield region='banner'}}
+    {{> yield}}
     {{> footer}}
     {{> deleteConfirmModal }}
 </template>

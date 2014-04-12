@@ -5,7 +5,6 @@
 
 spiderable
 jquery
-preserve-inputs
 coffeescript
 accounts-ui
 accounts-google
@@ -22,3 +21,4 @@ iron-router
 scss
 spin
 GAnalytics
+mailchimp
