@@ -23,7 +23,6 @@ Template.subscribeInput.events
       
 
   "click #subscribe-email-button": (e) ->
-    debugger
     email = $('#subscribe-email-input').val()
     subscribe(email)
         
