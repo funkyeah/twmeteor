@@ -141,7 +141,6 @@ Router.map ->
     onBeforeAction: ->
       GAnalytics.pageview("/protobrew");
 
-  # -------------------------------------------- Users -------------------------------------------- //
   
   # User Profile
   @route "user_profile",
@@ -161,18 +160,13 @@ Router.map ->
     template: "user_edit"
     data: ->
       user: Meteor.user()
-
-  
-
   
   # User Sign-Up
   @route "signup"
   
   # User Sign-In
   @route "signin"
-  
-  # -------------------------------------------- Other -------------------------------------------- //
-  
+    
 
   # Settings
   @route "settings"
