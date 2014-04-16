@@ -131,12 +131,17 @@ Router.map ->
     onBeforeAction: ->
       GAnalytics.pageview("/store")
 
+  # jobs
+  @route 'jobs',
+    onBeforeAction: ->
+      GAnalytics.pageview("/jobs")
+
   # contact
   @route 'contact',
     onBeforeAction: ->
       GAnalytics.pageview("/contact")
 
-  # contact
+  # protobrew
   @route 'protobrew',
     onBeforeAction: ->
       GAnalytics.pageview("/protobrew");

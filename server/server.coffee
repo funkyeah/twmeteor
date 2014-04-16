@@ -10,7 +10,7 @@ Meteor.methods
         if emailIsValid(fromEmail) && fromName.length > 0 && msg.length > 0
             Email.send
                 from: fromEmail
-                to: "robot@tinwhiskersbrewing.com"
+                to: "robot@twbrewing.com"
                 replyTo: fromEmail or `undefined`
                 subject: "Website Email:" + " from " + fromName + " at " + fromEmail
                 text: msg
