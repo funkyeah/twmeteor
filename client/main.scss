@@ -152,6 +152,15 @@ div.clear {
 }
 
 @mixin fixedHdrBtn($theme: 'dark') {
+  .hdr-btn.selected {
+    @if $theme == 'bright' {
+      color: black;
+    }
+    @else {
+      color: lightGrey;
+
+    }
+  }
   .hdr-btn {
     margin-top: 5px;
     margin-left: 10px;
@@ -159,10 +168,8 @@ div.clear {
     font-size: 18px;
     text-align: left;
     @if $theme == 'bright' {
-      //background-image: url("/assets/background-sand.png");
       background-repeat: repeat-x;
       color: #4f4d4d;
-      //font-size: 16px;
     }
     @else {
       color: #4f4d4d;
@@ -851,7 +858,7 @@ img.blog-title-image {
   }
 }
 
-#contact {
+.content {
   // @include width( 7 );
 
   // padding-right: col-width( 1 );
@@ -893,47 +900,47 @@ img.blog-title-image {
   }
 }
 
-#jobs {
-  // @include width( 7 );
+// #jobs {
+//   // @include width( 7 );
 
-  // padding-right: col-width( 1 );
-  font-size: $font-size;
-  color: $content-color;
-  line-height: 2em;
-  text-align: left;
+//   // padding-right: col-width( 1 );
+//   font-size: $font-size;
+//   color: $content-color;
+//   line-height: 2em;
+//   text-align: left;
 
-  h1 {
-    color: $headline-color;
-    font-family: "OstrichSansMedium";
-    font-weight: normal;
-    font-size: 49px;
-    padding-bottom: 0px;
-    padding-top: 60px;
-    margin-bottom: 0px;
+//   h1 {
+//     color: $headline-color;
+//     font-family: "OstrichSansMedium";
+//     font-weight: normal;
+//     font-size: 49px;
+//     padding-bottom: 0px;
+//     padding-top: 60px;
+//     margin-bottom: 0px;
 
-    &:first-child {
-      padding-top: 0px;
-    }
-  }
+//     &:first-child {
+//       padding-top: 0px;
+//     }
+//   }
 
-  a {
-    color: $headline-color;
-  }
+//   a {
+//     color: $headline-color;
+//   }
 
-  h2 {
-    color: #605f5e;
-    font-family: "OstrichSansBlack";
-    font-size: 28px;
-    padding-bottom: 5px;
-    padding-top: 8px;
-    margin-top: 0;
-    margin-bottom: 0px;
-  }
-  p {
-    margin-bottom: 0px;
-    padding-bottom: 15px;
-  }
-}
+//   h2 {
+//     color: #605f5e;
+//     font-family: "OstrichSansBlack";
+//     font-size: 28px;
+//     padding-bottom: 5px;
+//     padding-top: 8px;
+//     margin-top: 0;
+//     margin-bottom: 0px;
+//   }
+//   p {
+//     margin-bottom: 0px;
+//     padding-bottom: 15px;
+//   }
+// }
 
 #delete-confirm-modal {
   font-size: 14px;

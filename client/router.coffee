@@ -100,7 +100,7 @@ Router.map ->
     data: ->
       BlogPosts.findOne({slug: @params.blogPostSlug})
     onBeforeAction: ->
-      GAnalytics.pageview("/blogPost/"+@params.blogPostSlug)
+      GAnalytics.pageview("/blog/"+@params.blogPostSlug)
       isRedactorLoaded = Session.get('redactorLoaded')
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
@@ -135,6 +135,11 @@ Router.map ->
   @route 'jobs',
     onBeforeAction: ->
       GAnalytics.pageview("/jobs")
+
+  # taproom rental
+  @route 'taproom_rental',
+    onBeforeAction: ->
+      GAnalytics.pageview("/taproom_rental")
 
   # contact
   @route 'contact',
