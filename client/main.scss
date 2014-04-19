@@ -157,7 +157,7 @@ div.clear {
       color: black;
     }
     @else {
-      color: lightGrey;
+      color: lightGre;
 
     }
   }
@@ -193,30 +193,6 @@ body {
 
 
 /////////////////////////////////
-// Header 
-/////////////////////////////////
-
-header.navbar {
-  height: 40px;
-  min-height: 40px;
-}
-
-.theme-dark {
-  header {
-    background-color: #000;
-    @include fixedHdrBtn('dark');
-  }
-}
-
-.theme-bright {
-  header {
-    background-image: url( "/assets/background-sand-dark.png" ) !important;
-    background-repeat: repeat-x;
-    @include fixedHdrBtn('bright');
-  }
-}
-
-/////////////////////////////////
 // Theme Switch
 /////////////////////////////////
 
@@ -244,6 +220,30 @@ header.navbar {
   }
   #theme-switch .btn-default .caret {
     border-top-color: #4f4d4d;
+  }
+}
+
+/////////////////////////////////
+// Header 
+/////////////////////////////////
+
+header.navbar {
+  height: 40px;
+  min-height: 40px;
+}
+
+.theme-dark {
+  header {
+    background-color: #000;
+    @include fixedHdrBtn('dark');
+  }
+}
+
+.theme-bright {
+  header {
+    background-image: url( "/assets/background-sand-dark.png" ) !important;
+    background-repeat: repeat-x;
+    @include fixedHdrBtn('bright');
   }
 }
 
@@ -320,60 +320,13 @@ img.center {
     }
   }
 
-  // &.general {
-  //  height: 132px;
-  //  background: url("/assets/bg-highlight.jpg") 50% 0 no-repeat, url("/assets/background-granite-news.jpg") repeat-x;
-
-
-  //  .h1 {
-  //    vertical-align: middle;
-  //    font-size: 86px;
-  //    font-family: 'OstrichSansMedium';
-  //    text-shadow: 0 1px 0 black;
-  //    padding-top: 59px;
-  //  }
-  // }
-
   &.who {
     background: url("/assets/three-electrical-engineers.jpg") 50% 0 no-repeat, url("/assets/background-granite-2.jpg") repeat-x;
     height: 322px;
   }
 
-  // &.where {
-  //  background: url("/assets/banner-our-brewery.jpg") 50% 0 no-repeat, url("/assets/background-granite-2.jpg") repeat-x;
-  //  height: 322px;
-
-  //  .banner-link-image {
-  //    top: 225px;
-  //    left: -359px;
-  //    width: 238px;
-  //    height: 51px;
-  //  }
-
-  // }
-
 }
 
-
-/////////////////////////////////
-// Flexible Map for Where Page
-/////////////////////////////////
-
-.Flexible-container {
-    position: relative;
-    padding-bottom: 322px;
-    height: 0;
-    overflow: hidden;
-}
-
-.Flexible-container iframe,   
-.Flexible-container object,  
-.Flexible-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-}
 
 /////////////////////////////////
 // Lower Columns on Homepage
@@ -384,11 +337,6 @@ img.center {
   background-image: url( "/assets/background-shale.png" );
   padding-top: 0px;
   vertical-align: top;
-  // min-width: $min-site-width;
-
-  //div {
-  //  display: inline-block;
-  //}
 
   h2 {
     font-weight: normal;
@@ -550,6 +498,9 @@ img.center {
   }
 }
 
+/////////////////////////////////
+// Footer
+/////////////////////////////////
 
 #footer {
   font-size: 14px;
@@ -608,41 +559,55 @@ img.center {
 img.blog-title-image {
   width: 100%;
 }
-
 .content {
-
+  font-size: $font-size;
+  color: $content-color;
+  line-height: 2em;
+  text-align: left;
   background: none;
   background-color: white;
   padding: 65px 0 85px 0;
-  // font-size: 0;
-
-  // background-image: url( '/assets/border-end.png' ), url( '/assets/border-bottom.png' ), url( '/assets/border.png' );
-  // background-position: 605px 66px, 605px bottom, 605px 66px;
-  
   background-repeat: no-repeat, no-repeat, no-repeat;
 
+
+  h1 {
+    color: $headline-color;
+    font-family: "OstrichSansMedium";
+    font-weight: normal;
+    font-size: 49px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+
   a {
+    color: $headline-color;
     text-decoration: underline;
   }
 
-  // div {
-  //  display: inline-block;
-  //  vertical-align: top;
-  // }
-
+  h2 {
+    color: #605f5e;
+    font-family: "OstrichSansBlack";
+    font-size: 28px;
+    padding-bottom: 5px;
+    padding-top: 8px;
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
   p {
+    margin-bottom: 0px;
     padding-bottom: 0.5em;
     line-height: 2em;
     font-size: 14px;
     text-align: left;
-    a {
-      // color: $headline-color;
-    }
     img {
       width: 100%;
     }
   }
-
   #beerTabs {
     color: #951C23;
     font-family: "OstrichSansMedium";
@@ -670,7 +635,7 @@ img.blog-title-image {
       font-weight: normal;
       font-size: 49px;
       padding-bottom: 23px;
-      padding-top: 60px;
+      padding-top: 0px;
       margin-top: 0;
 
       &:first-child {
@@ -705,7 +670,7 @@ img.blog-title-image {
       font-weight: normal;
       font-size: 49px;
       padding-bottom: 0px;
-      padding-top: 60px;
+      padding-top: 0px;
 
       &:first-child {
         padding-top: 0px;
@@ -742,7 +707,7 @@ img.blog-title-image {
       font-weight: normal;
       font-size: 49px;
       padding-bottom: 0px;
-      padding-top: 60px;
+      padding-top: 0px;
 
       &:first-child {
         padding-top: 0px;
@@ -762,16 +727,10 @@ img.blog-title-image {
       margin-bottom: 0px;
     }
   }
-  // #beer-right {
-  //  display: inline-block;
-  //  // @include width( 4 );
-  // }
+
 
 
   #right {
-    // @include width( 4 );
-
-
     h2 {
       color: #918f8b;
       font-size: 26px;
@@ -793,8 +752,6 @@ img.blog-title-image {
       text-align: left;
       line-height: 2em;
     }
-
-
 
     #recipe-header {
       background-color: $sidebar-background-color;
@@ -827,7 +784,6 @@ img.blog-title-image {
       font-size: 12px;
       border-top: 1px solid gray;
       font-weight: bold;
-      // text-shadow: 0px 1px 0px black;
       line-height: 1.8em;
       h2 {
         font-family: "Helvetica", Arial, sans-serif;
@@ -847,100 +803,52 @@ img.blog-title-image {
   }
 }
 
+/////////////////////////////////
+// Page Adjustments
+/////////////////////////////////
+
+#blog-page {
+  p {
+    padding-bottom: 15px;
+  }
+}
+
+#blog-page {
+  p {
+    padding-bottom: 15px;
+  }
+}
+
+#taproom-rental {
+  h2 {
+    font-size: 22px;
+  }
+}
+
 #protobrew {
   .centered {
-
     h1 {
-
       font-size: 72px;
       text-align: center;
     }
   }
 }
 
-.content {
-  // @include width( 7 );
+/////////////////////////////////
+// Modals & Widgets
+/////////////////////////////////
 
-  // padding-right: col-width( 1 );
-  font-size: $font-size;
-  color: $content-color;
-  line-height: 2em;
-  text-align: left;
-
-  h1 {
-    color: $headline-color;
-    font-family: "OstrichSansMedium";
-    font-weight: normal;
-    font-size: 49px;
-    padding-bottom: 0px;
-    padding-top: 60px;
-    margin-bottom: 0px;
-
-    &:first-child {
-      padding-top: 0px;
-    }
-  }
-
-  a {
-    color: $headline-color;
-  }
-
-  h2 {
-    color: #605f5e;
-    font-family: "OstrichSansBlack";
-    font-size: 28px;
-    padding-bottom: 5px;
-    padding-top: 8px;
-    margin-top: 0;
-    margin-bottom: 0px;
-  }
-  p {
-    margin-bottom: 0px;
-    padding-bottom: 15px;
-  }
+// Twitter widget fix
+.twtr-hd {
+  width: 200px;
 }
 
-// #jobs {
-//   // @include width( 7 );
-
-//   // padding-right: col-width( 1 );
-//   font-size: $font-size;
-//   color: $content-color;
-//   line-height: 2em;
-//   text-align: left;
-
-//   h1 {
-//     color: $headline-color;
-//     font-family: "OstrichSansMedium";
-//     font-weight: normal;
-//     font-size: 49px;
-//     padding-bottom: 0px;
-//     padding-top: 60px;
-//     margin-bottom: 0px;
-
-//     &:first-child {
-//       padding-top: 0px;
-//     }
-//   }
-
-//   a {
-//     color: $headline-color;
-//   }
-
-//   h2 {
-//     color: #605f5e;
-//     font-family: "OstrichSansBlack";
-//     font-size: 28px;
-//     padding-bottom: 5px;
-//     padding-top: 8px;
-//     margin-top: 0;
-//     margin-bottom: 0px;
-//   }
-//   p {
-//     margin-bottom: 0px;
-//     padding-bottom: 15px;
-//   }
-// }
+#myModal {
+  color: black;
+  font-size: $font-size;
+    width: 300px;
+    margin: -150px 0 0 -150px;
+}
 
 #delete-confirm-modal {
   font-size: 14px;
@@ -994,6 +902,10 @@ img.blog-title-image {
   }
 }
 
+/////////////////////////////////
+// Page Components
+/////////////////////////////////
+
 #beer-circles {
   padding-bottom: 24px;
   background-image: url( "/assets/beers.png" );
@@ -1039,16 +951,24 @@ img.blog-title-image {
 
 }
 
-// Twitter widget fix
-.twtr-hd {
-  width: 200px;
+/////////////////////////////////
+// Flexible Map for Where Page
+/////////////////////////////////
+
+.Flexible-container {
+    position: relative;
+    padding-bottom: 322px;
+    height: 0;
+    overflow: hidden;
 }
 
-#myModal {
-  color: black;
-  font-size: $font-size;
-    width: 300px;
-    margin: -150px 0 0 -150px;
+.Flexible-container iframe,   
+.Flexible-container object,  
+.Flexible-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 
