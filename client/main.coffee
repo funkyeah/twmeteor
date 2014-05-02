@@ -59,8 +59,8 @@ Template.banner_carousel.events
     'click a.btn': evtNavigate
 
 
-Template.beers.events
-    'click #beerTabs > li' : (evt) ->
+Template.beer_nav.events
+    'click .navbar-beers button' : (evt) ->
         $el = $(evt.currentTarget)
         Session.set( 'activeBeerTab' , $el.data('beertab'))
 
@@ -82,7 +82,10 @@ Template.home.created = ->
 
 ## Nav
 
-Template.beers.isActiveTab = (tab, options)->
+Template.beers.isActiveTab = (tab)->
+    Session.equals "activeBeerTab", tab
+
+Template.beer_nav.isActiveTab = (tab)->
     Session.equals "activeBeerTab", tab 
 
 Meteor.startup ->
