@@ -50,6 +50,7 @@ Template.blogEdit.rendered = ->
                   'image', 'table', 'link', '|',
                   'fontcolor', 'backcolor', '|', 'alignment', '|', 'horizontalrule'],
         focus: true
+        plugins:  ['stickyScrollToolbar']
         autoresize: true
         # filepicker: (callback) ->
         #     filepicker.setKey('AjmU2eDdtRDyMpagSeV7rz')
@@ -57,6 +58,21 @@ Template.blogEdit.rendered = ->
         #         filepicker.store(file, {location:"S3", path: Meteor.userId() + "/" + file.filename },
         #         (file) -> callback( filelink: file.url )))
     )
+
+@RedactorPlugins = {} unless RedactorPlugins?
+@RedactorPlugins.stickyScrollToolbar =
+    init: ->
+        toolbarOffsetFromTop = $(".redactor_toolbar").offset().top
+        headerHeight = $("header.navbar").offset().top
+        stickyToolbar = ->
+            scrollTop = $(window).scrollTop()
+            if scrollTop > toolbarOffsetFromTop - headerHeight
+                $(".redactor_toolbar").addClass "sticky-toolbar-onscroll"
+            else
+                $(".redactor_toolbar").removeClass "sticky-toolbar-onscroll"
+        stickyToolbar()
+        $(window).scroll ->
+            stickyToolbar()
 
 Template.blogEdit.events
     'click .cancelEdit' : (evt) ->

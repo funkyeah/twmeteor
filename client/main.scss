@@ -5,7 +5,9 @@ $min-site-width: 970px;
 $font-size: 14px;     // Your base font-size in pixels
 $content-color: #606060;
 $robot-grey: #4F4D4D;
+
 $robot-dark-grey: #212121;
+$robot-med-grey: #686766;
 $robot-light-grey: #d2d2d2;
 $headline-color: #951c23;
 $beer-heading-color: $robot-dark-grey;
@@ -343,10 +345,8 @@ img.center {
 
   h2 {
     font-weight: normal;
-    text-shadow: 0px 1px 1px white;
     font-size: 27px;
     font-family: 'OstrichSansBlack', sans-serif;
-    color: #918f8b;
     margin-bottom: 20px;
   }
   h3 {
@@ -397,7 +397,7 @@ img.center {
   width: 100%;
   
   .wrapper {
-    background-color: #686766;
+    background-color: $robot-med-grey;
     border-radius: 5px;
     width: 100%;
     height: 335px;
@@ -459,7 +459,7 @@ img.center {
 
       .sub {
         font-size: 12px;
-        color: #686766;
+        color: $robot-med-grey;
         padding: 0 15px 15px 15px;
       }
 
@@ -569,7 +569,7 @@ img.blog-title-image {
   text-align: left;
   background: none;
   background-color: white;
-  padding: 65px 0 85px 0;
+  padding: 65px 0 45px 0;
   background-repeat: no-repeat, no-repeat, no-repeat;
 
 
@@ -787,7 +787,7 @@ img.blog-title-image {
     }
 
     #bjcp {
-      background-color: #686766;
+      background-color: $robot-med-grey;
       font-size: 16px;
       font-family: Helvetica;
       color: #d5d2c8;
@@ -886,12 +886,14 @@ img.blog-title-image {
 }
 
 .mailing-list {
-  background-color: white;
+  background-color: $robot-med-grey;
   padding: 5px 20px 25px 20px;
   margin: 20px 15px 10px 15px;
   border-radius: 5px;
-  color: #686766;
-
+  color: white;
+  h2 {
+    color: white;
+  }
 }
 
 #blog-page {
@@ -1280,6 +1282,16 @@ img.blog-title-image {
   width: 10px;
   height: 10px;
 }
+
+// redactor toolbar
+.sticky-toolbar-onscroll {  
+    position: fixed;  
+    top: 40px; 
+    left: 270px;
+    right: 270px;
+    z-index: 500;
+} 
+
 
 
 // redactor dropdown fixes
