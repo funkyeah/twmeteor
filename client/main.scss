@@ -5,14 +5,15 @@ $min-site-width: 970px;
 $font-size: 14px;     // Your base font-size in pixels
 $content-color: #606060;
 $robot-grey: #4F4D4D;
-
+$robot-blood-red: #951c23;
 $robot-dark-grey: #212121;
 $robot-med-grey: #686766;
 $robot-light-grey: #d2d2d2;
-$headline-color: #951c23;
+
+$headline-color: $robot-blood-red;
 $beer-heading-color: $robot-dark-grey;
-$sidebar-color: #ecd7ac;
-$sidebar-background-color: #686765;
+$sidebar-color: #ecd7ac; // tannish
+$sidebar-background-color: #686765; //darker grey
 
 
 // $nav-big-font-shadow: black; //was white
@@ -361,6 +362,12 @@ img.center {
     line-height: 1.5em;
     padding: 0 20px;
   }
+  .hours {
+    font-size: 14px;
+    color: #b9b6af;
+    line-height: 1.5em;
+    padding: 0 20px;
+  }
   
   #lower-nav {
 
@@ -400,7 +407,7 @@ img.center {
     background-color: $robot-med-grey;
     border-radius: 5px;
     width: 100%;
-    height: 335px;
+    height: 390px;
         }
   
   #taproom-map {
@@ -562,6 +569,10 @@ img.center {
 img.blog-title-image {
   width: 100%;
 }
+
+/////////////////////////////////
+// Standard Content Formatting
+/////////////////////////////////
 .content {
   font-size: $font-size;
   color: $content-color;
@@ -623,71 +634,7 @@ img.blog-title-image {
 
   }
 
-  #beerpane img {
-    width: 100%;
-    background-color: $robot-dark-grey;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-  #beer_copy {
-    font-size: $font-size;
-    color: $content-color;
-    line-height: 2em;
-    text-align: left;
-    a {
-      color: $headline-color;
-    }
-
-    h1 {
-      color: $beer-heading-color;
-      font-family: "OstrichSansMedium";
-      font-weight: normal;
-      font-size: 70px;
-      padding-bottom: 10px;
-      padding-top: 0px;
-      margin-top: 0;
-
-      &:first-child {
-        padding-top: 0px;
-      }
-    }
-
-    .beer-subtitle {
-      color: $robot-light-grey;
-      font-family: Helvetica;
-      font-weight: normal;
-      font-size: 28px;
-      padding-bottom: 12px;
-      padding-top: 0px;
-      margin-top: 0;
-      padding-right: 80px;
-
-      &:first-child {
-        padding-top: 0px;
-      }
-    }
-    .beer-subtitle-text{
-      font-size: 28px;
-      line-height: 1.3;
-      font-variant: small-caps;
-    }
-
-    h2 {
-      color: $beer-heading-color;
-      font-family: "OstrichSansBlack";
-      font-size: 28px;
-      padding-bottom: 3px;
-      margin-top: 10px;
-    }
-    p {
-      padding-right: 80px;
-    }
-  }
-
   .centered {
-    // @include width( 7 );
-
-    // padding-right: col-width( 1 );
     font-size: $font-size;
     color: $content-color;
     line-height: 2em;
@@ -722,9 +669,6 @@ img.blog-title-image {
 
 
   #left {
-    // @include width( 7 );
-
-    // padding-right: col-width( 1 );
     font-size: $font-size;
     color: $content-color;
     line-height: 2em;
@@ -840,9 +784,90 @@ img.blog-title-image {
   }
 }
 
-/////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 // Page Adjustments
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+
 /////////////////////////////////
+// Home page
+/////////////////////////////////
+
+.mailing-list {
+  background-color: $robot-med-grey;
+  padding: 5px 20px 25px 20px;
+  margin: 20px 15px 10px 15px;
+  border-radius: 5px;
+  color: white;
+  h2 {
+    color: white;
+  }
+}
+
+/////////////////////////////////
+// Beer Page
+/////////////////////////////////
+#beerpane img {
+  width: 100%;
+  background-color: $robot-dark-grey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+#beer_copy {
+  font-size: $font-size;
+  color: $content-color;
+  line-height: 2em;
+  text-align: left;
+  a {
+    color: $headline-color;
+  }
+
+  h1 {
+    color: $beer-heading-color;
+    font-family: "OstrichSansMedium";
+    font-weight: normal;
+    font-size: 70px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+    margin-top: 0;
+
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+
+  .beer-subtitle {
+    color: $robot-light-grey;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 28px;
+    padding-bottom: 12px;
+    padding-top: 0px;
+    margin-top: 0;
+    padding-right: 80px;
+
+    &:first-child {
+      padding-top: 0px;
+    }
+  }
+  .beer-subtitle-text{
+    font-size: 28px;
+    line-height: 1.3;
+    font-variant: small-caps;
+  }
+
+  h2 {
+    color: $beer-heading-color;
+    font-family: "OstrichSansBlack";
+    font-size: 28px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+  }
+  p {
+    padding-right: 80px;
+  }
+}
 
 .navbar-beers {
   background-color: #918F8B;
@@ -885,34 +910,77 @@ img.blog-title-image {
   }
 }
 
-.mailing-list {
-  background-color: $robot-med-grey;
-  padding: 5px 20px 25px 20px;
-  margin: 20px 15px 10px 15px;
-  border-radius: 5px;
-  color: white;
-  h2 {
+/////////////////////////////////
+// Blog Page
+/////////////////////////////////
+
+#blog-page {
+  p {
+    padding-bottom: 15px;
+  }
+}
+
+#blog-page {
+  p {
+    padding-bottom: 15px;
+  }
+}
+
+/////////////////////////////////
+// Where Page
+/////////////////////////////////
+
+
+// for gmap
+.Flexible-container {
+    position: relative;
+    padding-bottom: 322px;
+    height: 0;
+    overflow: hidden;
+}
+
+.Flexible-container iframe,   
+.Flexible-container object,  
+.Flexible-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+//for parking map
+#parking-map-list-group {
+  margin-top: 20px;
+  #parking-map-header {
     color: white;
+    background-color: $robot-blood-red;
+  }
+
+  #parking-map-png {
+    padding: 0;
+  }
+
+  #parking-map-footer {
+    color: white;
+    line-height: 1.3em;
+    background-color: $robot-dark-grey;
   }
 }
 
-#blog-page {
-  p {
-    padding-bottom: 15px;
-  }
-}
 
-#blog-page {
-  p {
-    padding-bottom: 15px;
-  }
-}
+/////////////////////////////////
+// Taproom Rental
+/////////////////////////////////
 
 #taproom-rental {
   h2 {
     font-size: 22px;
   }
 }
+
+/////////////////////////////////
+// Modals & Widgets
+/////////////////////////////////
 
 #protobrew {
   .centered {
@@ -922,10 +990,6 @@ img.blog-title-image {
     }
   }
 }
-
-/////////////////////////////////
-// Modals & Widgets
-/////////////////////////////////
 
 // Twitter widget fix
 .twtr-hd {
@@ -948,7 +1012,6 @@ img.blog-title-image {
 }
 
 // Beer Hover banner
-
 #banner.beers {
   background: url( "/assets/background-beers.jpg" ) center no-repeat, url( "/assets/background-granite-beers.png" );
   display: inline-block;
@@ -1038,26 +1101,6 @@ img.blog-title-image {
     }
   }
 
-}
-
-/////////////////////////////////
-// Flexible Map for Where Page
-/////////////////////////////////
-
-.Flexible-container {
-    position: relative;
-    padding-bottom: 322px;
-    height: 0;
-    overflow: hidden;
-}
-
-.Flexible-container iframe,   
-.Flexible-container object,  
-.Flexible-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
 }
 
 
