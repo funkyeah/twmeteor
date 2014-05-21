@@ -72,6 +72,8 @@ Template.footer.events
 
 Template.home.events
     'click a': @evtNavigate
+    'click #taproom-map' : ->
+        Router.go('where')
 
 
 Template.home.created = ->

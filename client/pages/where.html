@@ -1,8 +1,24 @@
 <template name="where">
 
 <div class="container">
-    <div id="content" class="content col-md-12 where">
-        <div id="left" class="about col-md-6">
+    <div id="content" class="content col-xs-12 where">
+        <div id="where-right" class="col-sm-6 col-sm-push-6">
+            <h2>Taproom Hours</h2>
+
+            <ul>
+                <li> Wednesday: 4-10PM </li>
+                <li> Thursday 4-10PM </li>
+                <li> Friday 3-11PM </li>
+                <li> Saturday 12-11PM </li>
+            </ul>
+
+            <div id="parking-map-list-group" class="list-group">
+                <h2 id="parking-map-header" class="list-group-item"> Where Can I Park?</h2>
+                <img src="/parking/tw_brewing_parking_map.png" id="parking-map-png" class="list-group-item img-responsive">
+                <p id="parking-map-footer" class="list-group-item"> All meters are enforced Mon-Sat 8am-5pm and have certain days when overnight parking is not allowed. Please check your meter for No Parking hours.</p>
+            </div>
+        </div>
+        <div id="left" class="about col-sm-6 col-sm-pull-6">
 
             <h1>There's No Place Like Home</h1>
 
@@ -61,13 +77,6 @@
             <a href="https://twitter.com/TinWhiskersBrew">Follow Us on Twitter</a><br/>
             <a href="https://www.facebook.com/TinWhiskersBrewingCo">Check out our Facebook page</a><br/>
             <a href="/protobrew">View the Wiki for Resources and Recipes</a><br/>
-        </div>
-        <div class="col-md-6">
-            <div id="parking-map-list-group" class="list-group">
-                <h2 id="parking-map-header" class="list-group-item"> Where Can I Park?</h2>
-                <img src="/parking/tw_brewing_parking_map.png" id="parking-map-png" class="list-group-item img-responsive">
-                <p id="parking-map-footer" class="list-group-item"> All meters are enforced Mon-Sat 8am-5pm and have certain days when overnight parking is not allowed. Please check your meter for No Parking hours.</p>
-            </div>
         </div>
     </div>
 </div>
