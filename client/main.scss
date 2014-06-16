@@ -1292,16 +1292,19 @@ img.blog-title-image {
   background: url('/assets/banner-taproom.jpg') center no-repeat;
   background-size: cover;
 }
-#banner_carousel h1 {
-  vertical-align: middle;
-  font-size: 86px;
-  font-family: 'OstrichSansMedium';
-  text-shadow: 0 1px 0 black;
-  margin: 0;
-}
-#banner_carousel p {
-  font-size: 14px;
-  margin: 0 0 20px 0;
+#banner_carousel {
+  h1 {
+    vertical-align: middle;
+    font-size: 86px;
+    font-family: 'OstrichSansMedium';
+    text-shadow: 0 1px 0 black;
+    margin: 0;
+  }
+  p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+  }
 }
 .btn-primary {
   background-color: #eaeaea;
