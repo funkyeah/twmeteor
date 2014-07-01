@@ -32,6 +32,7 @@ Template.locationMap.gmapsIframeNotLoaded = ->
 
 Template.locationMap.rendered = ->
     if Session.get('gmapsAPInotLoaded')
+        #callback for makeGMap is included at end of google maps URL
         Meteor.Loader.loadJs "http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=makeGmap"
     else
         makeGmap()
