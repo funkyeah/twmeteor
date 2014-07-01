@@ -938,7 +938,7 @@ img.blog-title-image {
 .Flexible-container {
     position: relative;
     padding-bottom: 322px;
-    height: 0;
+    // height: 0;
     overflow: hidden;
 }
 
@@ -983,6 +983,32 @@ img.blog-title-image {
 }
 
 
+/////////////////////////////////
+// Where Beers
+/////////////////////////////////
+#storemapper-container {
+  padding-top: 0px;
+  h4 {
+    margin-bottom: 3px;
+    color: $robot-dark-grey;
+    padding-top: 0px;
+  }
+  p {
+    padding-bottom: 1px;
+    line-height: 1.4em;
+  }
+}
+
+#storemapper {
+  #storemapper-form {
+    // position: fixed;
+    // top: 270 px;
+    padding-top: 20px;
+    border-bottom: 1px, black;
+    padding-left: 40px;
+    padding-bottom: 10px;
+  }
+}
 /////////////////////////////////
 // Taproom Rental
 /////////////////////////////////

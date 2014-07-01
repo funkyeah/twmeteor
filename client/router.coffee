@@ -124,7 +124,17 @@ Router.map ->
       'locationMap':
         to: 'banner'
     onBeforeAction: ->
-      GAnalytics.pageview("/who")
+      GAnalytics.pageview("/where")
+
+  # where
+  @route 'where_beers',
+    layoutTemplate: 
+      'layout_where'
+    yieldTemplates:
+      'where_tabs': to: 'where_tabs'
+      'beersMap': to: 'banner',
+    onBeforeAction: ->
+      GAnalytics.pageview("/where_beers")
 
   # store
   @route 'store',
