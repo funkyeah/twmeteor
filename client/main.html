@@ -34,6 +34,16 @@
     {{> deleteConfirmModal }}
 </template>
 
+<template name="layout_where">
+    <span class="responsive-state"></span>
+    {{> header}}
+    {{> primaryNav}}
+    {{> yield region='where_tabs'}}
+    {{> yield region='banner'}}
+    {{> yield}}
+    {{> footer}}
+</template>
+
 
 <template name="upgrade_browser">
     <div class="container">

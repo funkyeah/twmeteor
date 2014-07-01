@@ -128,9 +128,11 @@ Router.map ->
 
   # where
   @route 'where_beers',
+    layoutTemplate: 
+      'layout_where'
     yieldTemplates:
-      'beersMap':
-        to: 'banner'
+      'where_tabs': to: 'where_tabs'
+      'beersMap': to: 'banner',
     onBeforeAction: ->
       GAnalytics.pageview("/where_beers")
 
