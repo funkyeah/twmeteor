@@ -74,6 +74,10 @@ Router.map ->
   # Beers
   @route 'beers',
     path: '/beers/:beer?'
+    layoutTemplate: 
+      'layout_with_subnav'
+    yieldTemplates:
+      'subnav_beers': to: 'subnav'
     onBeforeAction: ->
       GAnalytics.pageview("/beers")
       if this.params.beer?
@@ -120,20 +124,24 @@ Router.map ->
 
   # where
   @route 'where',
+    layoutTemplate: 
+      'layout_with_subnav'
     yieldTemplates:
-      'locationMap':
-        to: 'banner'
+      'subnav_where': to: 'subnav'
+      'locationMap':  to: 'banner'
     onBeforeAction: ->
+      Session.set('activeWhereTab', 'where')
       GAnalytics.pageview("/where")
 
   # where
   @route 'where_beers',
     layoutTemplate: 
-      'layout_where'
+      'layout_with_subnav'
     yieldTemplates:
-      'where_tabs': to: 'where_tabs'
-      'beersMap': to: 'banner',
+      'subnav_where': to: 'subnav'
+      'beersMap': to: 'banner'
     onBeforeAction: ->
+      Session.set('activeWhereTab', 'where_beers')
       GAnalytics.pageview("/where_beers")
 
   # store

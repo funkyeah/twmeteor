@@ -1,48 +1,4 @@
-<template name ="beer_nav">
-    <div id="beer_nav">
-        <nav class="navbar-beers"> 
-            <button type="button" class="btn btn-default navbar-btn
-                                        {{#if isActiveTab 'short-circuit'}} active {{/if}}"
-                                  data-beertab="short-circuit"
-            >
-
-
-                Short Circuit
-            </button>
-            <button type="button" class="btn btn-default navbar-btn
-                                        {{#if isActiveTab 'flip-switch'}} active {{/if}}"
-                                  data-beertab="flip-switch"
-            >
-
-                Flip-Switch
-            </button>
-            <button type="button" class="btn btn-default navbar-btn
-                                        {{#if isActiveTab 'wheatstone'}} active {{/if}}"
-                                  data-beertab="wheatstone"
-            >
-
-                Wheatstone
-            </button>
-            <button type="button" class="btn btn-default navbar-btn
-                                        {{#if isActiveTab 'ampere'}} active {{/if}}"
-                                  data-beertab="ampere"
-            >
-
-                Ampere
-            </button>
-            <button type="button" class="btn btn-default navbar-btn
-                                        {{#if isActiveTab 'schottky'}} active {{/if}}"
-                                  data-beertab="schottky"
-            >
-
-                Schottky
-            </button>
-        </nav>
-    </div>
-</template>
-
 <template name="beers">
-    {{> beer_nav}}
     <div id="beers" class="content container">
         <div class="col-md-12">
             <div id="beerpane" class="tab-content">   

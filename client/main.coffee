@@ -59,11 +59,6 @@ Template.banner_carousel.events
     'click a.btn': evtNavigate
 
 
-Template.beer_nav.events
-    'click .navbar-beers button' : (evt) ->
-        $el = $(evt.currentTarget)
-        Session.set( 'activeBeerTab' , $el.data('beertab'))
-
 Template.news.events
     'click a': evtNavigate
 
@@ -82,14 +77,7 @@ Template.home.created = ->
             twttr.widgets.load()
         ), 0
 
-## Nav
-
-Template.beers.isActiveTab = (tab)->
-    Session.equals "activeBeerTab", tab
-
-Template.beer_nav.isActiveTab = (tab)->
-    Session.equals "activeBeerTab", tab 
-
+        
 Meteor.startup ->
     Session.set('activeBeerTab', 'short-circuit')
     $(window).resize (evt) ->
@@ -100,6 +88,7 @@ Meteor.startup ->
     Session.set('themeBright', false)
     Session.set('sendingEmail', false)
     Session.set('gmapsAPInotLoaded', true)
+    Session.set('storemapperLoaded', false)
     Session.set('editPostId', false)
     Session.set('addingPost', false)
     Session.set('redactorLoaded', false)
