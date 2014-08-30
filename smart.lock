@@ -10,18 +10,20 @@
       "external-file-loader": {},
       "iron-router": {},
       "GAnalytics": {},
-      "mailchimp": {}
+      "mailchimp": {},
+      "accounts-admin-ui-bootstrap-3": {},
+      "accounts-entry": {}
     },
     "packages": {
       "scss": {
         "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.8.4",
-        "commit": "11af0da643944d241fe7d173af76162c4b670dee"
+        "tag": "v0.9.4",
+        "commit": "b5ebfe2bb8a58a03966b6f49e185544a0233ddb0"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v3.1.1-1",
-        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
       "lightbox2": {
         "git": "https://github.com/wulx/meteor-lightbox2.git",
@@ -35,8 +37,8 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.8",
-        "commit": "68844ba216c348d332bdb840825850f497f515bb"
+        "tag": "v1.2.11",
+        "commit": "2d7dc91848ec874d3a0852c77f462d0fae749de5"
       },
       "external-file-loader": {
         "git": "https://github.com/davidd8/meteor-external-file-loader.git",
@@ -45,23 +47,63 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.0",
-        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
+        "tag": "v0.8.2",
+        "commit": "05415a8891ea87a00fb1e2388585f2ca5a38e0da"
       },
       "GAnalytics": {
         "git": "https://github.com/datariot/meteor-ganalytics.git",
-        "tag": "v0.1.1",
-        "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
+        "tag": "v0.2.0",
+        "commit": "2d5e48d5cc4c2f88edd40c0b2341d378bd4a702b"
       },
       "mailchimp": {
         "git": "https://github.com/MiroHibler/meteor-mailchimp.git",
+        "tag": "v0.4.2",
+        "commit": "7d100e96b37eb931f4e1d9544da677bb43fe8b5b"
+      },
+      "accounts-admin-ui-bootstrap-3": {
+        "git": "https://github.com/hharnisc/meteor-accounts-admin-ui-bootstrap-3.git",
+        "tag": "v0.2.6",
+        "commit": "fe74692303daf73d440f2729010bcf1557af62ca"
+      },
+      "accounts-entry": {
+        "git": "https://github.com/Differential/accounts-entry.git",
+        "tag": "v0.8.1",
+        "commit": "3102c0641cab394ce4c3e54b655c85ec1610c092"
+      },
+      "iron-layout": {
+        "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
-        "commit": "a714b79dc4992ec2bbdbc9a152d13aab114bae3c"
+        "commit": "4a2d53e35ba036b0c189c7ceca34be494d4c6c97"
+      },
+      "accounts-t9n": {
+        "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
+        "tag": "v0.0.5",
+        "commit": "ad9539a8818049d5d9fa050d8b2a1f62706483b1"
+      },
+      "simple-form": {
+        "git": "https://github.com/Differential/simple-form.git",
+        "tag": "v0.1.8",
+        "commit": "1ea0d3621b333e6f24f37e0e93efd3c081068716"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.2",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "tag": "v0.2.5",
+        "commit": "273e3ab7d005d91a1a59c71bd224533b4dae2fbd"
+      },
+      "iron-core": {
+        "git": "https://github.com/EventedMind/iron-core.git",
+        "tag": "v0.2.0",
+        "commit": "0e48b5dc50d03f01025b7b900fb5ce2f13d52cad"
+      },
+      "iron-dynamic-template": {
+        "git": "https://github.com/EventedMind/iron-dynamic-template.git",
+        "tag": "v0.2.1",
+        "commit": "4dd1185c4d9d616c9abdb3f33e4a7d5a88db7e18"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       }
     }
   }

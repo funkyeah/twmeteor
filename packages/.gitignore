@@ -13,3 +13,12 @@ iron-router
 GAnalytics
 mailchimp
 blaze-layout
+accounts-ui-bootstrap-3
+iron-layout
+iron-core
+iron-dynamic-template
+accounts-admin-ui-bootstrap-3
+accounts-entry
+accounts-t9n
+simple-form
+underscore-string-latest

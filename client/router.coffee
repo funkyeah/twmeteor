@@ -55,7 +55,6 @@ Router.onBeforeAction(filters.resetScroll)
 #################################################################
 #       Routes
 #################################################################
-
 Router.map ->
 
   # Home
@@ -69,7 +68,14 @@ Router.map ->
       GAnalytics.pageview("/")
 
   # Admin
-  @route 'admin'
+  @route "admin",
+    path: "/admin"
+    template: "accountsAdmin"
+    onBeforeAction: ->
+      AccountsEntry.signInRequired(this);
+
+  # Admin
+  @route "sign-in"
 
   # Beers
   @route 'beers',
@@ -168,36 +174,6 @@ Router.map ->
   @route 'protobrew',
     onBeforeAction: ->
       GAnalytics.pageview("/protobrew");
-
-  
-  # User Profile
-  @route "user_profile",
-    path: "/users/:_idOrSlug"
-    # controller: UserPageController
-
-  
-  # User Edit
-  @route "user_edit",
-    path: "/users/:_idOrSlug/edit"
-    # controller: UserPageController
-
-  
-  # Account
-  @route "account",
-    path: "/account"
-    template: "user_edit"
-    data: ->
-      user: Meteor.user()
-  
-  # User Sign-Up
-  @route "signup"
-  
-  # User Sign-In
-  @route "signin"
-    
-
-  # Settings
-  @route "settings"
   
 
   

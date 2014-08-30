@@ -7,7 +7,6 @@ spiderable
 jquery
 coffeescript
 accounts-ui
-accounts-google
 less
 standard-app-packages
 bootstrap-3
@@ -22,3 +21,5 @@ scss
 spin
 GAnalytics
 mailchimp
+accounts-admin-ui-bootstrap-3
+accounts-entry

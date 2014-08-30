@@ -93,3 +93,11 @@ Meteor.startup ->
     Session.set('addingPost', false)
     Session.set('redactorLoaded', false)
     Session.set('subscriptionSubmitted', false)
+
+
+    AccountsEntry.config
+        homeRoute: "/" # mandatory - path to redirect to after sign-out
+        dashboardRoute: "/" # mandatory - path to redirect to after successful sign-in
+        passwordSignupFields: "EMAIL_ONLY"
+        showOtherLoginServices: true # Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
+  return

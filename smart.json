@@ -8,6 +8,8 @@
     "external-file-loader": {},
     "iron-router": {},
     "GAnalytics": {},
-    "mailchimp": {}
+    "mailchimp": {},
+    "accounts-admin-ui-bootstrap-3": {},
+    "accounts-entry": {}
   }
 }
