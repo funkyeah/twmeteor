@@ -5,6 +5,7 @@
 Router.configure
   layoutTemplate: "layout"
   notFoundTemplate: "not_found"
+  loadingTemplate : "loading"
 
 
 #################################################################

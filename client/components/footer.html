@@ -31,10 +31,11 @@
             <div id="footer-secondary-nav" class="col-sm-12 col-md-3">
                 <ul>
                     <li>
-                        <a href="/sign-in">Sign-In</a>
-                    </li>
-                    <li>
-                        <a href="/sign-out">Sign-Out</a>
+                        {{#if currentUser}}
+                            <a href="/sign-out">Sign-Out</a>
+                        {{else}}
+                            <a href="/sign-in">Sign-In</a>
+                        {{/if}}
                     </li>
                     <li>
                         <a href="https://www.facebook.com/TinWhiskersBrewingCo">On Facebook</a>
