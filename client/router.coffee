@@ -32,6 +32,12 @@ Router.onBeforeAction ->
 
 Router.onBeforeAction(filters.resetScroll)
 
+Router.onBeforeAction (pause) ->
+  unless @ready()
+    @render "loading"
+    pause()
+  return
+
 # Router.onAfterAction ->
 #   analyticsRequest() # log this request with mixpanel, etc
 
