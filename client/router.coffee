@@ -137,6 +137,8 @@ Router.map ->
 
   # where
   @route 'where_beers',
+    template: 
+      'where_beers'
     layoutTemplate: 
       'layout_with_subnav'
     yieldTemplates:
@@ -162,6 +164,8 @@ Router.map ->
 
   # taproom rental
   @route 'taproom_rental',
+    template:
+        'taproom_rental'
     onBeforeAction: ->
       GAnalytics.pageview("/taproom_rental")
       this.next()
