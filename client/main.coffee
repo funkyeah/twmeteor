@@ -29,7 +29,7 @@ Template.header.events
         $('body').toggleClass('theme-bright')
         Session.set('themeBright' , !Session.get('themeBright'))
 
-    'click a': evtNavigate
+    # 'click a': evtNavigate
 
 Template.primaryNav.primaryNavCollapse = ->
     Session.get('primaryNavCollapse')
