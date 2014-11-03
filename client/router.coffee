@@ -68,8 +68,8 @@ Router.map ->
   @route 'home',
     path: '/'
     yieldTemplates:
-      'banner_carousel':
-        to: 'banner'
+      'subnav_announcement': to: 'subnav'
+      'banner_carousel':     to: 'banner'
     onBeforeAction: ->
       Session.set('title', 'home')
       GAnalytics.pageview("/")
