@@ -29,8 +29,6 @@ Template.header.events
         $('body').toggleClass('theme-bright')
         Session.set('themeBright' , !Session.get('themeBright'))
 
-    # 'click a': evtNavigate
-
 Template.primaryNav.primaryNavCollapse = ->
     Session.get('primaryNavCollapse')
 
@@ -40,7 +38,6 @@ Template.primaryNav.themeBright = ->
 
 Template.primaryNav.events
     'click a': (evt) ->
-        evtNavigate(evt)
         r_state = responsive_state()
         if r_state is '767px'
             Session.set('primaryNavCollapse', '')  
@@ -52,24 +49,17 @@ Template.primaryNav.rendered = ->
     else
         Session.set('primaryNavCollapse', '')  
    
-Template.banner.events
-    'click a': evtNavigate
-
-Template.banner_carousel.events
-    'click a.btn': evtNavigate
-
-
-Template.news.events
-    'click a': evtNavigate
-
-Template.footer.events
-    'click a': evtNavigate
-
 Template.home.events
-    'click a': @evtNavigate
     'click #taproom-map' : ->
         Router.go('where')
 
+Template.subnav_where.events
+    'click .subnav where-btn' : ->
+        Session.set('dontResetScroll', true)
+        Router.go('where')
+    'click .subnav where-beers-btn'
+        Session.set('dontResetScroll', true)
+        Router.go('where_beers')
 
 Template.home.created = ->
     if typeof twttr isnt "undefined"
@@ -93,11 +83,10 @@ Meteor.startup ->
     Session.set('addingPost', false)
     Session.set('redactorLoaded', false)
     Session.set('subscriptionSubmitted', false)
-
+    Session.set('dontResetScroll', false)
 
     AccountsEntry.config
         homeRoute: "/" # mandatory - path to redirect to after sign-out
         dashboardRoute: "/" # mandatory - path to redirect to after successful sign-in
         passwordSignupFields: "EMAIL_ONLY"
         showOtherLoginServices: true # Set to false to hide oauth login buttons on the signin/signup pages. Useful if you are using something like accounts-meld or want to oauth for api access
-  return

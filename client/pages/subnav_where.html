@@ -1,7 +1,7 @@
 <template name ="subnav_where">
     <div id="where_nav">
         <nav class="subnav"> 
-            <button type="button" href="{{pathFor 'where'}}" class="btn btn-default navbar-btn
+            <button type="button" class="btn btn-default where-btn navbar-btn
                                         {{#if isActiveWhereTab 'where'}} active {{/if}}"
                                   data-wheretab="where"
             >
@@ -9,7 +9,7 @@
 
                 Taproom Location
             </button>
-            <button type="button" href="{{pathFor 'where_beers'}}" class="btn btn-default navbar-btn
+            <button type="button" class="btn btn-default where-beers-btn navbar-btn
                                         {{#if isActiveWhereTab 'where_beers'}} active {{/if}}"
                                   data-wheretab="where_beers"
             >

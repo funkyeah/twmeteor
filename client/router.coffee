@@ -12,12 +12,13 @@ Router.configure
 #       Filters
 #################################################################
 filters =
-
   resetScroll: ->
     scrollTo = window.currentScroll or 0
-    $("body").scrollTop scrollTo
+    if not Session.get('dontResetScroll')
+      $("body").scrollTop scrollTo
     $("body").css "min-height", 0
-
+    Session.set('dontResetScroll', false)
+    this.next()
 
 Router.onBeforeAction ->
   # check for ie8 or less (don't support document.addEventListener)
@@ -27,37 +28,20 @@ Router.onBeforeAction ->
     @stop()
   if @path is '/'
     Session.set('page', 'home')
-  else 
-    Session.set('page', @path.split("/")[1])
+  else
+    Session.set('page', @url.split("/")[1])
+  this.next()
 
 Router.onBeforeAction(filters.resetScroll)
 
-Router.onBeforeAction (pause) ->
-  unless @ready()
-    @render "loading"
-    pause()
-  return
+# Router.onBeforeAction () ->
+#   unless @ready()
+#     @render "loading"
+#     this.next()
+#   return
 
 # Router.onAfterAction ->
 #   analyticsRequest() # log this request with mixpanel, etc
-
-
-@evtNavigate = (evt) ->
-    evt.preventDefault()
-    $a = $(evt.target).closest('a')
-    if $a.length is 0
-        $a = $(evt.target).find('a')
-    href = $a.attr('href')
-    if href is '#'
-        return
-    localhost = document.location.host
-    linkhost = $a[0].host
-    Router.go(href)
-
-# Unload Hooks
-
-#
-
 
 #################################################################
 #       Routes
@@ -73,16 +57,15 @@ Router.map ->
     onBeforeAction: ->
       Session.set('title', 'home')
       GAnalytics.pageview("/")
+      this.next()
 
   # Admin
   @route "admin",
     path: "/admin"
     template: "accountsAdmin"
     onBeforeAction: ->
-      AccountsEntry.signInRequired(this);
-
-  # Admin
-  @route "sign-in"
+      AccountsEntry.signInRequired(this)
+      this.next()
 
   # Beers
   @route 'beers',
@@ -95,6 +78,7 @@ Router.map ->
       GAnalytics.pageview("/beers")
       if this.params.beer?
         Session.set( 'activeBeerTab', this.params.beer)  
+      this.next()
 
   # Blog
   @route 'blog',
@@ -105,6 +89,7 @@ Router.map ->
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
           Session.set('redactorLoaded', true)
+      this.next()
     waitOn: ->
       Meteor.subscribe 'blogPosts'
     data: ->
@@ -122,10 +107,12 @@ Router.map ->
       if Meteor.user() and not isRedactorLoaded
         jQuery.getScript '/redactor/redactor.js', ->
           Session.set('redactorLoaded', true)
+      this.next()
     onAfterAction: ->
       r_state = responsive_state()
       if r_state isnt '767px'
         $("body").scrollTop 225
+      this.next()
 
   # who
   @route 'who',
@@ -134,6 +121,7 @@ Router.map ->
         to: 'banner'
     onBeforeAction: ->
       GAnalytics.pageview("/who")
+      this.next()
 
   # where
   @route 'where',
@@ -145,6 +133,7 @@ Router.map ->
     onBeforeAction: ->
       Session.set('activeWhereTab', 'where')
       GAnalytics.pageview("/where")
+      this.next()
 
   # where
   @route 'where_beers',
@@ -156,31 +145,38 @@ Router.map ->
     onBeforeAction: ->
       Session.set('activeWhereTab', 'where_beers')
       GAnalytics.pageview("/where_beers")
+      this.next()
+
 
   # store
   @route 'store',
     onBeforeAction: ->
       GAnalytics.pageview("/store")
+      this.next()
 
   # jobs
   @route 'jobs',
     onBeforeAction: ->
       GAnalytics.pageview("/jobs")
+      this.next()
 
   # taproom rental
   @route 'taproom_rental',
     onBeforeAction: ->
       GAnalytics.pageview("/taproom_rental")
+      this.next()
 
   # contact
   @route 'contact',
     onBeforeAction: ->
       GAnalytics.pageview("/contact")
+      this.next()
 
   # protobrew
   @route 'protobrew',
     onBeforeAction: ->
-      GAnalytics.pageview("/protobrew");
+      GAnalytics.pageview("/protobrew")
+      this.next()
   
 
   

@@ -1,6 +1,6 @@
-Meteor.startup ->
-    MailChimpOptions.apiKey = "9776d245abf3c7fd5a4d9c583d3f02ad-us8"
-    MailChimpOptions.listId = "56815b508d"
+# Meteor.startup ->
+#     MailChimpOptions.apiKey = "9776d245abf3c7fd5a4d9c583d3f02ad-us8"
+#     MailChimpOptions.listId = "56815b508d"
 
 Meteor.methods
     subscribe: (email) ->
