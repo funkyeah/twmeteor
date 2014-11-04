@@ -53,6 +53,10 @@ Template.home.events
     'click #taproom-map' : ->
         Router.go('where')
 
+Template.subnav_announcement.events
+    'click #announcement-store-btn' : ->
+        Router.go('http://store.twbrewing.com')
+
 Template.subnav_where.events
     'click .subnav where-btn' : ->
         Session.set('dontResetScroll', true)
