@@ -26,7 +26,7 @@ Router.onBeforeAction ->
     console.log('ie8!')
     @render('upgrade_browser')
     @stop()
-  if @path is '/'
+  if @url is '/'
     Session.set('page', 'home')
   else
     Session.set('page', @url.split("/")[1])

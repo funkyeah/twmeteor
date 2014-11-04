@@ -258,12 +258,15 @@ header.navbar {
 /////////////////////////////////
 // Primary Nav
 /////////////////////////////////
-#primaryNav {
+#primary-nav {
   vertical-align: middle;
   text-align: center;
   margin-top: 40px;
   ul {
     list-style: none;
+  }
+  #primary-nav-list {
+    margin-bottom: 0px;
   }
   .navtext {
     padding-top: 40px;
@@ -271,27 +274,37 @@ header.navbar {
     position: relative;
     display: block;
   }
+  #hours-btn {
+    margin-top: 10px;
+    height: 30px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 24px;
+  }
 }
 
 .theme-dark {
-  #primaryNav {
+  #primary-nav {
     background-color: $robot-dark-grey;
-    padding: 0px 0px 12px 0px;
+    padding: 0px 0px 0px 0px;
     @include OSansBoldwHover(50px, 20px, 'dark'); //pass fontsize
     
   }
 }
 
 .theme-bright {
-  #primaryNav {
+  #primary-nav {
     background-image: url( "/assets/background-sand.png" );
-    padding: 12px 0 12px;
+    padding: 12px 0px 0px 0px;
     @include OSansBoldwHover(50px, 20px, 'bright'); //pass fontsize
   }
 }
 #logo-cog {
   padding-top: 12px;
 }
+
 
 /////////////////////////////////
 // Banners
@@ -1237,7 +1250,7 @@ img.blog-title-image {
     .navbar-brand {
       @include OSansBoldwHover(42px, 20px, 'dark');
     }
-    #primaryNav {
+    #primary-nav {
       @include OSansBoldwHover(32px, 20px, 'dark'); 
     }
   }
@@ -1245,12 +1258,12 @@ img.blog-title-image {
     .navbar-brand {
       @include OSansBoldwHover(42px, 20px, 'bright');
     }
-    #primaryNav {
+    #primary-nav {
       @include OSansBoldwHover(32px, 20px, 'bright'); 
     }
   }
     
-  #primaryNav {
+  #primary-nav {
     border: none;
     .navbar-nav {
       padding-right: 0px;
@@ -1299,7 +1312,7 @@ img.blog-title-image {
 }
 
 
-#primaryNav #brewery-in-collapsed {
+#primary-nav #brewery-in-collapsed {
   font-size: 26px;
   position: relative;
   float: left;
@@ -1308,7 +1321,7 @@ img.blog-title-image {
 
 
 //bootstrap overrides:
-#primaryNav {
+#primary-nav {
   .nav > li > a:hover,
   .nav > li > a:focus {
     background-color: transparent;

@@ -1,8 +1,8 @@
 <template name="primaryNav">
 
-    <div id="primaryNav" class="tw-navbar-collapse collapse {{primaryNavCollapse}}">
+    <div id="primary-nav" class="tw-navbar-collapse collapse {{primaryNavCollapse}}">
         <div class="container">
-            <ul class="col-sm-12">
+            <ul id="primary-nav-list" class="col-sm-12">
                 <li class="col-sm-2">
                     <a id="nav-beers" class="navtext {{#if pageIs 'beers'}}selected{{/if}}" href="/beers">
                         <div class="big">Beer</div>
@@ -28,6 +28,9 @@
                             </a>
                         {{/if}}
                     </div>
+                    {{#if pageIs 'home'}}
+                        <a id="hours-btn" class="btn btn-lg btn-primary" href="#connect-taproom">Taproom Hours</a>
+                    {{/if}}
                 </li>
                 <li class="col-sm-2">
                     <a id="nav-who" class="navtext  {{#if pageIs 'who'}}selected{{/if}}" href="/who">
