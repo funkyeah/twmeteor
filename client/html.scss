@@ -997,6 +997,23 @@ img.blog-title-image {
     width: 100%;
 }
 
+.where {
+  #left {
+    ul {
+      padding-left: 0px;
+      list-style: none;
+    }
+    // ol {
+    //   padding-left: 0px;
+    // }
+  }
+  #quick-directions {
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+
 //for parking map
 #parking-map-list-group {
   margin-top: 20px;
