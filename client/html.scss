@@ -276,12 +276,15 @@ header.navbar {
   }
   #hours-btn {
     margin-top: 10px;
-    height: 30px;
+    background-color: $robot-med-grey;
+    height: 31x;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    font-size: 24px;
+    font-size: 26px;
+    font-family: OstrichSansMedium;
+    color: whitesmoke;
   }
 }
 
@@ -658,7 +661,7 @@ img.blog-title-image {
   text-align: left;
   background: none;
   background-color: white;
-  padding: 65px 0 45px 0;
+  padding: 20px 0 45px 0;
   background-repeat: no-repeat, no-repeat, no-repeat;
 
 
@@ -788,7 +791,7 @@ img.blog-title-image {
       font-family: 'OstrichSansBlack';
       font-weight: normal;
       padding-bottom: 25px;
-
+      margin-top: 20px;
       .darker {
         color: #4a4844;
       }
@@ -796,8 +799,6 @@ img.blog-title-image {
 
     p {
       padding-bottom: 50px;
-      padding-left: 20px;
-
       color: #3f3f3f;
       font-size: 12px;
       text-align: left;
@@ -844,6 +845,7 @@ img.blog-title-image {
         color: white;
         font-size: 18px;
         padding-top: 0px;
+        margin-top: 0px;
         padding-bottom: 0px;
       }
 
