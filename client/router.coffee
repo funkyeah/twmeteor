@@ -27,7 +27,7 @@ Router.onBeforeAction ->
     @render('upgrade_browser')
     @stop()
   if @url is '/'
-    Session.set('curentPage', 'ontap')
+    Session.set('curentPage', 'home')
   else
     Session.set('curentPage', @url.split("/")[1])
   this.next()
