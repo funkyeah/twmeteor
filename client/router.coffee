@@ -27,9 +27,9 @@ Router.onBeforeAction ->
     @render('upgrade_browser')
     @stop()
   if @url is '/'
-    Session.set('curentPage', 'home')
+    Session.set('currentPage', 'home')
   else
-    Session.set('curentPage', @url.split("/")[1])
+    Session.set('currentPage', @url.split("/")[1])
   this.next()
 
 Router.onBeforeAction(filters.resetScroll)
