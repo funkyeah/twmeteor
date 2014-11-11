@@ -7,4 +7,4 @@ Template.whereSubnav.events
         Router.go('where_beers')
     'click .subnav where-liquor-stores-btn' : ->
         Session.set('dontResetScroll', true)
-        Router.go('where_beers')
+        Router.go('where_liqour_stores')

@@ -150,17 +150,17 @@ Router.map ->
       this.next()
 
   # where
-  @route 'where_liqour_stores',
+  @route 'where_liquor_stores',
     template: 
       'whereBeers'
     layoutTemplate: 
       'layout_with_subnav'
     yieldTemplates:
       'whereSubnav': to: 'subnav'
-      'liqourStoreMap': to: 'banner'
+      'liquorStoreMap': to: 'banner'
     onBeforeAction: ->
-      Session.set('activeWhereTab', 'where_liqour_stores')
-      GAnalytics.pageview("/where_liqour_stores")
+      Session.set('activeWhereTab', 'where_liquor_stores')
+      GAnalytics.pageview("/where_liquor_stores")
       this.next()
 
 
