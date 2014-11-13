@@ -128,7 +128,7 @@ Router.map ->
     layoutTemplate: 
       'layout_with_subnav'
     yieldTemplates:
-      'subnav_where': to: 'subnav'
+      'whereSubnav': to: 'subnav'
       'locationMap':  to: 'banner'
     onBeforeAction: ->
       Session.set('activeWhereTab', 'where')
@@ -138,15 +138,29 @@ Router.map ->
   # where
   @route 'where_beers',
     template: 
-      'where_beers'
+      'whereBeers'
     layoutTemplate: 
       'layout_with_subnav'
     yieldTemplates:
-      'subnav_where': to: 'subnav'
+      'whereSubnav': to: 'subnav'
       'beersMap': to: 'banner'
     onBeforeAction: ->
       Session.set('activeWhereTab', 'where_beers')
       GAnalytics.pageview("/where_beers")
+      this.next()
+
+  # where
+  @route 'where_liqour_stores',
+    template: 
+      'whereBeers'
+    layoutTemplate: 
+      'layout_with_subnav'
+    yieldTemplates:
+      'whereSubnav': to: 'subnav'
+      'liqourStoreMap': to: 'banner'
+    onBeforeAction: ->
+      Session.set('activeWhereTab', 'where_liqour_stores')
+      GAnalytics.pageview("/where_liqour_stores")
       this.next()
 
 
@@ -165,7 +179,7 @@ Router.map ->
   # taproom rental
   @route 'taproom_rental',
     template:
-        'taproom_rental'
+        'taproomRental'
     onBeforeAction: ->
       GAnalytics.pageview("/taproom_rental")
       this.next()

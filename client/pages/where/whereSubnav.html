@@ -1,4 +1,4 @@
-<template name ="subnav_where">
+<template name ="whereSubnav">
     <div id="where_nav">
         <nav class="subnav"> 
             <button type="button" class="btn btn-default where-btn navbar-btn
@@ -15,6 +15,13 @@
             >
 
                 Restaurants & Bars
+            </button>
+            <button type="button" class="btn btn-default where-liqour-stores-btn navbar-btn
+                                        {{#if isActiveWhereTab 'where_liqour_stores'}} active {{/if}}"
+                                  data-wheretab="where_liqour_stores"
+            >
+
+               Liqour Stores
             </button>
         </nav>
     </div>

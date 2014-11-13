@@ -57,14 +57,6 @@ Template.subnav_announcement.events
     'click #announcement-store-btn' : ->
         Router.go('http://store.twbrewing.com')
 
-Template.subnav_where.events
-    'click .subnav where-btn' : ->
-        Session.set('dontResetScroll', true)
-        Router.go('where')
-    'click .subnav where-beers-btn' : ->
-        Session.set('dontResetScroll', true)
-        Router.go('where_beers')
-
 Template.home.created = ->
     if typeof twttr isnt "undefined"
         setTimeout (->

@@ -16,13 +16,10 @@ Template.subnav_beers.isActiveTab = (tab)->
 #################################
 ## where subnav
 #################################
-Template.subnav_where.events
+Template.whereSubnav.events
     'click .subnav button' : (evt) ->
         $el = $(evt.currentTarget)
         Router.go($el.data('wheretab'))
 
-Template.where_beers.isActiveWhereTab = (tab)->
-    Session.equals "activeWhereTab", tab
-
-Template.subnav_where.isActiveWhereTab = (tab)->
+Template.whereSubnav.isActiveWhereTab = (tab)->
     Session.equals "activeWhereTab", tab 
