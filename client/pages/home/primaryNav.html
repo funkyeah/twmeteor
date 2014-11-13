@@ -4,14 +4,14 @@
         <div class="container">
             <ul id="primary-nav-list" class="col-sm-12">
                 <li class="col-sm-2">
-                    <a id="nav-beers" class="navtext {{#if pageIs 'beers'}}selected{{/if}}" href="/beers">
+                    <a id="nav-beers" class="navtext {{#if currentPageIs 'beers'}}selected{{/if}}" href="/beers">
                         <div class="big">Beer</div>
                         <div class="little">Specifications</div>
                     </a>
                 </li>
 
                 <li class="col-sm-2">
-                    <a id="nav-blog" class="navtext {{#if pageIs 'blog'}}selected{{/if}}" href="/blog">
+                    <a id="nav-blog" class="navtext {{#if currentPageIs 'blog'}}selected{{/if}}" href="/blog">
                         <div class="big">Blog</div>
                         <div class="little">&amp; News</div>
                     </a>
@@ -28,18 +28,18 @@
                             </a>
                         {{/if}}
                     </div>
-                    {{#if pageIs 'home'}}
+                    {{#if currentPageIs 'home'}}
                         <a id="hours-btn" class="btn btn-lg btn-primary" href="#home-taproom-hours">Taproom Hours</a>
                     {{/if}}
                 </li>
                 <li class="col-sm-2">
-                    <a id="nav-who" class="navtext  {{#if pageIs 'who'}}selected{{/if}}" href="/who">
+                    <a id="nav-who" class="navtext  {{#if currentPageIs 'who'}}selected{{/if}}" href="/who">
                         <div class="big">Who</div>
                         <div class="little">Are We?</div>
                     </a>
                 </li>
                 <li class="col-sm-2">
-                    <a id="nav-where" class="navtext  {{#if pageIs 'where'}}selected{{/if}}" href="/where">
+                    <a id="nav-where" class="navtext  {{#if currentPageIs 'where'}}selected{{/if}}" href="/where">
                         <div class="big">Where</div>
                         <div class="little">To Find Us</div>
                     </a>
@@ -52,7 +52,7 @@
                     </a>
                 </li>
                 <li class="col-xs-12 visible-xs">
-                    <a href="/jobs" class="navtext {{#if pageIs 'jobs'}}selected{{/if}}">
+                    <a href="/jobs" class="navtext {{#if currentPageIs 'jobs'}}selected{{/if}}">
                         <div class="big">Jobs</div>
                         <div class="little">Assimilate</div>
                     </a>
@@ -60,7 +60,7 @@
                 <li class="col-xs-12 visible-xs">
                     <a href="/contact" 
                         class="navtext 
-           {{#if pageIs 'contact'}}selected{{/if}}">
+           {{#if currentPageIs 'contact'}}selected{{/if}}">
                         <div class="big">Contact Us</div>
                         <div class="little">You Know You Want To</div>
                     </a>

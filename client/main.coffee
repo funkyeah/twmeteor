@@ -9,10 +9,12 @@ Handlebars.registerHelper('postLink', (blogPost) ->
 )
 
 ## GK - Use version of this to highlight select beer badge
-Handlebars.registerHelper 'pageIs', (u) ->
-    page = Session.get('page')
-    return u == "/" if page == undefined
-    return u == page
+UI.registerHelper 'currentPageIs', (page) ->
+    currentPage = Session.get('currentPage')
+    if page == currentPage
+        return true
+    else
+        return false
 
 Template.upgrade_browser.events
     'click button.old-browser-proceed': (evt) ->
