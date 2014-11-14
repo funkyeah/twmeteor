@@ -5,6 +5,6 @@ Template.whereSubnav.events
     'click .subnav where-beers-btn' : ->
         Session.set('dontResetScroll', true)
         Router.go('where_beers')
-    'click .subnav where-liqour-stores-btn' : ->
+    'click .subnav where-liquor-stores-btn' : ->
         Session.set('dontResetScroll', true)
         Router.go('where_beers')
