@@ -67,6 +67,36 @@ Router.map ->
       AccountsEntry.signInRequired(this)
       this.next()
 
+  @route "ampere",
+    path: "/ampere"
+    onBeforeAction: ->
+      @redirect("/beers/ampere")
+      this.next()
+
+  @route "short-circuit",
+    path: "/short-circuit"
+    onBeforeAction: ->
+      @redirect("/beers/short-circuit")
+      this.next()
+
+  @route "flipswitch",
+    path: "/flipswitch"
+    onBeforeAction: ->
+      @redirect("/beers/flip-switch")
+      this.next()
+
+  @route "wheatstone",
+    path: "/wheatstone"
+    onBeforeAction: ->
+      @redirect("/beers/wheatstone")
+      this.next()
+
+  @route "schottky",
+    path: "/schottky"
+    onBeforeAction: ->
+      @redirect("/beers/schottky")
+      this.next()
+
   # Beers
   @route 'beers',
     path: '/beers/:beer?'
