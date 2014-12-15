@@ -193,12 +193,12 @@ Router.map ->
       GAnalytics.pageview("/where_liquor_stores")
       this.next()
 
-
-  # store
-  @route 'store',
-    onBeforeAction: ->
-      GAnalytics.pageview("/store")
-      this.next()
+  #todo - need to figure out how to have both server and client routes
+  # store -- server url
+  # @route 'store',
+  #   onBeforeAction: ->
+  #     GAnalytics.pageview("/store")
+  #     this.next()
 
   # jobs
   @route 'jobs',
