@@ -23,3 +23,10 @@ Template.whereSubnav.events
 
 Template.whereSubnav.isActiveWhereTab = (tab)->
     Session.equals "activeWhereTab", tab 
+
+#################################
+## announcement/home subnav
+#################################
+Template.subnav_announcement.events
+    'click announcement-store-btn' : (evt) ->
+        Router.go('store')
