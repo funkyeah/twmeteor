@@ -244,7 +244,7 @@
 
                         </div>
                     </div>
-                </div> 
+                </div>
 
                 <div class="tab-pane {{#if isActiveTab 'schottky'}} active {{/if}}">
                     <div id="beer_copy" class="col-md-8 schottky">
@@ -316,6 +316,59 @@
                         </div>
                     </div>
                 </div> 
+
+                <div class="tab-pane {{#if isActiveTab 'barrelshifter'}} active {{/if}}">
+                    <div id="beer_copy" class="col-md-8 barrelshifter">
+                        <h1>Barrel Shifter Porter</h1>
+                        <div class="beer-subtitle">Wood Aged Porter &#9679; 8% ABV</div>
+                        <p class="beer-subtitle-text">
+                            An oak-agedporter with strong vanilla notes and just a hint of cherry.
+                        </p>
+                        <h2>What's With the Name?</h2>
+                        <p>
+                            A barrel shifter is a digital circuit that can shift a data word by a specified number of 
+                            bits in one clock cycle. It can be implemented as a sequence of multiplexers (mux.), 
+                            and in such an implementation the output of one mux is connected to the input of the 
+                            next mux in a way that depends on the shift distance.
+                        </p>
+                        <h2>Beer & Brewing Info</h2>
+                        <p>
+                            BJCP Style: Wood-Aged Beer, Style 22C<br/>
+                            Mashed @ 156&deg;F for 60min
+                            OG 1.076<br/>
+                            FG 1.024<br/>
+                        </p>
+
+                        <h2>Trivia</h2>
+                        <p>
+                            The world of home computers didn't really become interesting until late 1986 when 
+                            Intel released its 3rd generation chip - the 80386, or simply the 386 which used the 
+                            barrel shifter to rotate any 32-bit number in one clock cycle. The removal of the 
+                            barrel shifter from Intel's P4 design is blamed by most for its slowness.
+                        </p>
+                    </div>
+
+                    <div id="right" class="col-md-4 barrelshifter">
+                        <img src="/beer_logos/logo-barrelshifter.svg" alt="Barrel Shifter" />
+                        <div id="recipe">
+                            <h2>Barrel Shifter Recipe</h2>
+
+                            <h3>Mash Ingredients</h3>
+                            Maris Otter<br/>
+                            White Wheat Malt<br/>
+                            Chocolate Malt<br/>
+                            Cara 120<br/>
+
+                            <h3>Boil Ingredients</h3>
+                            Chinook - 60 min<br/>
+                            East Kent Goldings - 15 min<br/>
+                            East Kent Goldings - 5 min<br/>
+
+                            <h3>Yeast</h3>
+                            Wyeast 1084<br/>
+                        </div>
+                    </div>
+                </div>                 
             </div>
         </div>
     </div>
@@ -338,6 +391,8 @@
             <img src="/brewing_diagrams/brew_diagram_ampere.svg">
         {{/if}}
         {{#if isActiveTab 'schottky'}}
+        {{/if}}
+        {{#if isActiveTab 'barrelshifter'}}
         {{/if}}
     </div>
 </template>
