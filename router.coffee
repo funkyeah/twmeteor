@@ -9,4 +9,3 @@ Router.map ->
       this.response.writeHead 301,
         Location: "http://store.twbrewing.com"
       this.response.end()
-
