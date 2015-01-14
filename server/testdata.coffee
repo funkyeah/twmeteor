@@ -1,26 +1,32 @@
 ## intial users setup
 
 
-# Meteor.startup ->
-#     if @BlogPosts.find().count() is 0
-#         blogPosts = [
-
-#           title: "Title of blog post 1"
-#           day: "Wednesday"
-#           date: "2013-12-31"
-#           time: "T01:00"
-#           content: "content of test post 1"
-#         ,
-#           title: "Title of the second test blog post "
-#           day: "Monday"
-#           datetime: "2013-12-31"
-#           time: "T01:00"
-#           content: "content of test post 2 with some html here: <div><h1>text</h1></div>"
-
-#         ]
-#         _.each blogPosts, (blogPost) ->
-#             console.log blogPost
-#             @BlogPosts.insert({ title: blogPost.title, day: blogPost.day, date: blogPost.date, time: blogPost.time, content: blogPost.content } )
+Meteor.startup ->
+    if BlogPosts.find().count() is 0
+        blogPosts = [
+          content: "<p>blog post 1 content html</p>"
+          title: "Title of blog post 1"
+          day: "Wednesday"
+          date: "2013-12-31"
+          summary: "summary of blog post 1"
+          time: "01:00"
+          content: "content of test post 1"
+          slug: "title-of-blog-post-1"
+          titleImageLink: ""
+        ,
+          content: "<p>2nd post content html</p>"
+          title: "Title of the second test blog post "
+          day: "Monday"
+          datetime: "2013-12-31"
+          summary: "summary text for the second blog post"
+          time: "01:00"
+          content: "content of test post 2 with some html here: <div><h1>text</h1></div>"
+          slug: "title-of-the--second-test-blog-post"
+          titleImageLink: ""
+        ]
+        _.each blogPosts, (blogPost) ->
+            console.log blogPost
+            @BlogPosts.insert({ title: blogPost.title, day: blogPost.day, date: blogPost.date, time: blogPost.time, content: blogPost.content } )
 
 if Meteor.users.find().count() is 0
     users = [
